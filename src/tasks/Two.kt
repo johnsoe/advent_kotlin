@@ -1,3 +1,7 @@
+package tasks
+
+import InputParser
+
 object Two : InputParser() {
     override fun getFileName() = "two.txt"
 

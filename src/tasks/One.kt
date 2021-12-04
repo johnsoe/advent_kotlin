@@ -1,3 +1,6 @@
+package tasks
+
+import InputParser
 import java.lang.Integer.max
 
 object One : InputParser() {
