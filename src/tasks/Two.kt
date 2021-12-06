@@ -5,7 +5,7 @@ import InputParser
 object Two : InputParser() {
     override fun getFileName() = "two.txt"
 
-    fun first(): Int {
+    override fun first(): Int {
         val reduced = getInputAsPair().reduce { acc, it ->
             acc.first + it.first to acc.second + it.second
         }
@@ -26,7 +26,7 @@ object Two : InputParser() {
         }
     }
 
-    fun second(): Int {
+    override fun second(): Int {
         var aim = 0
         val reduced = getInputAsPair().fold(0 to 0) { acc, it ->
             if (it.first == 0) {

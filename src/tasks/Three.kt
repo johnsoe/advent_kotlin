@@ -5,7 +5,7 @@ import InputParser
 object Three: InputParser() {
     override fun getFileName() = "three.txt"
 
-    fun first(): Int {
+    override fun first(): Int {
         val binaryInput = getInputByLine().map { it.toInt(2) }
         val max = binaryInput.maxOf { it }
         var flag = 1
@@ -22,7 +22,7 @@ object Three: InputParser() {
         return output.multiply()
     }
 
-    fun second(): Int {
+    override fun second(): Int {
         val binaryInput = getInputByLine().map {
             it.reversed().toInt(2)
         }

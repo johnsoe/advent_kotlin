@@ -5,6 +5,8 @@ abstract class InputParser {
         private const val INPUT_BASE = "/Users/evanjr/Documents/gitroot/advent_2021/out/production/advent_2021/input/"
     }
     abstract fun getFileName(): String
+    abstract fun first(): Int
+    abstract fun second(): Int
 
     fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
     fun getIntInputByLine(): List<Int> = getInputByLine().map { it.toInt() }

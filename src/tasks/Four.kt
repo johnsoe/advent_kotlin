@@ -7,7 +7,7 @@ object Four : InputParser() {
 
      private const val SIZE = 5
 
-     fun first(): Int {
+     override fun first(): Int {
          val boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->
@@ -30,7 +30,7 @@ object Four : InputParser() {
         }
     }
 
-     fun second(): Int {
+    override fun second(): Int {
          var boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->

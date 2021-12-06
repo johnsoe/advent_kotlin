@@ -6,7 +6,7 @@ import java.lang.Integer.max
 object One : InputParser() {
     override fun getFileName() = "one.txt"
 
-    fun first(): Int {
+    override fun first(): Int {
         return increaseCount(getIntInputByLine())
     }
     
@@ -16,7 +16,7 @@ object One : InputParser() {
         }.size
     }
 
-    fun second(): Int {
+    override fun second(): Int {
         val input = getIntInputByLine()
         val summedInput = input.mapIndexed { index, i ->
             i + (input.getOrNull(index + 1) ?: 0) + (input.getOrNull(index + 2) ?: 0)

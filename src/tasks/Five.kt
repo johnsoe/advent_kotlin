@@ -8,7 +8,7 @@ import java.lang.Integer.min
 object Five : InputParser() {
     override fun getFileName() = "five.txt"
 
-    fun first(): Int {
+    override fun first(): Int {
         return getOverlapCount(
             convertToLines().filter { it.isStraight() }
         )
@@ -25,7 +25,7 @@ object Five : InputParser() {
             .count { it.value > 1 }
     }
 
-    fun second(): Int {
+    override fun second(): Int {
         return getOverlapCount(convertToLines())
     }
 
