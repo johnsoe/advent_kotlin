@@ -2,7 +2,7 @@ package tasks
 
 import InputParser
 
-object Three: InputParser() {
+object Three: InputParser<Int>() {
     override fun getFileName() = "three.txt"
 
     override fun first(): Int {

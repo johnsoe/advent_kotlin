@@ -1,7 +1,7 @@
 
-import tasks.Six
+import tasks.Seven
 
 fun main() {
-    println(Six.first())
-    println(Six.second())
+    println(Seven.first())
+    println(Seven.second())
 }

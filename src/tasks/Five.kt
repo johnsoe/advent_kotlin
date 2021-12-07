@@ -5,7 +5,7 @@ import java.awt.Point
 import java.lang.Integer.max
 import java.lang.Integer.min
 
-object Five : InputParser() {
+object Five : InputParser<Int>() {
     override fun getFileName() = "five.txt"
 
     override fun first(): Int {

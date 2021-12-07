@@ -3,7 +3,7 @@ package tasks
 import InputParser
 import java.lang.Integer.max
 
-object One : InputParser() {
+object One : InputParser<Int>() {
     override fun getFileName() = "one.txt"
 
     override fun first(): Int {

@@ -4,10 +4,10 @@ import InputParser
 import kotlin.Int
 import kotlin.String
 
-public object Six : InputParser() {
+public object Six : InputParser<Long>() {
   public override fun getFileName(): String = "six.txt"
 
-  public override fun first(): Int {
+  public override fun first(): Long {
     var fishes = getInputBySeparator().map { it.toInt() }.toMutableList()
     repeat(80) {
       val reproCount = fishes.count { it == 0 }
@@ -20,10 +20,10 @@ public object Six : InputParser() {
         }
       }.toMutableList()
     }
-    return fishes.size
+    return fishes.size.toLong()
   }
 
-  public override fun second(): Int {
+  public override fun second(): Long {
     //Efficient solution
     var fishes = getInputBySeparator().map { it.toInt() }
     var fishMap = mutableMapOf<Int, Long>()
@@ -41,7 +41,6 @@ public object Six : InputParser() {
       tempMap[8] = fishMap[0] ?: 0
       fishMap = tempMap
     }
-    println(fishMap.values.sum())
-    return 0
+    return fishMap.values.sum()
   }
 }

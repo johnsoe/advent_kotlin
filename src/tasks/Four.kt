@@ -2,7 +2,7 @@ package tasks
 
 import InputParser
 
-object Four : InputParser() {
+object Four : InputParser<Int>() {
      override fun getFileName() = "four.txt"
 
      private const val SIZE = 5
