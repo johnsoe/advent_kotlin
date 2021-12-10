@@ -1,7 +1,9 @@
 
+import tasks.Eight
+import tasks.Nine
 import tasks.Seven
 
 fun main() {
-    println(Seven.first())
-    println(Seven.second())
+    println(Nine.first())
+    println(Nine.second())
 }
