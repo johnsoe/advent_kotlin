@@ -3,6 +3,7 @@ package tasks
 import InputParser
 import kotlin.Int
 import kotlin.String
+import kotlin.Unit
 
 public object Eleven : InputParser<Int>() {
     public override fun getFileName(): String = "eleven.txt"
@@ -16,4 +17,9 @@ public object Eleven : InputParser<Int>() {
         println("second")
         return 0
     }
+}
+
+public fun main(): Unit {
+    println(Eleven.first())
+    println(Eleven.second())
 }

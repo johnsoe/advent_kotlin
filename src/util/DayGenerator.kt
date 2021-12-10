@@ -14,9 +14,10 @@ fun main(args: Array<String>) {
 
     //TODO: pull in data from site and write to this file
     File("$parentDir/src/input/$inputFileName").createNewFile()
-
+    val dayClass = ClassName("tasks", dayName)
     val file = FileSpec.builder("tasks", dayName)
-        .addType(TypeSpec.objectBuilder(dayName)
+        .indent("    ")
+        .addType(TypeSpec.objectBuilder(dayClass)
             .superclass(InputParser::class.parameterizedBy(Int::class))
             .addFunction(FunSpec.builder("getFileName")
                 .returns(String::class)
@@ -25,6 +26,10 @@ fun main(args: Array<String>) {
                 .build())
             .addFunction(addTaskFunction("first"))
             .addFunction(addTaskFunction("second"))
+            .build())
+        .addFunction(FunSpec.builder("main")
+            .addStatement("println(%T.first())", dayClass)
+            .addStatement("println(%T.second())", dayClass)
             .build())
         .build()
 
