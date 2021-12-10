@@ -2,6 +2,7 @@ package util
 
 import InputParser
 import com.squareup.kotlinpoet.*
+import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import java.io.File
 import java.nio.file.Paths
 
@@ -16,7 +17,7 @@ fun main(args: Array<String>) {
 
     val file = FileSpec.builder("tasks", dayName)
         .addType(TypeSpec.objectBuilder(dayName)
-            .superclass(InputParser::class)
+            .superclass(InputParser::class.parameterizedBy(Int::class))
             .addFunction(FunSpec.builder("getFileName")
                 .returns(String::class)
                 .addStatement("return %S", inputFileName)
