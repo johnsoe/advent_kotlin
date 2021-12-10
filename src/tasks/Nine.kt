@@ -1,6 +1,7 @@
 package tasks
 
 import InputParser
+import main.Grid
 import java.util.*
 import kotlin.Int
 import kotlin.String
@@ -9,11 +10,9 @@ public object Nine : InputParser<Int>() {
     public override fun getFileName(): String = "nine.txt"
 
     public override fun first(): Int {
-        val width = getInputByLine().first().length
-        val chunk = getGridsSingleLine()
-        return chunk.filterIndexed { index, i ->
-            val neighbors = getNeighborIndices(index, width, chunk.size)
-            neighbors.all { i < chunk[it] }
+        val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
+        return grid.getFullGrid().filterIndexed { index, i ->
+            grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }
         }.sumOf { it + 1 }
     }
 
@@ -34,12 +33,10 @@ public object Nine : InputParser<Int>() {
     }
 
     public override fun second(): Int {
-        val width = getInputByLine().first().length
-        val chunk = getGridsSingleLine()
-        return chunk.mapIndexed { index, i ->
-            val neighbors = getNeighborIndices(index, width, chunk.size)
-            if (neighbors.all { i < chunk[it] }) {
-                getBasinSize(chunk, width, LinkedList<Int>().apply { add(index) }, mutableSetOf())
+        val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
+        return grid.getFullGrid().mapIndexed { index, i ->
+            if (grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }) {
+                getBasinSize(grid, LinkedList<Int>().apply { add(index) }, mutableSetOf())
             } else {
                 1
             }
@@ -48,16 +45,21 @@ public object Nine : InputParser<Int>() {
             .reduce { acc, i -> acc * i }
     }
 
-    private fun getBasinSize(chunk: List<Int>, width: Int, toCheck: Queue<Int>, checked: MutableSet<Int>): Int {
+    private fun getBasinSize(grid: Grid<Int>, toCheck: Queue<Int>, checked: MutableSet<Int>): Int {
         return if (toCheck.isEmpty()) {
             checked.size
         } else {
             val index = toCheck.remove()
-            if (chunk[index] != 9 && !checked.contains(index)) {
+            if (grid.getValueAtIndex(index) != 9 && !checked.contains(index)) {
                 checked.add(index)
-                toCheck.addAll(getNeighborIndices(index, width, chunk.size))
+                toCheck.addAll(grid.getNeighborIndices(index))
             }
-            getBasinSize(chunk, width, toCheck, checked)
+            getBasinSize(grid, toCheck, checked)
         }
     }
+}
+
+fun main() {
+    println(Nine.first())
+    println(Nine.second())
 }

@@ -1,6 +1,7 @@
 package tasks
 
 import InputParser
+import main.Grid
 
 object Four : InputParser<Int>() {
      override fun getFileName() = "four.txt"
@@ -11,22 +12,21 @@ object Four : InputParser<Int>() {
          val boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->
-                 board.updateForNum(num)
+                 board.updateFirstOfValue(num, -1)
                  if (board.isWinner()) {
                      return board.scoreBoard() * num
                  }
              }
          }
-
          return 0
      }
 
     private fun generateBoards(): List<BingoBoard> {
         return getInputByChunk().drop(1).map { chunk ->
-            BingoBoard(chunk.split(" ")
+            BingoBoard(SIZE, chunk.split(" ")
                 .filter { it.isNotEmpty() }
                 .map { it.toInt() }
-                .toIntArray())
+            )
         }
     }
 
@@ -34,7 +34,7 @@ object Four : InputParser<Int>() {
          var boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->
-                 board.updateForNum(num)
+                 board.updateFirstOfValue(num, -1)
              }
              if (boards.size == 1 && boards.first().isWinner()) {
                  return boards.first().scoreBoard() * num
@@ -44,53 +44,28 @@ object Four : InputParser<Int>() {
          return 0
      }
 
-     private class BingoBoard constructor(
-         private val board: IntArray
-     ) {
-         private fun getRow(row: Int): List<Int> {
-             return board.filterIndexed { index, _ ->
-                 index < (row + 1) * SIZE && index >= row * SIZE
-             }
-         }
-
-         private fun getCol(col: Int): List<Int> {
-             return board.filterIndexed { index, _ ->
-                 index % SIZE == col
-             }
-         }
-
-         // Unnecessary diagonals - need to read the prompt.
-         private fun getPrimaryDiagonal(): List<Int> {
-             return board.filterIndexed { index, _ ->
-                 index % (SIZE + 1) == 0
-             }
-         }
-
-         private fun getSecondaryDiagonal(): List<Int> {
-             return board.filterIndexed { index, _ ->
-                 index % (SIZE - 1) == 0 && index != 0 && index != (SIZE * SIZE - 1)
-             }
-         }
-
-         fun updateForNum(update: Int) {
-             val index = board.indexOf(update)
-             if (index != -1) {
-                 board[index] = -1
-             }
-         }
+     private class BingoBoard(
+         width: Int,
+         board: List<Int>
+     ) : Grid<Int>(width, board.toMutableList()) {
 
          fun isSectionWinner(section: List<Int>) = section.all { it == -1 }
 
          fun isWinner(): Boolean {
-             for (i in 0 until SIZE) {
-                 if (isSectionWinner(getRow(i)) || isSectionWinner(getCol(i))) {
+             for (i in 0 until width) {
+                 if (isSectionWinner(getNthRow(i)) || isSectionWinner(getNthCol(i))) {
                      return true
                  }
              }
              return false
          }
 
-         fun scoreBoard() = board.filter { it != -1 }.sum()
-         override fun toString() = board.contentToString()
+         fun scoreBoard() = internalData.filter { it != -1 }.sum()
+         override fun toString() = internalData.toString()
      }
  }
+
+fun main() {
+    println(Four.first())
+    println(Four.second())
+}
