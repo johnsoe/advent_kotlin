@@ -11,7 +11,7 @@ abstract class InputParser<T> {
     fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
     fun getIntInputByLine(): List<Int> = getInputByLine().map { it.toInt() }
     fun getInputBySeparator(delimiter: String = ","): List<String> = getInputByLine().flatMap { it.split(delimiter) }
-    fun getInputByChunk(): List<String> =
+    fun getInputByChunk(separator: String = " "): List<String> =
         getInputByLine().fold(mutableListOf<MutableList<String>>()) { acc, item ->
             if (item.isEmpty()) {
                 acc.add(mutableListOf())
@@ -19,5 +19,5 @@ abstract class InputParser<T> {
                 acc.lastOrNull()?.add(item) ?: acc.add(mutableListOf(item))
             }
             acc
-        }.map { it.joinToString(separator = " ") }
+        }.map { it.joinToString(separator) }
 }
