@@ -39,9 +39,9 @@ public object Twelve : InputParser<Int>() {
         if (path.contains("end")) {
             return setOf(path.joinToString())
         } else {
-            val cave = caves[path.last()]!!
+            val cave = caves[path.last()]
             val subsets = mutableSetOf<String>()
-            cave.forEach {
+            cave?.forEach {
                 if (pathCheck(it, path)) {
                     path.add(it)
                     subsets.addAll(generatePaths(caves, path, pathCheck))
