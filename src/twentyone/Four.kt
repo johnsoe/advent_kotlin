@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import main.Grid
@@ -8,7 +8,7 @@ object Four : InputParser<Int>() {
 
      private const val SIZE = 5
 
-     override fun first(): Int {
+     override fun partOne(): Int {
          val boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->
@@ -23,14 +23,15 @@ object Four : InputParser<Int>() {
 
     private fun generateBoards(): List<BingoBoard> {
         return getInputByChunk().drop(1).map { chunk ->
-            BingoBoard(SIZE, chunk.split(" ")
+            BingoBoard(
+                SIZE, chunk.split(" ")
                 .filter { it.isNotEmpty() }
                 .map { it.toInt() }
             )
         }
     }
 
-    override fun second(): Int {
+    override fun partTwo(): Int {
          var boards = generateBoards()
          getInputByLine().first().split(",").map { it.toInt() }.forEach { num ->
              boards.forEach { board ->
@@ -66,6 +67,6 @@ object Four : InputParser<Int>() {
  }
 
 fun main() {
-    println(Four.first())
-    println(Four.second())
+    println(Four.partOne())
+    println(Four.partTwo())
 }

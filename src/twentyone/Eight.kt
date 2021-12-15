@@ -1,11 +1,11 @@
-package tasks
+package twentyone
 
 import InputParser
 
 public object Eight : InputParser<Int>() {
     public override fun getFileName(): String = "eight.txt"
 
-    public override fun first(): Int {
+    public override fun partOne(): Int {
         return parseCodes().map { it.second }.sumOf {
             it.count { output ->
                 output.length == 2 || output.length == 3 || output.length == 4 || output.length == 7
@@ -13,7 +13,7 @@ public object Eight : InputParser<Int>() {
         }
     }
 
-    public override fun second(): Int {
+    public override fun partTwo(): Int {
 
         // Determine which codes are 1, 4, 7, 8
         // Determine 3 by which 5 length contains number 1

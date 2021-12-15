@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import kotlin.Int
@@ -8,7 +8,7 @@ import kotlin.Unit
 public object Twelve : InputParser<Int>() {
     public override fun getFileName(): String = "twelve.txt"
 
-    public override fun first(): Int {
+    public override fun partOne(): Int {
         return generatePaths(
             generateCaves(),
             mutableListOf("start"),
@@ -52,7 +52,7 @@ public object Twelve : InputParser<Int>() {
         }
     }
 
-    public override fun second(): Int {
+    public override fun partTwo(): Int {
         return generatePaths(
             generateCaves(),
             mutableListOf("start"),
@@ -79,6 +79,6 @@ fun canVisitCavePartTwo(cave: String, path: List<String>): Boolean {
 }
 
 public fun main(): Unit {
-    println(Twelve.first())
-    println(Twelve.second())
+    println(Twelve.partOne())
+    println(Twelve.partTwo())
 }

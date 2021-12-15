@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import kotlin.Int
@@ -6,9 +6,9 @@ import kotlin.String
 import kotlin.Unit
 
 public object Fourteen : InputParser<Long>() {
-    public override fun getFileName(): String = "fourteen.txt"
+    public override fun getFileName(): String = "twentyone/input/fourteen.txt"
 
-    public override fun first(): Long {
+    public override fun partOne(): Long {
         return calculateMaxDifference(10)
     }
 
@@ -53,7 +53,7 @@ public object Fourteen : InputParser<Long>() {
         }
     }
 
-    public override fun second(): Long {
+    public override fun partTwo(): Long {
         return calculateMaxDifference(40)
     }
 }
@@ -64,6 +64,6 @@ fun <K> MutableMap<K, Long>.putOrUpdate(key: K, difference: Long) {
 }
 
 public fun main(): Unit {
-    println(Fourteen.first())
-    println(Fourteen.second())
+    println(Fourteen.partOne())
+    println(Fourteen.partTwo())
 }

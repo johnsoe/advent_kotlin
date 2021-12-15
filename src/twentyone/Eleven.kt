@@ -1,7 +1,6 @@
-package tasks
+package twentyone
 
 import InputParser
-import main.Grid
 import main.getAllNeighborIndices
 import java.util.*
 import kotlin.Int
@@ -11,7 +10,7 @@ import kotlin.Unit
 public object Eleven : InputParser<Int>() {
     public override fun getFileName(): String = "eleven.txt"
 
-    public override fun first(): Int {
+    public override fun partOne(): Int {
         val width = getInputByLine().size
         var octos = getInputByChunk("").first()
             .map { Character.getNumericValue(it) }
@@ -47,7 +46,7 @@ public object Eleven : InputParser<Int>() {
         return flashCount
     }
 
-    public override fun second(): Int {
+    public override fun partTwo(): Int {
         val width = getInputByLine().size
         var octos = getInputByChunk("").first()
             .map { Character.getNumericValue(it) }
@@ -65,6 +64,6 @@ public object Eleven : InputParser<Int>() {
 }
 
 public fun main(): Unit {
-    println(Eleven.first())
-    println(Eleven.second())
+    println(Eleven.partOne())
+    println(Eleven.partTwo())
 }

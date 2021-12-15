@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import java.lang.Integer.max
@@ -6,7 +6,7 @@ import java.lang.Integer.max
 object One : InputParser<Int>() {
     override fun getFileName() = "one.txt"
 
-    override fun first(): Int {
+    override fun partOne(): Int {
         return increaseCount(getIntInputByLine())
     }
     
@@ -16,7 +16,7 @@ object One : InputParser<Int>() {
         }.size
     }
 
-    override fun second(): Int {
+    override fun partTwo(): Int {
         val input = getIntInputByLine()
         val summedInput = input.mapIndexed { index, i ->
             i + (input.getOrNull(index + 1) ?: 0) + (input.getOrNull(index + 2) ?: 0)

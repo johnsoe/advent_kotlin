@@ -1,11 +1,11 @@
-package tasks
+package twentyone
 
 import InputParser
 
 object Three: InputParser<Int>() {
     override fun getFileName() = "three.txt"
 
-    override fun first(): Int {
+    override fun partOne(): Int {
         val binaryInput = getInputByLine().map { it.toInt(2) }
         val max = binaryInput.maxOf { it }
         var flag = 1
@@ -22,7 +22,7 @@ object Three: InputParser<Int>() {
         return output.multiply()
     }
 
-    override fun second(): Int {
+    override fun partTwo(): Int {
         val binaryInput = getInputByLine().map {
             it.reversed().toInt(2)
         }

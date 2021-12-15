@@ -8,28 +8,30 @@ import java.nio.file.Paths
 
 fun main(args: Array<String>) {
 
-    val dayName = args[0]
+    val dayName = args.first()
+    val year = args.last()
+    println(year)
     val inputFileName = "${dayName.lowercase()}.txt"
     val parentDir = Paths.get("").toAbsolutePath()
 
     //TODO: pull in data from site and write to this file
-    File("$parentDir/src/input/$inputFileName").createNewFile()
-    val dayClass = ClassName("tasks", dayName)
-    val file = FileSpec.builder("tasks", dayName)
+    File("$parentDir/src/$year/input/$inputFileName").createNewFile()
+    val dayClass = ClassName(year, dayName)
+    val file = FileSpec.builder(year, dayName)
         .indent("    ")
         .addType(TypeSpec.objectBuilder(dayClass)
             .superclass(InputParser::class.parameterizedBy(Int::class))
             .addFunction(FunSpec.builder("getFileName")
                 .returns(String::class)
-                .addStatement("return %S", inputFileName)
+                .addStatement("return %S", "$year/input/$inputFileName")
                 .addModifiers(KModifier.OVERRIDE)
                 .build())
-            .addFunction(addTaskFunction("first"))
-            .addFunction(addTaskFunction("second"))
+            .addFunction(addTaskFunction("partOne"))
+            .addFunction(addTaskFunction("partTwo"))
             .build())
         .addFunction(FunSpec.builder("main")
-            .addStatement("println(%T.first())", dayClass)
-            .addStatement("println(%T.second())", dayClass)
+            .addStatement("println(%T.partOne())", dayClass)
+            .addStatement("println(%T.partTwo())", dayClass)
             .build())
         .build()
 

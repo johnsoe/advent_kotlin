@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import java.awt.Point
@@ -8,7 +8,7 @@ import java.lang.Integer.min
 object Five : InputParser<Int>() {
     override fun getFileName() = "five.txt"
 
-    override fun first(): Int {
+    override fun partOne(): Int {
         return getOverlapCount(
             convertToLines().filter { it.isStraight() }
         )
@@ -25,7 +25,7 @@ object Five : InputParser<Int>() {
             .count { it.value > 1 }
     }
 
-    override fun second(): Int {
+    override fun partTwo(): Int {
         return getOverlapCount(convertToLines())
     }
 

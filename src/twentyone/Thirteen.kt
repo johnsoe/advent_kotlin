@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import kotlin.Int
@@ -8,7 +8,7 @@ import kotlin.Unit
 public object Thirteen : InputParser<Int>() {
     public override fun getFileName(): String = "thirteen.txt"
 
-    public override fun first(): Int {
+    public override fun partOne(): Int {
         val chunks = getInputByChunk()
         val firstFold = getFolds(chunks.last()).first()
         return fold(
@@ -45,7 +45,7 @@ public object Thirteen : InputParser<Int>() {
 
     }
 
-    public override fun second(): Int {
+    public override fun partTwo(): Int {
         val chunks = getInputByChunk()
         val folded = getFolds(chunks.last())
             .fold(getPoints(chunks.first())) { acc, next ->
@@ -66,6 +66,6 @@ public object Thirteen : InputParser<Int>() {
 }
 
 public fun main(): Unit {
-    println(Thirteen.first())
-    println(Thirteen.second())
+    println(Thirteen.partOne())
+    println(Thirteen.partTwo())
 }

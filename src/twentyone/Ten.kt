@@ -1,8 +1,7 @@
-package tasks
+package twentyone
 
 import InputParser
 import java.util.*
-import kotlin.Int
 import kotlin.String
 
 public object Ten : InputParser<Long>() {
@@ -22,7 +21,7 @@ public object Ten : InputParser<Long>() {
         '<' to 4
     )
 
-    public override fun first(): Long {
+    public override fun partOne(): Long {
         return getInputByLine().map { line ->
             val stack = Stack<Char>()
             line.toCharArray().forEach {
@@ -53,7 +52,7 @@ public object Ten : InputParser<Long>() {
         return "[{(<".contains(this)
     }
 
-    public override fun second(): Long {
+    public override fun partTwo(): Long {
         val sorted = getInputByLine().map { line ->
             val stack = Stack<Char>()
             line.toCharArray().forEach {

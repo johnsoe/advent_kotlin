@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import main.Grid
@@ -9,7 +9,7 @@ import kotlin.String
 public object Nine : InputParser<Int>() {
     public override fun getFileName(): String = "nine.txt"
 
-    public override fun first(): Int {
+    public override fun partOne(): Int {
         val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
         return grid.getFullGrid().filterIndexed { index, i ->
             grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }
@@ -32,7 +32,7 @@ public object Nine : InputParser<Int>() {
         return neighbors
     }
 
-    public override fun second(): Int {
+    public override fun partTwo(): Int {
         val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
         return grid.getFullGrid().mapIndexed { index, i ->
             if (grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }) {
@@ -60,6 +60,6 @@ public object Nine : InputParser<Int>() {
 }
 
 fun main() {
-    println(Nine.first())
-    println(Nine.second())
+    println(Nine.partOne())
+    println(Nine.partTwo())
 }

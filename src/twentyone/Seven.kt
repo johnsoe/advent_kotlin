@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import kotlin.Int
@@ -8,7 +8,7 @@ import kotlin.math.abs
 public object Seven : InputParser<Long>() {
     public override fun getFileName(): String = "seven.txt"
 
-    public override fun first(): Long {
+    public override fun partOne(): Long {
         return updateDistances { position, min, index ->
             abs(position - min - index).toLong()
         }
@@ -28,7 +28,7 @@ public object Seven : InputParser<Long>() {
         return distanceSums.minOrNull() ?: -1L
     }
 
-    public override fun second(): Long {
+    public override fun partTwo(): Long {
         return updateDistances { position, min, index ->
             val distance = abs(position - min - index)
             (distance * (distance + 1) / 2).toLong()

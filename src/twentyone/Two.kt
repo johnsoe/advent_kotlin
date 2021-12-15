@@ -1,11 +1,11 @@
-package tasks
+package twentyone
 
 import InputParser
 
 object Two : InputParser<Int>() {
     override fun getFileName() = "two.txt"
 
-    override fun first(): Int {
+    override fun partOne(): Int {
         val reduced = getInputAsPair().reduce { acc, it ->
             acc.first + it.first to acc.second + it.second
         }
@@ -26,7 +26,7 @@ object Two : InputParser<Int>() {
         }
     }
 
-    override fun second(): Int {
+    override fun partTwo(): Int {
         var aim = 0
         val reduced = getInputAsPair().fold(0 to 0) { acc, it ->
             if (it.first == 0) {

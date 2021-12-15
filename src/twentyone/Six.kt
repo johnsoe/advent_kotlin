@@ -1,4 +1,4 @@
-package tasks
+package twentyone
 
 import InputParser
 import kotlin.Int
@@ -7,7 +7,7 @@ import kotlin.String
 public object Six : InputParser<Long>() {
     public override fun getFileName(): String = "six.txt"
 
-    public override fun first(): Long {
+    public override fun partOne(): Long {
         var fishes = getInputBySeparator().map { it.toInt() }.toMutableList()
         repeat(80) {
             val reproCount = fishes.count { it == 0 }
@@ -23,7 +23,7 @@ public object Six : InputParser<Long>() {
         return fishes.size.toLong()
     }
 
-    public override fun second(): Long {
+    public override fun partTwo(): Long {
         //Efficient solution
         var fishes = getInputBySeparator().map { it.toInt() }
         var fishMap = mutableMapOf<Int, Long>()
