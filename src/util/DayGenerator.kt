@@ -10,7 +10,6 @@ fun main(args: Array<String>) {
 
     val dayName = args.first()
     val year = args.last()
-    println(year)
     val inputFileName = "${dayName.lowercase()}.txt"
     val parentDir = Paths.get("").toAbsolutePath()
 

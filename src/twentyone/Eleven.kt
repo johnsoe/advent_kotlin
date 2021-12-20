@@ -1,7 +1,8 @@
 package twentyone
 
 import InputParser
-import main.getAllNeighborIndices
+import util.Grid
+import util.toGrid
 import java.util.*
 import kotlin.Int
 import kotlin.String
@@ -14,33 +15,32 @@ public object Eleven : InputParser<Int>() {
         val width = getInputByLine().size
         var octos = getInputByChunk("").first()
             .map { Character.getNumericValue(it) }
-            .toMutableList()
+            .toGrid(width)
         var flashSum = 0
         repeat(100) {
-            octos = octos.map { it + 1 }.toMutableList()
+            octos = octos.map { it + 1 }.toGrid(width)
             val indices = octos.withIndex().filter { it.value > 9 }.map { it.index }
-            flashSum += flash(octos, ArrayDeque<Int>().apply { addAll(indices) }, width)
+            flashSum += flash(octos, ArrayDeque<Int>().apply { addAll(indices) })
         }
         println(octos)
         return flashSum
     }
 
-    private fun flash(data: MutableList<Int>, indexToCheck: Queue<Int>, width: Int): Int {
+    private fun flash(data: Grid<Int>, indexToCheck: Queue<Int>): Int {
         var flashCount = 0
         while (!indexToCheck.isEmpty()) {
             val currentIndex = indexToCheck.remove()
-            val neighbors = data.getAllNeighborIndices(currentIndex, width)
+            val neighbors = data.getAllNeighbors(currentIndex)
             val currentVal = data[currentIndex]
             if (currentVal > 9) {
                 data[currentIndex] = 0
                 flashCount++
                 neighbors.forEach {
-                    val neighborVal = data[it]
-                    if (neighborVal != 0) {
-                        data[it] = neighborVal + 1
+                    if (it.value != 0) {
+                        data[it.index] = it.value + 1
                     }
                 }
-                indexToCheck.addAll(neighbors)
+                indexToCheck.addAll(neighbors.map { it.index })
             }
         }
         return flashCount
@@ -50,13 +50,13 @@ public object Eleven : InputParser<Int>() {
         val width = getInputByLine().size
         var octos = getInputByChunk("").first()
             .map { Character.getNumericValue(it) }
-            .toMutableList()
+            .toGrid(width)
         var flashSum = 0
         var count = 0
         while(flashSum != 100) {
-            octos = octos.map { it + 1 }.toMutableList()
+            octos = octos.map { it + 1 }.toGrid(width)
             val indices = octos.withIndex().filter { it.value > 9 }.map { it.index }
-            flashSum = flash(octos, ArrayDeque<Int>().apply { addAll(indices) }, width)
+            flashSum = flash(octos, ArrayDeque<Int>().apply { addAll(indices) })
             count++
         }
         return count
