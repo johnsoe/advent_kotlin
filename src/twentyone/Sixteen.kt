@@ -2,12 +2,9 @@ package twentyone
 
 import InputParser
 import java.lang.IllegalStateException
-import java.nio.ByteBuffer
-import java.util.*
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
-import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.BitEncoding
 
 public object Sixteen : InputParser<Long>() {
     public override fun getFileName(): String = "twentyone/input/sixteen.txt"

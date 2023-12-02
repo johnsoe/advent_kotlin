@@ -2,7 +2,7 @@ import java.io.File
 
 abstract class InputParser<T> {
     companion object {
-        private const val INPUT_BASE = "/Users/evanjr/Documents/gitroot/advent_kotlin/src/"
+        private const val INPUT_BASE = "/Users/ralph/gitroot/advent_kotlin/src/"
     }
     abstract fun getFileName(): String
     abstract fun partOne(): T
