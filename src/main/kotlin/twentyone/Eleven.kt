@@ -1,6 +1,6 @@
 package twentyone
 
-import InputParser
+import LegacyInputParser
 import util.Grid
 import util.toGrid
 import java.util.*
@@ -8,7 +8,7 @@ import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 
-public object Eleven : InputParser<Int>() {
+public object Eleven : LegacyInputParser<Int>() {
     public override fun getFileName(): String = "eleven.txt"
 
     public override fun partOne(): Int {

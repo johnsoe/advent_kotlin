@@ -5,7 +5,7 @@ import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 
-public object Thirteen : InputParser<Int>() {
+public object Thirteen : LegacyInputParser<Int>() {
     public override fun getFileName(): String = "thirteen.txt"
 
     public override fun partOne(): Int {

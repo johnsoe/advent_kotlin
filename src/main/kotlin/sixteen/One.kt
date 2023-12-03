@@ -1,15 +1,14 @@
 package sixteen
 
-import InputParser
+import LegacyInputParser
 import util.Direction
-import java.awt.Point
 import java.lang.IllegalStateException
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 import kotlin.math.abs
 
-public object One : InputParser<Int>() {
+public object One : LegacyInputParser<Int>() {
     public override fun getFileName(): String = "sixteen/input/one.txt"
 
     public override fun partOne(): Int {

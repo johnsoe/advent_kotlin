@@ -1,11 +1,12 @@
 package twentythree
 
 import InputParser
+import LegacyInputParser
 import java.awt.Point
 import kotlin.Int
 import kotlin.String
 
-public object Three : InputParser<Int>() {
+public object Three : LegacyInputParser<Int>() {
     override fun getFileName(): String = "twentythree/input/three.txt"
 
     override fun partOne(): Int {

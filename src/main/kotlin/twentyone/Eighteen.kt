@@ -1,6 +1,6 @@
 package twentyone
 
-import InputParser
+import LegacyInputParser
 import java.lang.Long.max
 import java.util.*
 import kotlin.Int
@@ -9,7 +9,7 @@ import kotlin.Unit
 import kotlin.math.ceil
 import kotlin.math.floor
 
-public object Eighteen : InputParser<Long>() {
+public object Eighteen : LegacyInputParser<Long>() {
     public override fun getFileName(): String = "twentyone/input/eighteen.txt"
 
     var index = 0

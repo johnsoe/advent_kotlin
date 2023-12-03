@@ -3,7 +3,7 @@ package twentythree
 import InputParser
 import kotlin.math.max
 
-object Two : InputParser<Int>() {
+object Two : LegacyInputParser<Int>() {
     public override fun getFileName(): String = "twentythree/input/two.txt"
 
     override fun partOne(): Int {

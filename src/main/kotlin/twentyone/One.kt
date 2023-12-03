@@ -1,9 +1,10 @@
 package twentyone
 
 import InputParser
+import LegacyInputParser
 import java.lang.Integer.max
 
-object One : InputParser<Int>() {
+object One : LegacyInputParser<Int>() {
     override fun getFileName() = "one.txt"
 
     override fun partOne(): Int {

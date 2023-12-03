@@ -1,11 +1,12 @@
 package twentyone
 
 import InputParser
+import LegacyInputParser
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 
-public object Nineteen : InputParser<Int>() {
+public object Nineteen : LegacyInputParser<Int>() {
     public override fun getFileName(): String = "twentyone/input/nineteen.txt"
 
     public override fun partOne(): Int {

@@ -1,11 +1,12 @@
 package twentyone
 
 import InputParser
+import LegacyInputParser
 import java.awt.Point
 import java.lang.Integer.max
 import java.lang.Integer.min
 
-object Five : InputParser<Int>() {
+object Five : LegacyInputParser<Int>() {
     override fun getFileName() = "five.txt"
 
     override fun partOne(): Int {

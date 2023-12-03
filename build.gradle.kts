@@ -14,6 +14,7 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation("com.squareup:kotlinpoet:1.15.2")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation(kotlin("script-runtime"))
 }
 
 tasks.test {

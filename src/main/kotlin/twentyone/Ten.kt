@@ -4,7 +4,7 @@ import InputParser
 import java.util.*
 import kotlin.String
 
-public object Ten : InputParser<Long>() {
+public object Ten : LegacyInputParser<Long>() {
     public override fun getFileName(): String = "ten.txt"
 
     private val pointMap = mapOf(

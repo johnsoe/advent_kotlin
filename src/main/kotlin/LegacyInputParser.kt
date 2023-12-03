@@ -1,13 +1,15 @@
 import java.io.File
 
-class InputParser constructor(
-    private val fileName: String
-) {
+abstract class LegacyInputParser<T> {
     companion object {
         private const val INPUT_BASE = "/Users/ralph/gitroot/advent_kotlin/src/main/kotlin/"
     }
 
-    fun getInputByLine(): List<String> = File("$INPUT_BASE${fileName}").readLines()
+    abstract fun getFileName(): String
+    abstract fun partOne(): T
+    abstract fun partTwo(): T
+
+    fun getInputByLine(): List<String> = File("$INPUT_BASE${getFileName()}").readLines()
 
     fun getIntInputByLine(): List<Int> = getInputByLine().map { it.toInt() }
 

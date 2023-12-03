@@ -1,6 +1,7 @@
 package twentyone
 
 import InputParser
+import LegacyInputParser
 import java.lang.Long.max
 import java.lang.Math.pow
 import kotlin.Int
@@ -9,7 +10,7 @@ import kotlin.Unit
 import kotlin.math.min
 import kotlin.math.pow
 
-public object TwentyOne : InputParser<Long>() {
+public object TwentyOne : LegacyInputParser<Long>() {
     public override fun getFileName(): String = "twentyone/input/twentyone.txt"
 
     public override fun partOne(): Long {

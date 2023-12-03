@@ -6,7 +6,7 @@ import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 
-public object Sixteen : InputParser<Long>() {
+public object Sixteen : LegacyInputParser<Long>() {
     public override fun getFileName(): String = "twentyone/input/sixteen.txt"
 
     var versionSum = 0L
