@@ -1,13 +1,12 @@
-package twentythree
+package `2023`
 
-import InputParser
 import LegacyInputParser
 import java.awt.Point
 import kotlin.Int
 import kotlin.String
 
 public object Three : LegacyInputParser<Int>() {
-    override fun getFileName(): String = "twentythree/input/three.txt"
+    override fun getFileName(): String = "2023/input/three.txt"
 
     override fun partOne(): Int {
         val input = getInputByLine()

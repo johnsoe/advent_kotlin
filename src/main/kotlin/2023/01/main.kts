@@ -1,6 +1,6 @@
 
 
-val inputParser = InputParser("twentythree/input/one.txt")
+val inputParser = InputParser("2023/01/input.txt")
 println(partOne())
 println(partTwo())
 

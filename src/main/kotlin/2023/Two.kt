@@ -1,10 +1,10 @@
-package twentythree
+package `2023`
 
-import InputParser
+import LegacyInputParser
 import kotlin.math.max
 
 object Two : LegacyInputParser<Int>() {
-    public override fun getFileName(): String = "twentythree/input/two.txt"
+    public override fun getFileName(): String = "2023/input/two.txt"
 
     override fun partOne(): Int {
         val limit = Round(12, 13, 14)

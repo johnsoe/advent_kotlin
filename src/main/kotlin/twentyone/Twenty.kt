@@ -1,6 +1,7 @@
 package twentyone
 
 import InputParser
+import LegacyInputParser
 import util.Grid
 import java.lang.IllegalStateException
 import kotlin.Int

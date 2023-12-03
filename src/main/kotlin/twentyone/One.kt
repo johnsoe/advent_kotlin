@@ -5,7 +5,7 @@ import LegacyInputParser
 import java.lang.Integer.max
 
 object One : LegacyInputParser<Int>() {
-    override fun getFileName() = "one.txt"
+    override fun getFileName() = "input.txt"
 
     override fun partOne(): Int {
         return increaseCount(getIntInputByLine())
