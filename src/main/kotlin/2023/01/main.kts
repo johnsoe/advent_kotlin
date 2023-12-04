@@ -1,15 +1,11 @@
 
-
 val inputParser = InputParser("2023/01/input.txt")
 println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    var sum = 0
-    for (line in inputParser.getInputByLine()) {
-        sum += sumOfLineWithoutText(line)
-    }
-    return sum
+    return inputParser.getInputByLine()
+        .sumOf { sumOfLineWithoutText(it) }
 }
 
 fun partTwo(): Int {
@@ -25,38 +21,34 @@ fun partTwo(): Int {
         "nine" to 9,
     )
 
-    var sum = 0
-    for (line in inputParser.getInputByLine()) {
+    return inputParser.getInputByLine().sumOf { line ->
+        val indexMap = mutableMapOf<Int, Int>()
+        nums.forEach {
+            indexMap[line.indexOf(it.key)] = it.value
+            indexMap[line.lastIndexOf(it.key)] = it.value
+        }
+
         var tempLine = line
-        val mapped = nums.map { tempLine.indexOf(it.key) to it.value}
-            .filter { it.first != -1 }
-        val reverseMapped = nums.map { tempLine.lastIndexOf(it.key) to it.value }
-            .filter { it.first != -1 }
-        for (num in mapped) {
-            tempLine = tempLine.substring(0, num.first) + num.second + tempLine.substring(num.first + 1)
-        }
-        for (num in reverseMapped) {
-            tempLine = tempLine.substring(0, num.first) + num.second + tempLine.substring(num.first + 1)
-        }
-        sum += sumOfLineWithoutText(tempLine)
+        indexMap.filter { it.key != -1 }
+            .forEach { (index, num) ->
+                tempLine = tempLine.substring(0, index) + num + tempLine.substring(index + 1)
+
+            }
+        sumOfLineWithoutText(tempLine)
     }
-    return sum
 }
 
 fun sumOfLineWithoutText(line: String): Int {
-    var tens = 0
-    for (digit in line) {
-        if (digit.isDigit()) {
-            tens = digit.digitToInt() * 10
-            break
-        }
-    }
-
-    for (chat in line.reversed()) {
-        if (chat.isDigit()) {
-            tens += chat.digitToInt()
-            break
-        }
-    }
+    var tens = line.findFirstDigit() * 10
+    tens += line.reversed().findFirstDigit()
     return tens
+}
+
+fun String.findFirstDigit(): Int {
+    for (c in this) {
+        if (c.isDigit()) {
+            return c.digitToInt()
+        }
+    }
+    throw IllegalStateException("String needs a digit")
 }
