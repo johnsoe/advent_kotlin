@@ -1,8 +1,6 @@
 package twentyone
 
-import InputParser
-import LegacyInputParser
-import java.util.*
+import util.LegacyInputParser
 import kotlin.Int
 import kotlin.String
 

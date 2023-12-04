@@ -1,6 +1,6 @@
 package twentyone
 
-import LegacyInputParser
+import util.LegacyInputParser
 import java.lang.Long.max
 import java.util.*
 import kotlin.Int

@@ -1,7 +1,6 @@
 package twentyone
 
-import InputParser
-import LegacyInputParser
+import util.LegacyInputParser
 
 object Two : LegacyInputParser<Int>() {
     override fun getFileName() = "two.txt"

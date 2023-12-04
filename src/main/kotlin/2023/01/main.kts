@@ -1,3 +1,4 @@
+import util.InputParser
 
 val inputParser = InputParser("2023/01/input.txt")
 println(partOne())

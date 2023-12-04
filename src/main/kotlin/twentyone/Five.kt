@@ -1,7 +1,6 @@
 package twentyone
 
-import InputParser
-import LegacyInputParser
+import util.LegacyInputParser
 import java.awt.Point
 import java.lang.Integer.max
 import java.lang.Integer.min

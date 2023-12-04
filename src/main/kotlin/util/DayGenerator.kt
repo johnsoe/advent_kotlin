@@ -55,15 +55,16 @@ public fun main(args: Array<String>) {
     val baseUrl = "https://adventofcode.com/$year/day/${day.toInt()}"
     val inputUrl = "$baseUrl/input"
 
-    queryAdvent(httpClient, baseUrl)?.let {
-        val file = File("$fullPath/README.md")
-        file.createNewFile()
-        file.writeText(it.string())
-    }
+    val file = File("$fullPath/README.md")
+    file.createNewFile()
+//    queryAdvent(httpClient, baseUrl)?.let {
+//        file.writeText(it.string())
+//    }
+
+    val inputFile = File("$fullPath/input.txt")
+    inputFile.createNewFile()
     queryAdvent(httpClient, inputUrl)?.let {
-        val file = File("$fullPath/input.txt")
-        file.createNewFile()
-        file.writeText(it.string())
+        inputFile.writeText(it.string())
     }
 }
 

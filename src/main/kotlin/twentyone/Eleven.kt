@@ -1,6 +1,6 @@
 package twentyone
 
-import LegacyInputParser
+import util.LegacyInputParser
 import util.Grid
 import util.toGrid
 import java.util.*

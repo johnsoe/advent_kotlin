@@ -1,14 +1,11 @@
 package twentyone
 
-import InputParser
-import LegacyInputParser
+import util.LegacyInputParser
 import java.lang.Long.max
-import java.lang.Math.pow
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 import kotlin.math.min
-import kotlin.math.pow
 
 public object TwentyOne : LegacyInputParser<Long>() {
     public override fun getFileName(): String = "twentyone/input/twentyone.txt"
