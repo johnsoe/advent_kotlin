@@ -7,11 +7,11 @@ fun main(args: Array<String>) {
         // Only year and session specified, backfill previous year
         2 -> {
             for (i in 1..25) {
-                DayGenerator(i.toNumString(), args[0], args[1]).populateReadme()
+                DayGenerator(i.toNumString(), args[0], args[1]).prepare()
             }
         }
         3 -> {
-            DayGenerator(args[0], args[1], args[2]).populateReadme()
+            DayGenerator(args[0], args[1], args[2]).prepare()
         }
         else -> throw UnsupportedOperationException("You wut mate?")
     }
