@@ -7,7 +7,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    val input = inputParser.getInputByLine()
+    val input = inputParser.lines()
     val validNums = listOf<Int>()
     var sum = 0
     input.forEachIndexed { yIndex, s ->
@@ -46,7 +46,7 @@ fun partOne(): Int {
 }
 
 fun partTwo(): Int {
-    val input = inputParser.getInputByLine()
+    val input = inputParser.lines()
     val gearLocations = mutableMapOf<Point, MutableList<Int>>()
     input.forEachIndexed { yIndex, s ->
         var startIndex = 0

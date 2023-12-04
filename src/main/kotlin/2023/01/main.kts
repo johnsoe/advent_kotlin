@@ -5,7 +5,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    return inputParser.getInputByLine()
+    return inputParser.lines()
         .sumOf { sumOfLineWithoutText(it) }
 }
 
@@ -22,7 +22,7 @@ fun partTwo(): Int {
         "nine" to 9,
     )
 
-    return inputParser.getInputByLine().sumOf { line ->
+    return inputParser.lines().sumOf { line ->
         val indexMap = mutableMapOf<Int, Int>()
         nums.forEach {
             indexMap[line.indexOf(it.key)] = it.value

@@ -9,7 +9,7 @@ println(partTwo())
 fun partOne(): Int {
     println("partOne")
     val limit = Round(12, 13, 14)
-    val validGameSum = inputParser.getInputByLine().map {
+    val validGameSum = inputParser.lines().map {
         it.toGame()
     }.filter {
         it.rounds.all { round ->
@@ -25,7 +25,7 @@ fun partOne(): Int {
 
 fun partTwo(): Int {
     println("partTwo")
-    return inputParser.getInputByLine().map { it.toGame() }
+    return inputParser.lines().map { it.toGame() }
         .map {
             it.rounds.fold(Round()) { acc, curRound ->
                 acc.redCount = max(acc.redCount, curRound.redCount)

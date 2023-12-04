@@ -1,4 +1,3 @@
-import sixteen.One
 import util.Direction
 import util.InputParser
 import java.lang.IllegalStateException
@@ -11,7 +10,7 @@ println(partTwo())
 
 fun partOne(): Int {
     val startDirection: Direction = Direction.Up
-    val folded = inputParser.getInputBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
+    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
         val nextDirection = when(direction.first()) {
             'L' -> acc.first.turnLeft()
             'R' -> acc.first.turnRight()
@@ -33,7 +32,7 @@ fun partOne(): Int {
 fun partTwo(): Int {
     val startDirection: Direction = Direction.Up
     val locationSet = mutableSetOf<Pair<Int, Int>>().apply { add(0 to 0) }
-    val folded = inputParser.getInputBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
+    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
         val nextDirection = when(direction.first()) {
             'L' -> acc.first.turnLeft()
             'R' -> acc.first.turnRight()
