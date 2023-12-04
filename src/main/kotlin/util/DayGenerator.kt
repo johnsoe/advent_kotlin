@@ -9,9 +9,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
-
-public fun main(args: Array<String>) {
-
+fun main(args: Array<String>) {
     val day = args[0]
     val year = args[1]
     val session = args[2]
