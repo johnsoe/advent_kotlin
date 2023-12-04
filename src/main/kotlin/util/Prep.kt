@@ -19,6 +19,10 @@ fun main(args: Array<String>) {
     when (args[0]) {
         "-pre" -> gens.forEach { it.prepare() }
         "-post" -> gens.forEach { it.populateReadme() }
+        "-both" -> gens.forEach {
+            it.prepare()
+            it.populateReadme()
+        }
     }
 }
 
