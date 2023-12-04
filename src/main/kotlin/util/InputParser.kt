@@ -15,7 +15,7 @@ class InputParser constructor(
 
     fun linesBySeparator(delimiter: String = ","): List<String> = lines().flatMap { it.split(delimiter) }
 
-    fun linesByChunk(separator: String = " "): List<String> =
+    fun chunk(separator: String = " "): List<String> =
         lines().fold(mutableListOf<MutableList<String>>()) { acc, item ->
             if (item.isEmpty()) {
                 acc.add(mutableListOf())
