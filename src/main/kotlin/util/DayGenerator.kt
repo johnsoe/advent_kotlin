@@ -2,6 +2,7 @@ package util
 
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.MemberName
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -10,7 +11,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class DayGenerator constructor(
+class DayGenerator (
     private val day: String,
     private val year: String,
     private val session: String,
@@ -66,9 +67,10 @@ class DayGenerator constructor(
      * }
      */
     private fun getFileSpec(): FileSpec {
+        val createParser = MemberName("util", "InputParser")
         return FileSpec.scriptBuilder("main")
             .indent("    ")
-            .addStatement("val inputParser = InputParser(\"$year/$day/input.txt\")")
+            .addStatement("val inputParser = %M(\"$year/$day/input.txt\")", createParser)
             .addStatement("println(partOne())")
             .addStatement("println(partTwo())")
             .addStatement("")

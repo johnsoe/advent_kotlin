@@ -2,18 +2,23 @@ package util
 
 fun main(args: Array<String>) {
 
-
+    val gens = mutableListOf<DayGenerator>()
     when (args.size) {
         // Only year and session specified, backfill previous year
-        2 -> {
+        3 -> {
             for (i in 1..25) {
-                DayGenerator(i.toNumString(), args[0], args[1]).prepare()
+                gens.add(DayGenerator(i.toNumString(), args[1], args[2]))
             }
         }
-        3 -> {
-            DayGenerator(args[0], args[1], args[2]).prepare()
+        4 -> {
+            gens.add(DayGenerator(args[1], args[2], args[3]))
         }
         else -> throw UnsupportedOperationException("You wut mate?")
+    }
+
+    when (args[0]) {
+        "-pre" -> gens.forEach { it.prepare() }
+        "-post" -> gens.forEach { it.populateReadme() }
     }
 }
 
