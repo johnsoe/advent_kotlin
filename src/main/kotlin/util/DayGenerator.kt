@@ -1,28 +1,25 @@
 package util
 
-import InputParser
 import com.squareup.kotlinpoet.*
-import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.ResponseBody
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
+
 public fun main(args: Array<String>) {
 
-    val day = args.first()
-    val year = args.last()
-    val inputFileName = "input.txt"
+    val day = args[0]
+    val year = args[1]
+    val session = args[2]
+
     val parentDir = Paths.get("").toAbsolutePath()
     val fullPath = "$parentDir/src/main/kotlin/$year/$day"
 
-    val adventSession: String = System.getenv("session") ?: ""
-
-    //TODO: pull in data from site and write to this file
-    println("$fullPath/$inputFileName")
     Files.createDirectory(Paths.get(fullPath))
-
-    File("$fullPath/$inputFileName").createNewFile()
-    File("$fullPath/README.md").createNewFile()
 
     /**
      * val inputParser = InputParser("$year/$day/input.txt")
@@ -52,6 +49,22 @@ public fun main(args: Array<String>) {
 
     val mainFile = File("$fullPath/main.kts")
     mainFile.writeText(mainFile.readText().replace("public ", ""))
+
+
+    val httpClient = createHttpClient(session)
+    val baseUrl = "https://adventofcode.com/$year/day/${day.toInt()}"
+    val inputUrl = "$baseUrl/input"
+
+    queryAdvent(httpClient, baseUrl)?.let {
+        val file = File("$fullPath/README.md")
+        file.createNewFile()
+        file.writeText(it.string())
+    }
+    queryAdvent(httpClient, inputUrl)?.let {
+        val file = File("$fullPath/input.txt")
+        file.createNewFile()
+        file.writeText(it.string())
+    }
 }
 
 private fun addTaskFunction(name: String): FunSpec {
@@ -62,7 +75,23 @@ private fun addTaskFunction(name: String): FunSpec {
         .build()
 }
 
-// TODO:
-private fun makeDailyRequests() {
-    //val client = HttpClient()
+private fun createHttpClient(session: String): OkHttpClient {
+    return OkHttpClient().newBuilder()
+        .addInterceptor(Interceptor { chain: Interceptor.Chain ->
+            val original = chain.request()
+            val authorized = original.newBuilder()
+                .addHeader("Cookie", "session=$session")
+                .build()
+            chain.proceed(authorized)
+        })
+        .build()
+}
+
+private fun queryAdvent(client: OkHttpClient, url: String): ResponseBody? {
+    println(url)
+    val request = Request.Builder()
+        .url(url)
+        .build()
+
+    return client.newCall(request).execute().body
 }
