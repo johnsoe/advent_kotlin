@@ -25,7 +25,7 @@ fun processCommands(callback: (Int, Int) -> Unit) {
     var toProcess: Pair<Int, Cmd>? = null
 
     while(count < cmds.size) {
-        // cycle start
+        // cycle start - schedule any necessary commands.
         cycle++
         if (toProcess == null) {
             toProcess = cmds[count].scheduleCommand(cycle)
