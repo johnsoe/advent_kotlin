@@ -7,7 +7,6 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    println("partOne")
     val limit = Round(12, 13, 14)
     val validGameSum = inputParser.lines().map {
         it.toGame()
@@ -24,7 +23,6 @@ fun partOne(): Int {
 }
 
 fun partTwo(): Int {
-    println("partTwo")
     return inputParser.lines().map { it.toGame() }
         .map {
             it.rounds.fold(Round()) { acc, curRound ->

@@ -8,7 +8,6 @@ println(partTwo())
 
 fun partOne(): Int {
     val input = inputParser.lines()
-    val validNums = listOf<Int>()
     var sum = 0
     input.forEachIndexed { yIndex, s ->
         var startIndex = 0
@@ -20,10 +19,10 @@ fun partOne(): Int {
                         startIndex++
                     }
                     val range = xIndex..startIndex
-                    val num = s.substring(range.first..range.last-1).toInt()
+                    val num = s.substring(range.first until range.last).toInt()
 
                     val points = mutableListOf<Point>()
-                    for (i in range.start-1..range.last) {
+                    for (i in range.first -1..range.last) {
                         points.add(Point(i, yIndex - 1))
                         points.add(Point(i, yIndex))
                         points.add(Point(i, yIndex + 1))
@@ -58,10 +57,10 @@ fun partTwo(): Int {
                         startIndex++
                     }
                     val range = xIndex..startIndex
-                    val num = s.substring(range.first..range.last-1).toInt()
+                    val num = s.substring(range.first until range.last).toInt()
 
                     val points = mutableListOf<Point>()
-                    for (i in range.start-1..range.last) {
+                    for (i in range.first -1..range.last) {
                         points.add(Point(i, yIndex - 1))
                         points.add(Point(i, yIndex))
                         points.add(Point(i, yIndex + 1))

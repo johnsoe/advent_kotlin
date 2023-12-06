@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.20"
-    application
 }
 
 group = "advent.ralph"
@@ -22,8 +21,4 @@ tasks.test {
 
 kotlin {
     jvmToolchain(21)
-}
-
-application {
-    mainClass.set("MainKt")
 }
