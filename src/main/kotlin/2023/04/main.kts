@@ -1,5 +1,5 @@
 import util.InputParser
-import util.toInts
+import util.string.toInts
 import kotlin.Int
 import kotlin.math.pow
 

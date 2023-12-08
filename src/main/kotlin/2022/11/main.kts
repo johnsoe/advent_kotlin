@@ -1,6 +1,7 @@
 import `2022.11`.Monkey
 import kotlin.Int
 import util.InputParser
+import util.math.mult
 import java.util.*
 
 val inputParser = InputParser("2022/11/input.txt")
@@ -45,14 +46,15 @@ fun getInspectionMultiplier(monkeys: List<Monkey>): Long {
     return monkeys.map { it.inspectionCount }
         .sortedDescending()
         .take(2)
-        .fold(1L) { acc, i -> acc * i }
+        .mult()
 }
 
 fun partTwo(): Long {
     val monkeys = getMonkeys()
     val monkeyMap = monkeys.associateBy { it.id }
-    val divisor = monkeys.map { it.divTest }
-        .fold(1) { acc, i -> acc * i }
+    val divisor = monkeys
+        .map { it.divTest }
+        .mult()
 
     repeat(10000) {
         monkeys.forEach {

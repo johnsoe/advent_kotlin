@@ -1,6 +1,4 @@
-import util.Grid
 import util.InputParser
-import kotlin.Int
 
 val inputParser = InputParser("2021/04/input.txt")
 //println(partOne())

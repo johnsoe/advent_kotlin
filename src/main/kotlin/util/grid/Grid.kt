@@ -1,4 +1,4 @@
-package util
+package util.grid
 
 class Grid<T>(
     val width: Int

@@ -1,4 +1,4 @@
-import util.Direction
+import util.grid.Direction
 import util.InputParser
 import java.lang.IllegalStateException
 import kotlin.Int

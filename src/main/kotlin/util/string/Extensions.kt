@@ -1,4 +1,4 @@
-package util
+package util.string
 
 // Convert String of ints separated by spaces to list.
 fun String.toInts(): List<Int> {

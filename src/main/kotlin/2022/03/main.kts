@@ -1,6 +1,6 @@
 import kotlin.Int
 import util.InputParser
-import util.splitInHalf
+import util.string.splitInHalf
 
 val inputParser = InputParser("2022/03/input.txt")
 println(partOne())

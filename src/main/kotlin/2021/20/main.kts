@@ -1,4 +1,4 @@
-import util.Grid
+import util.grid.Grid
 import util.InputParser
 import java.lang.IllegalStateException
 import kotlin.Int

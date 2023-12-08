@@ -1,4 +1,5 @@
 import util.InputParser
+import util.math.mult
 import kotlin.Int
 import kotlin.math.min
 
@@ -81,15 +82,12 @@ fun getAllPermutations(
 }
 
 fun getPermutationsFromHistory(playerOne: String, playerTwo: String): Long {
-    val p1 = playerOne.map {
-        allPossibleRolls[it.digitToInt()]!!.size.toLong()
-    }.reduce { acc, i ->
-        acc * i
-    }
-    val p2 = playerTwo.map {
-        allPossibleRolls[it.digitToInt()]!!.size.toLong()
-    }.reduce { acc, i ->  acc * i }
-    return p1 * p2
+    return playerOne.playerPermutations() * playerTwo.playerPermutations()
+}
+
+fun String.playerPermutations(): Long {
+    return this.map { allPossibleRolls[it.digitToInt()]!!.size.toLong() }
+        .mult()
 }
 
 private val allPossibleRolls: Map<Int, List<Triple<Int, Int, Int>>> = setOf(

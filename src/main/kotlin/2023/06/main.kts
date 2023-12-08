@@ -1,5 +1,6 @@
 import kotlin.Int
 import util.InputParser
+import util.math.mult
 
 val inputParser = InputParser("2023/06/input.txt")
 println(partOne())
@@ -12,9 +13,7 @@ fun partOne(): Int {
             time = split.first().toLong(),
             distance = split.last().toLong()
         )
-    }.fold(1) { acc, multi ->
-        acc * multi
-    }
+    }.mult()
 }
 
 fun partTwo(): Int {

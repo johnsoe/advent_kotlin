@@ -1,4 +1,4 @@
-package util
+package util.generator
 
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec

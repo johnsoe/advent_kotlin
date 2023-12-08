@@ -1,6 +1,7 @@
 package `2021`.`16`
 
 import util.InputParser
+import util.math.mult
 import java.lang.IllegalStateException
 import kotlin.Int
 
@@ -74,7 +75,7 @@ fun parseLiteralSubPacket(startIndex: Int, bitString: String): SubPacketResult {
 fun operate(typeId: TypeId, values: List<Long>): Long  {
     return when (typeId) {
         TypeId.SUM -> values.sum()
-        TypeId.PRODUCT -> values.reduce { acc, l -> acc * l }
+        TypeId.PRODUCT -> values.mult()
         TypeId.MIN -> values.minOrNull() ?: 0
         TypeId.MAX -> values.maxOrNull() ?: 0
         TypeId.GT -> if (values.first() > values.last()) 1 else 0

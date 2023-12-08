@@ -1,6 +1,6 @@
-import util.Grid
+import util.grid.Grid
 import util.InputParser
-import util.toGrid
+import util.grid.toGrid
 import java.util.*
 import java.util.ArrayDeque
 import kotlin.Int

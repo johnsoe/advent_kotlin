@@ -1,4 +1,4 @@
-package util
+package util.generator
 
 fun main(args: Array<String>) {
 
