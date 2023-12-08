@@ -36,7 +36,9 @@ fun exploreGrid(
                 }
                 toFilter
             }
-            .forEach { exploreGrid(it, grid, visited, stepCount + 1, reverse) }
+            .forEach {
+                exploreGrid(it, grid, visited, stepCount + 1, reverse)
+            }
     }
 }
 
