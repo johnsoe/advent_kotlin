@@ -2,7 +2,7 @@ package util
 
 import java.io.File
 
-class InputParser constructor(
+class InputParser (
     private val fileName: String
 ) {
     companion object {
@@ -12,6 +12,11 @@ class InputParser constructor(
     fun lines(): List<String> = File("$INPUT_BASE${fileName}").readLines()
 
     fun linesInt(): List<Int> = lines().map { it.toInt() }
+
+    fun linesOfLong(): List<List<Long>> = lines().map {
+        it.split(" ")
+            .map { it.toLong() }
+    }
 
     fun linesBySeparator(delimiter: String = ","): List<String> = lines().flatMap { it.split(delimiter) }
 
