@@ -7,11 +7,11 @@ println(partTwo())
 
 fun partOne(): Long {
     return inputParser.linesOfLong().sumOf {
-            it.fullyDerive()
-                .reversed()
-                .reduce { acc, i -> acc + i.last() }
-                .sum()
-        }
+        it.fullyDerive()
+            .reversed()
+            .reduce { acc, i -> acc + i.last() }
+            .sum()
+    }
 }
 
 fun List<Long>.derive(): List<Long> {
