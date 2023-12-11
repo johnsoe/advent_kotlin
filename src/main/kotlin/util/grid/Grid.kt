@@ -4,23 +4,23 @@ class Grid<T>(
     val width: Int
 ) : ArrayList<T>() {
 
-    public fun getAdjacentNeighbors(index: Int): Set<IndexedValue<T>> {
-        return Direction.cardinalDirections().mapNotNull { direction ->
+    fun getAdjacentNeighbors(index: Int): Set<IndexedValue<T>> {
+        return Direction.cardinalDirections().getNeighbors(index)
+    }
+
+    fun getAllNeighbors(index: Int): Set<IndexedValue<T>> {
+        return Direction.allDirections().getNeighbors(index)
+    }
+
+    private fun List<Direction>.getNeighbors(index: Int): Set<IndexedValue<T>> {
+        return this.mapNotNull { direction ->
             getNeighborIndexByDirection(index, direction)?.let {
-                IndexedValue(it, this[it])
+                IndexedValue(it, this@Grid[it])
             }
         }.toSet()
     }
 
-    public fun getAllNeighbors(index: Int): Set<IndexedValue<T>> {
-        return Direction.allDirections().mapNotNull { direction ->
-            getNeighborIndexByDirection(index, direction)?.let {
-                IndexedValue(it, this[it])
-            }
-        }.toSet()
-    }
-
-    private fun getNeighborIndexByDirection(index: Int, direction: Direction): Int? {
+    fun getNeighborIndexByDirection(index: Int, direction: Direction): Int? {
         return when (direction) {
             Direction.Up -> ::getUpNeighbor
             Direction.Down -> ::getDownNeighbor
@@ -96,6 +96,7 @@ class Grid<T>(
     }
 }
 
-public fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
-    return Grid<T>(width).apply { addAll(this) }
+fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
+    val collection = this
+    return Grid<T>(width).apply { addAll(collection) }
 }

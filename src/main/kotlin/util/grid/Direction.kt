@@ -32,10 +32,10 @@ sealed class Direction {
     }
 
     companion object {
-        fun cardinalDirections(): List<Direction> = listOf(Up, Down, Left, Right)
-        fun allDirections(): List<Direction> = cardinalDirections().toMutableList().apply {
-            addAll(listOf(UpRight, DownRight, UpLeft, DownLeft))
-        }
+        fun cardinalDirections(): List<Direction> = listOf(Up, Right, Down, Left)
+        fun allDirections(): List<Direction> = cardinalDirections()
+            .toMutableList()
+            .apply { addAll(listOf(UpRight, DownRight, UpLeft, DownLeft)) }
     }
 }
 
