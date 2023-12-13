@@ -4,6 +4,9 @@ class Grid<T>(
     val width: Int
 ) : ArrayList<T>() {
 
+    val height: Int
+        get() = size / width
+
     fun getAdjacentNeighbors(index: Int): Set<IndexedValue<T>> {
         return Direction.cardinalDirections().getNeighbors(index)
     }
@@ -92,7 +95,19 @@ class Grid<T>(
 
     override fun toString(): String {
         val joined = this.joinToString("")
-        return joined.chunked(width).joinToString("\n")
+        return joined.chunked(width)
+            .joinToString("\n") + "\n"
+    }
+
+    // Won't work if index > row size
+    fun getCol(colIndex: Int): List<T> {
+        return this.filterIndexed { index, _ ->
+            index % width == colIndex
+        }
+    }
+
+    fun getRow(rowIndex: Int): List<T> {
+        return this.subList(rowIndex * width, (rowIndex + 1) * width)
     }
 }
 

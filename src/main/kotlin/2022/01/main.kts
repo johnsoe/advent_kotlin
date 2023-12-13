@@ -6,14 +6,14 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    return inputParser.chunk()
+    return inputParser.chunkAndJoin()
         .map { it.split(" ") }
         .map { it.sumOf { num -> num.toInt() } }
         .max()
 }
 
 fun partTwo(): Int {
-    return inputParser.chunk()
+    return inputParser.chunkAndJoin()
         .map { it.split( " ") }
         .map { it.sumOf { num -> num.toInt() } }
         .sortedDescending()

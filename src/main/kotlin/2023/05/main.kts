@@ -37,7 +37,7 @@ fun getSeedRanges(): List<LongRange> {
 }
 
 fun getMappings(): List<List<Triple<Long, Long, Long>>> {
-    return inputParser.chunk().drop(1)
+    return inputParser.chunkAndJoin().drop(1)
         .map {
             it.split(" ")
                 .drop(2)

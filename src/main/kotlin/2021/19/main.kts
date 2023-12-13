@@ -6,7 +6,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    val points = inputParser.chunk(",").map {
+    val points = inputParser.chunkAndJoin(",").map {
         it.split(",")
             .chunked(3)
             .map { (x, y ,z) -> Point3D(x.toInt(), y.toInt(), z.toInt()) }

@@ -6,7 +6,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    val chunks = inputParser.chunk()
+    val chunks = inputParser.chunkAndJoin()
     val firstFold = getFolds(chunks.last()).first()
     return fold(
         firstFold.first,
@@ -43,7 +43,7 @@ fun fold(foldDirection: String, foldInt: Int, points: Set<Pair<Int, Int>>): Set<
 }
 
 fun partTwo(): Int {
-    val chunks = inputParser.chunk()
+    val chunks = inputParser.chunkAndJoin()
     val folded = getFolds(chunks.last())
         .fold(getPoints(chunks.first())) { acc, next ->
             fold(next.first, next.second.toInt(), acc)

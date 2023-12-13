@@ -14,7 +14,7 @@ fun partOne(): Int {
 }
 
 fun getGridsSingleLine(): List<Int> {
-    return inputParser.chunk().joinToString("")
+    return inputParser.chunkAndJoin().joinToString("")
         .toCharArray()
         .map { it.code - 48 }
         .filter { it != -16 }

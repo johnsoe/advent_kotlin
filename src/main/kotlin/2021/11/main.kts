@@ -11,7 +11,7 @@ println(partTwo())
 
 fun partOne(): Int {
     val width = inputParser.lines().size
-    var octos = inputParser.chunk("").first()
+    var octos = inputParser.chunkAndJoin("").first()
         .map { Character.getNumericValue(it) }
         .toGrid(width)
     var flashSum = 0
@@ -46,7 +46,7 @@ fun flash(data: Grid<Int>, indexToCheck: Queue<Int>): Int {
 
 fun partTwo(): Int {
     val width = inputParser.lines().size
-    var octos = inputParser.chunk("").first()
+    var octos = inputParser.chunkAndJoin("").first()
         .map { Character.getNumericValue(it) }
         .toGrid(width)
     var flashSum = 0
