@@ -1,5 +1,7 @@
 package util.grid
 
+import java.awt.Point
+
 class Grid<T>(
     val width: Int
 ) : ArrayList<T>() {
@@ -108,6 +110,10 @@ class Grid<T>(
 
     fun getRow(rowIndex: Int): List<T> {
         return this.subList(rowIndex * width, (rowIndex + 1) * width)
+    }
+
+    fun getPoint(index: Int): Point {
+        return Point(index % width, index / width)
     }
 }
 
