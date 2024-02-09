@@ -31,6 +31,19 @@ sealed class Direction {
         }
     }
 
+    fun opposite(): Direction {
+        return when(this) {
+            is Up -> Down
+            is Down -> Up
+            is Left -> Right
+            is Right -> Left
+            is UpLeft -> DownRight
+            is UpRight -> DownLeft
+            is DownLeft -> UpRight
+            is DownRight -> UpLeft
+        }
+    }
+
     companion object {
         fun cardinalDirections(): List<Direction> = listOf(Up, Right, Down, Left)
         fun allDirections(): List<Direction> = cardinalDirections()

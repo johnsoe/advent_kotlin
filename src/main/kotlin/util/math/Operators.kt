@@ -30,3 +30,7 @@ fun Collection<Long>.mult(): Long {
 fun Collection<Int>.mult(): Int {
     return this.reduce { acc, l -> acc * l }
 }
+
+fun Int.isEven(): Boolean {
+    return this % 2 == 0
+}
