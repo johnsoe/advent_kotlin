@@ -12,6 +12,7 @@ class InputParser (
     fun lines(): List<String> = File("$INPUT_BASE${fileName}").readLines()
 
     fun linesInt(): List<Int> = lines().map { it.toInt() }
+    fun linesLong(): List<Long> = lines().map { it.toLong() }
 
     fun linesOfLong(delimiter: String = " "): List<List<Long>> = lines().map {
         it.split(delimiter)

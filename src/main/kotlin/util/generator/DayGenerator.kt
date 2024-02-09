@@ -16,7 +16,7 @@ class DayGenerator (
     private val year: String,
     private val session: String,
 ) {
-
+    
     private val parentDir = Paths.get("").toAbsolutePath()
     private val fullPath = "$parentDir/src/main/kotlin/$year/$day"
     private val baseUrl = "https://adventofcode.com/$year/day/${day.toInt()}"
