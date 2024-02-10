@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
             }
         }
         4 -> {
-            gens.add(DayGenerator(args[1], args[2], args[3]))
+            gens.add(DayGenerator(args[1].toInt().toNumString(), args[2], args[3]))
         }
         else -> throw UnsupportedOperationException("You wut mate?")
     }

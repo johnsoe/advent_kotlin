@@ -7,7 +7,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
-    val points = inputParser.linesOfLong(",")
+    val points = inputParser.linesOfType<Long>(",")
 
     return points.sumOf { outer ->
         6 - points.filter { inner ->
@@ -37,7 +37,7 @@ fun List<Long>.isNeighbor(other: List<Long>): Boolean {
 // Start fill from corner guaranteed to be "outside"
 // Calculate volumes.
 fun partTwo(): Int {
-    val points = inputParser.linesOfLong(",")
+    val points = inputParser.linesOfType<Long>(",")
     val upperBound = Triple(
         points.maxOf { it[0] + 1 },
         points.maxOf { it[1] + 1 },
@@ -48,7 +48,5 @@ fun partTwo(): Int {
         points.minOf { it[1] - 1 },
         points.minOf { it[2] - 1 }
     )
-    val
-
     return 0
 }

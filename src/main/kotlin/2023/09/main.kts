@@ -1,4 +1,3 @@
-import kotlin.Int
 import util.InputParser
 
 val inputParser = InputParser("2023/09/input.txt")
@@ -6,7 +5,7 @@ println(partOne())
 println(partTwo())
 
 fun partOne(): Long {
-    return inputParser.linesOfLong().sumOf {
+    return inputParser.linesOfType<Long>().sumOf {
         it.fullyDerive()
             .reversed()
             .reduce { acc, i -> acc + i.last() }
@@ -34,7 +33,7 @@ fun List<Long>.fullyDerive(): List<List<Long>> {
 }
 
 fun partTwo(): Long {
-    return inputParser.linesOfLong().sumOf {
+    return inputParser.linesOfType<Long>().sumOf {
         it.fullyDerive()
             .map { it.first() }
             .reversed()
