@@ -4,7 +4,7 @@ import java.awt.Point
 import kotlin.math.abs
 import kotlin.math.min
 
-val inputParser = InputParser("2019/3/input.txt")
+val inputParser = InputParser("2019/03/input.txt")
 println(partOne())
 println(partTwo())
 

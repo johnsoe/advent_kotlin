@@ -1,7 +1,6 @@
-import kotlin.Int
 import util.InputParser
 
-val inputParser = InputParser("2019/1/input.txt")
+val inputParser = InputParser("2019/01/input.txt")
 println(partOne())
 println(partTwo())
 

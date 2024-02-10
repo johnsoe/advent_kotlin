@@ -2,7 +2,7 @@ import `2019`.opcode.Computer
 import kotlin.Int
 import util.InputParser
 
-val inputParser = InputParser("2019/2/input.txt")
+val inputParser = InputParser("2019/02/input.txt")
 println(partOne())
 println(partTwo())
 
