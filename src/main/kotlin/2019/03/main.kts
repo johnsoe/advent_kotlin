@@ -15,7 +15,7 @@ fun partOne(): Int {
     }
 }
 
-fun generatePaths(): Pair<List<Point>, List<Point>> {
+private fun generatePaths(): Pair<List<Point>, List<Point>> {
     val paths = inputParser.linesOfType<String>(",")
         .map { getPathData(it) }
     return paths.first() to paths.last()

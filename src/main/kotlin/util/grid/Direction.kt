@@ -49,6 +49,13 @@ sealed class Direction {
         fun allDirections(): List<Direction> = cardinalDirections()
             .toMutableList()
             .apply { addAll(listOf(UpRight, DownRight, UpLeft, DownLeft)) }
+
+        fun directionMap(): Map<Char, Direction> = mapOf(
+            'U' to Up,
+            'D' to Down,
+            'L' to Left,
+            'R' to Right
+        )
     }
 }
 
