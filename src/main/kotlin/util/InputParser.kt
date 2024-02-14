@@ -11,6 +11,7 @@ class InputParser (
     }
 
     fun lines(): List<String> = File("$INPUT_BASE${fileName}").readLines()
+    fun line(): String = lines().first()
     fun linesInt(): List<Int> = lines().map { it.toInt() }
     fun linesLong(): List<Long> = lines().map { it.toLong() }
 
