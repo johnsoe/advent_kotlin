@@ -112,8 +112,45 @@ class Grid<T>(
         return this.subList(rowIndex * width, (rowIndex + 1) * width)
     }
 
+    private fun getRowIndices(rowIndex: Int): List<Int> {
+        val range = (rowIndex * width)until((rowIndex + 1) * width)
+        return range.toList()
+    }
+
+    private fun getColIndices(colIndex: Int): List<Int> {
+        return (0 until size).filter {
+            it % width == colIndex
+        }
+    }
+
     fun getPoint(index: Int): Point {
         return Point(index % width, index / width)
+    }
+
+    fun getIndexByPoint(point: Point): Int {
+        return point.y * width + point.x
+    }
+
+    fun shiftRow(row: Int, shift: Int) {
+        val indices = this.getRowIndices(row)
+        val currentRow = mutableListOf<T>().also {
+            it.addAll(getRow(row))
+        }
+        indices.forEachIndexed { index, _ ->
+            val gridIndex = indices[(index + shift) % this.width]
+            this[gridIndex] = currentRow[index]
+        }
+    }
+
+    fun shiftCol(col: Int, shift: Int) {
+        val indices = this.getColIndices(col)
+        val currentCol = mutableListOf<T>().also {
+            it.addAll(getCol(col))
+        }
+        indices.forEachIndexed { index, _ ->
+            val gridIndex = indices[(index + shift) % this.height]
+            this[gridIndex] = currentCol[index]
+        }
     }
 }
 
