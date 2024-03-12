@@ -127,8 +127,8 @@ class Grid<T>(
         return Point(index % width, index / width)
     }
 
-    fun getIndexByPoint(point: Point): Int {
-        return point.y * width + point.x
+    fun getIndexByCoords(x: Int, y: Int): Int {
+        return y * width + x
     }
 
     fun shiftRow(row: Int, shift: Int) {
@@ -157,4 +157,15 @@ class Grid<T>(
 fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
     val collection = this
     return Grid<T>(width).apply { addAll(collection) }
+}
+
+fun <T> Array<Array<T>>.toGrid(): Grid<T> {
+    if (this.isEmpty()) return Grid(0)
+
+    val array = this
+    return Grid<T>(array[0].size).apply {
+        array.forEach {
+            addAll(it)
+        }
+    }
 }

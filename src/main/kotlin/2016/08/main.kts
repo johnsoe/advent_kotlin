@@ -46,7 +46,7 @@ private fun getInputCommands(): List<DisplayCommand> {
 fun Grid<Boolean>.setRect(width: Int, height: Int) {
     for (x in 0 until width) {
         for (y in 0 until height) {
-            val index = this.getIndexByPoint(Point(x, y))
+            val index = this.getIndexByCoords(x, y)
             this[index] = true
         }
     }
