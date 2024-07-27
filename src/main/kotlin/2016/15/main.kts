@@ -36,9 +36,9 @@ private fun createDiscs(): List<Disc> {
 
 // This only works because all input discs have a prime # of positions
 private fun calculateDiscAlignment(discs: List<Disc>): Int {
-    var scaling = discs.first().positions
-    var current = scaling - discs.first().startPosition - discs.first().offset
-    discs.drop(1).forEach {
+    var scaling = 1
+    var current = 0
+    discs.forEach {
         while ((current + it.startPosition + it.offset) % it.positions != 0) {
             current += scaling
         }
