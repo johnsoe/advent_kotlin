@@ -169,3 +169,14 @@ fun <T> Array<Array<T>>.toGrid(): Grid<T> {
         }
     }
 }
+
+fun <T> List<List<T>>.toGrid(): Grid<T> {
+    if (this.isEmpty()) return Grid(0)
+
+    val list = this
+    return Grid<T>(list[0].size).apply {
+        list.forEach {
+            addAll(it)
+        }
+    }
+}
