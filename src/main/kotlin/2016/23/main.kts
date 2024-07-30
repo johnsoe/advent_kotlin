@@ -2,13 +2,13 @@ import `2016`.assembunny.AssembunnyInterpreter
 import kotlin.Int
 import util.InputParser
 
-val inputParser = InputParser("2016/12/input.txt")
+val inputParser = InputParser("2016/23/input.txt")
 println(partOne())
 println(partTwo())
 
 fun partOne(): Int {
     val registers = mutableMapOf(
-        "a" to 0,
+        "a" to 7,
         "b" to 0,
         "c" to 0,
         "d" to 0
@@ -20,11 +20,12 @@ fun partOne(): Int {
     return registers["a"] ?: 0
 }
 
+// There must be a smarter way to do this
 fun partTwo(): Int {
     val registers = mutableMapOf(
-        "a" to 0,
+        "a" to 12,
         "b" to 0,
-        "c" to 1,
+        "c" to 0,
         "d" to 0
     )
     AssembunnyInterpreter.parseInstructions(
