@@ -1,10 +1,13 @@
 package `2016`.assembunny
 
+typealias OutputCallback = (Int) -> Boolean
+
 object AssembunnyInterpreter {
 
     fun parseInstructions(
         instructions: List<List<String>>,
-        registers: MutableMap<String, Int>
+        registers: MutableMap<String, Int>,
+        output: OutputCallback = { false }
     ) {
         val toggledInstructions = mutableSetOf<Int>()
         var instructionPtr = 0
@@ -36,6 +39,11 @@ object AssembunnyInterpreter {
                         toggledInstructions.add(target)
                     }
                 }
+                "out" -> {
+                    if (!output(instruction.last().parseRegisterInt(registers))) {
+                        break
+                    }
+                }
             }
             instructionPtr++
         }
@@ -56,6 +64,7 @@ object AssembunnyInterpreter {
                 "dec" -> listOf("inc", instruction.last())
                 "jnz" -> listOf("cpy", instruction[1], instruction.last())
                 "tgl" -> listOf("inc", instruction.last())
+                "out" -> listOf("inc", instruction.last())
                 else -> listOf()
             }
         }
