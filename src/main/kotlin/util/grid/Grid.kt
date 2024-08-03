@@ -96,8 +96,7 @@ class Grid<T>(
     }
 
     override fun toString(): String {
-        val joined = this.joinToString("")
-        return joined.chunked(width)
+        return this.chunked(width)
             .joinToString("\n") + "\n"
     }
 
