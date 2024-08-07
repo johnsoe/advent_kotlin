@@ -151,6 +151,13 @@ class Grid<T>(
             this[gridIndex] = currentCol[index]
         }
     }
+
+    fun setCorners(update: T) {
+        this[0] = update // Top left
+        this[this.width - 1] = update // top right
+        this[this.size - this.width] = update // bottom left
+        this[this.size - 1] = update // bottom right
+    }
 }
 
 fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
