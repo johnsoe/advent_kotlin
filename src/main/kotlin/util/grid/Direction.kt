@@ -44,11 +44,22 @@ sealed class Direction {
         }
     }
 
+    fun adjacentDirsForDiagonal(): List<Direction> {
+        return when (this) {
+            UpRight -> listOf(Up, Right)
+            UpLeft -> listOf(Up, Left)
+            DownRight -> listOf(Down, Right)
+            DownLeft -> listOf(Down, Left)
+            else -> emptyList()
+        }
+    }
+
     companion object {
         fun cardinalDirections(): List<Direction> = listOf(Up, Right, Down, Left)
+        fun diagonalDirections() = listOf(UpRight, DownRight, UpLeft, DownLeft)
         fun allDirections(): List<Direction> = cardinalDirections()
             .toMutableList()
-            .apply { addAll(listOf(UpRight, DownRight, UpLeft, DownLeft)) }
+            .apply { addAll(diagonalDirections()) }
 
         fun directionMap(): Map<Char, Direction> = mapOf(
             'U' to Up,

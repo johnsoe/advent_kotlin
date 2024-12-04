@@ -25,7 +25,11 @@ class Grid<T>(
         }.toSet()
     }
 
-    fun getNeighborIndexByDirection(index: Int, direction: Direction): Int? {
+    fun getNeighborIndexByDirection(
+        index: Int,
+        direction: Direction,
+        spacing: Int = 1
+    ): Int? {
         return when (direction) {
             Direction.Up -> ::getUpNeighbor
             Direction.Down -> ::getDownNeighbor
@@ -35,55 +39,59 @@ class Grid<T>(
             Direction.DownRight -> ::getDownRightNeighbor
             Direction.UpLeft -> ::getUpLeftNeighbor
             Direction.DownLeft -> ::getDownLeftNeighbor
-        }.invoke(index)
+        }.invoke(index, spacing)
     }
 
-    private fun getUpNeighbor(index: Int): Int? {
-        return if(index in width until size) {
-            index - width
-        } else null
+    private fun getUpNeighbor(index: Int, spacing: Int): Int? {
+        val neighbor = index - (width * spacing)
+        return if (neighbor >= 0) neighbor else null
     }
 
-    private fun getDownNeighbor(index: Int): Int? {
-        return if (index + width < this.size) {
-            index + width
-        } else null
+    private fun getDownNeighbor(index: Int, spacing: Int): Int? {
+        val neighbor = index + (width * spacing)
+        return if (neighbor < size) neighbor else null
     }
 
-    private fun getRightNeighbor(index: Int): Int? {
-        return if ((index + 1) % width != 0) {
-            index + 1
-        } else null
+    private fun getRightNeighbor(index: Int, spacing: Int): Int? {
+        val neighbor = index + spacing
+        return if (neighbor / width != index / width) {
+            null
+        } else {
+            neighbor
+        }
     }
 
-    private fun getLeftNeighbor(index: Int): Int? {
-        return if (index % width != 0) {
-            index - 1
-        } else null
+    private fun getLeftNeighbor(index: Int, spacing: Int): Int? {
+        val neighbor = index - spacing
+        return if (neighbor < 0 || neighbor / width != index / width) {
+            null
+        } else {
+            neighbor
+        }
     }
 
-    private fun getUpRightNeighbor(index: Int): Int? {
-        return if (index >= width && (index + 1) % width != 0) {
-            index - width + 1
-        } else null
+    private fun getUpRightNeighbor(index: Int, spacing: Int): Int? {
+        return getUpNeighbor(index, spacing)?.let {
+            getRightNeighbor(it, spacing)
+        }
     }
 
-    private fun getUpLeftNeighbor(index: Int): Int? {
-        return if (index >= width && index % width != 0) {
-            index - width - 1
-        } else null
+    private fun getUpLeftNeighbor(index: Int, spacing: Int): Int? {
+        return getUpNeighbor(index, spacing)?.let {
+            getLeftNeighbor(it, spacing)
+        }
     }
 
-    private fun getDownRightNeighbor(index: Int): Int? {
-        return if (index + width < this.size && (index + 1) % width != 0) {
-            index + width + 1
-        } else null
+    private fun getDownRightNeighbor(index: Int, spacing: Int): Int? {
+        return getDownNeighbor(index, spacing)?.let {
+            getRightNeighbor(it, spacing)
+        }
     }
 
-    private fun getDownLeftNeighbor(index: Int): Int? {
-        return if (index + width < this.size && index % width != 0) {
-            index + width - 1
-        } else null
+    private fun getDownLeftNeighbor(index: Int, spacing: Int): Int? {
+        return getDownNeighbor(index, spacing)?.let {
+            getLeftNeighbor(it, spacing)
+        }
     }
 
     fun getGridAs2D(): List<List<T>> {
