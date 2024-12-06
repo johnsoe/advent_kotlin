@@ -33,7 +33,7 @@ fun traversePipes(grid: Grid<Char>): Set<Int> {
     var direction: Direction? = grid.getStartDirection(index)
     while (direction != null) {
         pipes.add(index)
-        index = grid.getNeighborIndexByDirection(index, direction!!) ?: throw IllegalStateException("Something went wrong")
+        index = grid.indexByDirection(index, direction!!) ?: throw IllegalStateException("Something went wrong")
         direction = grid[index].nextDirection(direction!!)
     }
     return pipes
@@ -41,7 +41,7 @@ fun traversePipes(grid: Grid<Char>): Set<Int> {
 
 fun Grid<Char>.getStartDirection(index: Int): Direction {
     return Direction.cardinalDirections().firstNotNullOf { d ->
-        this.getNeighborIndexByDirection(index, d)?.let {
+        this.indexByDirection(index, d)?.let {
             if (this[it].nextDirection(d) != null) {
                 d
             } else null

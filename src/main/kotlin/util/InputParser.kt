@@ -1,5 +1,7 @@
 package util
 
+import util.grid.Grid
+import util.grid.toGrid
 import java.io.File
 import java.lang.UnsupportedOperationException
 
@@ -14,6 +16,9 @@ class InputParser (
     fun line(): String = lines().first()
     fun linesInt(): List<Int> = lines().map { it.toInt() }
     fun linesLong(): List<Long> = lines().map { it.toLong() }
+    fun charGrid(): Grid<Char> = lines()
+        .map { it.toCharArray().toList() }
+        .toGrid()
 
     /**
      * Convert all lines to list of type, separated by @param delimiter

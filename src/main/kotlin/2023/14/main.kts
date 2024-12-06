@@ -150,7 +150,7 @@ fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Point, Point
     return grid.mapIndexed { index, _ ->
         var tempIndex = index
         while(true) {
-            val next = grid.getNeighborIndexByDirection(tempIndex, direction)
+            val next = grid.indexByDirection(tempIndex, direction)
             if (next == null || grid[next] == '#') {
                 break
             }

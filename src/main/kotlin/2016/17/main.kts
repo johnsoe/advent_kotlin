@@ -39,7 +39,7 @@ private fun getNextSteps(
     }.filter { (_, c) ->
         c.isDoorOpen()
     }.mapNotNull { (dir, _) ->
-        val neighbor = grid.getNeighborIndexByDirection(index, dir)
+        val neighbor = grid.indexByDirection(index, dir)
         neighbor?.let {
             it to "$path${dir.getDirChar()}"
         }

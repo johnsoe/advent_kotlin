@@ -19,13 +19,13 @@ class Grid<T>(
 
     private fun List<Direction>.getNeighbors(index: Int): Set<IndexedValue<T>> {
         return this.mapNotNull { direction ->
-            getNeighborIndexByDirection(index, direction)?.let {
+            indexByDirection(index, direction)?.let {
                 IndexedValue(it, this@Grid[it])
             }
         }.toSet()
     }
 
-    fun getNeighborIndexByDirection(
+    fun indexByDirection(
         index: Int,
         direction: Direction,
         spacing: Int = 1

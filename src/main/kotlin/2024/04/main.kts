@@ -14,9 +14,9 @@ fun partOne(): Int {
         Direction.allDirections().count { dir ->
             listOfNotNull(
                 it.index,
-                xmasGrid.getNeighborIndexByDirection(it.index, dir),
-                xmasGrid.getNeighborIndexByDirection(it.index, dir, 2),
-                xmasGrid.getNeighborIndexByDirection(it.index, dir, 3)
+                xmasGrid.indexByDirection(it.index, dir),
+                xmasGrid.indexByDirection(it.index, dir, 2),
+                xmasGrid.indexByDirection(it.index, dir, 3)
             ).joinToString(separator = "") {
                 xmasGrid[it].toString()
             } == "XMAS"
@@ -37,11 +37,11 @@ fun partTwo(): Int {
             val index = it.index
             val masList = listOf(
                 index,
-                xmasGrid.getNeighborIndexByDirection(index, dir),
-                xmasGrid.getNeighborIndexByDirection(index, dir, 2),
+                xmasGrid.indexByDirection(index, dir),
+                xmasGrid.indexByDirection(index, dir, 2),
             )
             val result: String = (masList + dir.adjacentDirsForDiagonal().map {
-                xmasGrid.getNeighborIndexByDirection(index, it, 2)
+                xmasGrid.indexByDirection(index, it, 2)
             }).filterNotNull().joinToString(separator = "") {
                 xmasGrid[it].toString()
             }

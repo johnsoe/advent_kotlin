@@ -57,9 +57,7 @@ sealed class Direction {
     companion object {
         fun cardinalDirections(): List<Direction> = listOf(Up, Right, Down, Left)
         fun diagonalDirections() = listOf(UpRight, DownRight, UpLeft, DownLeft)
-        fun allDirections(): List<Direction> = cardinalDirections()
-            .toMutableList()
-            .apply { addAll(diagonalDirections()) }
+        fun allDirections(): List<Direction> = cardinalDirections() + diagonalDirections()
 
         fun directionMap(): Map<Char, Direction> = mapOf(
             'U' to Up,

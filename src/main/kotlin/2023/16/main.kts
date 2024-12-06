@@ -82,7 +82,7 @@ fun evaluateWithStartBeam(start: Beam, grid: Grid<Char>): Int {
         }
         val dir = grid[beam.index].passThrough(beam.direction)
         dir.forEach { d ->
-            grid.getNeighborIndexByDirection(beam.index, d)?.let {
+            grid.indexByDirection(beam.index, d)?.let {
                 beams.add(Beam(d, it))
             }
         }

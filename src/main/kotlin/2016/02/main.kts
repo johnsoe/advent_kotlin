@@ -16,7 +16,7 @@ fun partOne(): Int {
             var index = acc.first
             chars.forEach { d ->
                 directionMap[d]?.let { dir ->
-                    keypad.getNeighborIndexByDirection(index, dir)?.let { index = it }
+                    keypad.indexByDirection(index, dir)?.let { index = it }
                 }
             }
             index to (acc.second + keypad[index])
@@ -31,7 +31,7 @@ fun partTwo(): String {
             var index = acc.first
             chars.forEach { d ->
                 directionMap[d]?.let { dir ->
-                    val nextIndex = keypad.getNeighborIndexByDirection(index, dir)
+                    val nextIndex = keypad.indexByDirection(index, dir)
                     if (nextIndex != null && keypad[nextIndex] != -1) {
                         index = nextIndex
                     }

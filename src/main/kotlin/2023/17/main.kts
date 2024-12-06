@@ -64,7 +64,7 @@ fun getValidDirections(grid: Grid<Int>, index: Int, directions: List<Direction>,
     }
     return cardinals.filter { it !in excludes }
         .map {
-            it to (grid.getNeighborIndexByDirection(index, it) ?: -1)
+            it to (grid.indexByDirection(index, it) ?: -1)
         }.filter { (_, i) ->
             i != -1 && i !in visited
         }.toMap()
