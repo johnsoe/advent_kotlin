@@ -25,9 +25,9 @@ class InputParser (
      * Current supported types are
      * Int, Long, Double, String
      */
-    inline fun <reified T> linesOfType(delimiter: String = " "): List<List<T>> {
+    inline fun <reified T> linesOfType(vararg delimiters: String = Array(1) { " " }): List<List<T>> {
         return lines().map { line ->
-            line.split(delimiter)
+            line.split(*delimiters)
                 .map {
                     when(T::class) {
                         Double::class -> it.toDouble()
