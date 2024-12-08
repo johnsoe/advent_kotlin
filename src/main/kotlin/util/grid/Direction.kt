@@ -1,5 +1,7 @@
 package util.grid
 
+import util.math.Vector2
+
 sealed class Direction {
     object Up : Direction()
     object Down : Direction()
@@ -51,6 +53,19 @@ sealed class Direction {
             DownRight -> listOf(Down, Right)
             DownLeft -> listOf(Down, Left)
             else -> emptyList()
+        }
+    }
+
+    fun toVec(): Vector2 {
+        return when(this) {
+            is Up -> Vector2(0, -1)
+            is Down -> Vector2(0, 1)
+            is Left -> Vector2(-1, 0)
+            is Right -> Vector2(1, 0)
+            is UpLeft -> Vector2(-1, -1)
+            is UpRight -> Vector2(1, -1)
+            is DownLeft -> Vector2(-1, 1)
+            is DownRight -> Vector2(1, 1)
         }
     }
 

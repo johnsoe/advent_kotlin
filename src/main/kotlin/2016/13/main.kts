@@ -16,7 +16,7 @@ fun partOne(): Int {
     val grid = generateGrid()
     val result = traverse(grid)
 
-    return result[grid.getIndexByCoords(31,  39)] ?: 0
+    return result[grid.indexByCoords(31,  39)] ?: 0
 }
 
 fun generateGrid(): Grid<Boolean> {
@@ -37,7 +37,7 @@ fun isWall(x: Int, y: Int, seed: Int): Boolean {
 
 // bfs of grid to populate step count to position
 fun traverse(grid: Grid<Boolean>): Map<Int, Int> {
-    val start = grid.getIndexByCoords(1,  1)
+    val start = grid.indexByCoords(1,  1)!!
     val visited = mutableMapOf<Int, Int>()
     val queue = LinkedList<Pair<Int, Int>>()
     queue.add(start to 0)

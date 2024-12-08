@@ -18,7 +18,7 @@ fun partOne(): Int {
     getCommands().forEach {
         (it.start.y..it.end.y).forEach { y ->
             (it.start.x..it.end.x).forEach { x ->
-                val index = grid.getIndexByCoords(x, y)
+                val index = grid.indexByCoords(x, y)!!
                 grid[index] = when (it.action) {
                     LightAction.OFF -> false
                     LightAction.ON -> true
@@ -61,7 +61,7 @@ fun partTwo(): Int {
     getCommands().forEach {
         (it.start.y..it.end.y).forEach { y ->
             (it.start.x..it.end.x).forEach { x ->
-                val index = grid.getIndexByCoords(x, y)
+                val index = grid.indexByCoords(x, y)!!
                 grid[index] = when (it.action) {
                     LightAction.OFF -> max(grid[index] - 1, 0)
                     LightAction.ON -> grid[index] + 1

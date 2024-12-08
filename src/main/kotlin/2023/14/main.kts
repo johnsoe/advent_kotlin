@@ -3,7 +3,7 @@ import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
-import java.awt.Point
+import util.math.Vector2
 
 val inputParser = InputParser("2023/14/input.txt")
 println(partOne())
@@ -77,19 +77,19 @@ fun partTwo(): Long {
 
     repeat(1000000000) {
         directions.forEach { d ->
-            var updatedRockSet = mutableSetOf<Point>()
+            var updatedRockSet = mutableSetOf<Vector2>()
             val directionMap = directionMaps[d]!!
             rocks.forEach {
-                val newPoint = directionMap[it]!!
+                var newPoint = directionMap[it]!!
                 while (updatedRockSet.contains(newPoint)) {
-                    d.offset(newPoint)
+                    newPoint = d.offset(newPoint)
                 }
                 updatedRockSet.add(newPoint)
             }
             rocks = updatedRockSet
         }
         val check = grid.mapIndexed { index, _ ->
-            if (rocks.contains(grid.getPoint(index))) {
+            if (rocks.contains(grid.getVector(index))) {
                 '1'
             } else {
                 '0'
@@ -122,31 +122,25 @@ fun partTwo(): Long {
     return rocks.getSum(grid.height)
 }
 
-fun Set<Point>.getSum(height: Int): Long {
+fun Set<Vector2>.getSum(height: Int): Long {
     return this.sumOf { height.toLong() - it.y }
 }
 
-fun Direction.offset(point: Point) {
-    when (this) {
-        Direction.Up -> point.y = point.y + 1
-        Direction.Down -> point.y = point.y - 1
-        Direction.Left -> point.x = point.x + 1
-        Direction.Right -> point.x = point.x - 1
-        else -> {}
-    }
+fun Direction.offset(vec: Vector2): Vector2 {
+    return this.toVec() + vec
 }
 
-fun Grid<Char>.getRockPoints(): Set<Point> {
+fun Grid<Char>.getRockPoints(): Set<Vector2> {
     return this.mapIndexedNotNull { index, c ->
         if (c == 'O') {
-            this.getPoint(index)
+            this.getVector(index)
         } else {
             null
         }
     }.toSet()
 }
 
-fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Point, Point> {
+fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Vector2, Vector2> {
     return grid.mapIndexed { index, _ ->
         var tempIndex = index
         while(true) {
@@ -156,6 +150,6 @@ fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Point, Point
             }
             tempIndex = next
         }
-        grid.getPoint(index) to grid.getPoint(tempIndex)
+        grid.getVector(index) to grid.getVector(tempIndex)
     }.toMap()
 }

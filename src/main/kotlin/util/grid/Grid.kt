@@ -1,6 +1,6 @@
 package util.grid
 
-import java.awt.Point
+import util.math.Vector2
 
 class Grid<T>(
     val width: Int
@@ -130,13 +130,18 @@ class Grid<T>(
         }
     }
 
-    fun getPoint(index: Int): Point {
-        return Point(index % width, index / width)
+    fun getVector(index: Int): Vector2 {
+        return Vector2(index % width, index / width)
     }
 
-    fun getIndexByCoords(x: Int, y: Int): Int {
-        return y * width + x
-    }
+    fun indexByCoords(x: Int, y: Int) =
+        when {
+            (y < 0 || y >= width) -> null
+            (x < 0 || x >= height) -> null
+            else -> y * width + x
+        }
+
+    fun indexByVector(vector2: Vector2) = indexByCoords(vector2.x, vector2.y)
 
     fun shiftRow(row: Int, shift: Int) {
         val indices = this.getRowIndices(row)
@@ -166,7 +171,13 @@ class Grid<T>(
         this[this.size - this.width] = update // bottom left
         this[this.size - 1] = update // bottom right
     }
+
+    fun deltaOfIndices(a: Int, b: Int): Vector2 {
+        return getVector(a) - getVector(b)
+    }
 }
+
+
 
 fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
     val collection = this

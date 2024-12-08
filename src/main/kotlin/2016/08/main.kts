@@ -3,7 +3,6 @@ import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
-import java.awt.Point
 
 val inputParser = InputParser("2016/08/input.txt")
 println(partOne())
@@ -46,7 +45,7 @@ private fun getInputCommands(): List<DisplayCommand> {
 fun Grid<Boolean>.setRect(width: Int, height: Int) {
     for (x in 0 until width) {
         for (y in 0 until height) {
-            val index = this.getIndexByCoords(x, y)
+            val index = this.indexByCoords(x, y)!!
             this[index] = true
         }
     }
