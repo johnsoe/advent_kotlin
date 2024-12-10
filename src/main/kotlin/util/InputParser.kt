@@ -19,6 +19,13 @@ class InputParser (
     fun charGrid(): Grid<Char> = lines()
         .map { it.toCharArray().toList() }
         .toGrid()
+    fun intGrid(): Grid<Int> = lines()
+        .map {
+            it.toCharArray()
+                .toList()
+                .map { it.digitToInt() }
+        }
+        .toGrid()
 
     /**
      * Convert all lines to list of type, separated by @param delimiter
