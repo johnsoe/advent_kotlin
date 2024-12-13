@@ -14,6 +14,10 @@ data class Vector2 (
         return Vector2(x + other.x, y + other.y)
     }
 
+    operator fun times(other: Int): Vector2 {
+        return Vector2(x * other, y * other)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
