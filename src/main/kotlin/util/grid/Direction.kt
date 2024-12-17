@@ -80,6 +80,13 @@ sealed class Direction {
             'L' to Left,
             'R' to Right
         )
+
+        fun instructionMap(): Map<Char, Direction> = mapOf(
+            '^' to Up,
+            'v' to Down,
+            '<' to Left,
+            '>' to Right
+        )
     }
 }
 
