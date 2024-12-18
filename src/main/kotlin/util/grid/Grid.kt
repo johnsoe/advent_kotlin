@@ -136,8 +136,8 @@ class Grid<T>(
 
     fun indexByCoords(x: Int, y: Int) =
         when {
-            (y < 0 || y >= width) -> null
-            (x < 0 || x >= height) -> null
+            (y < 0 || y >= height) -> null
+            (x < 0 || x >= width) -> null
             else -> y * width + x
         }
 
