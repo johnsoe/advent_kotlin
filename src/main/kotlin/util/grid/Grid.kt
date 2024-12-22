@@ -1,6 +1,7 @@
 package util.grid
 
 import util.math.Vector2
+import util.math.manhattanDistance
 
 class Grid<T>(
     val width: Int
@@ -174,6 +175,10 @@ class Grid<T>(
 
     fun deltaOfIndices(a: Int, b: Int): Vector2 {
         return getVector(a) - getVector(b)
+    }
+
+    fun manhattanDistance(a: Int, b: Int): Int {
+        return getVector(a).manhattanDistance(getVector(b))
     }
 }
 
