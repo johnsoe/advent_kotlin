@@ -32,7 +32,7 @@ fun partOne(): Int {
     return results.size
 }
 
-private fun List<String>.sortJoin(delimiter: String = ","): String {
+private fun Collection<String>.sortJoin(delimiter: String = ","): String {
     return this.sorted().joinToString(delimiter)
 }
 
@@ -53,8 +53,7 @@ private fun List<String>.toGraph(): Map<String, Set<String>> {
 fun partTwo(): String {
     return findMaximalCliques(graph)
         .maxByOrNull { it.size }
-        ?.sorted()
-        ?.joinToString(",")
+        ?.sortJoin(",")
         .orEmpty()
 }
 
