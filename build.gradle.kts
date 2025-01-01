@@ -14,6 +14,7 @@ repositories {
 dependencies {
     implementation("com.squareup:kotlinpoet:1.15.2")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.10")
     implementation(kotlin("script-runtime"))
 }
 
