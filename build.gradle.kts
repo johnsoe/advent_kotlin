@@ -18,6 +18,11 @@ dependencies {
     implementation(kotlin("script-runtime"))
 }
 
+sourceSets {
+    main {
+        kotlin.srcDirs("src/main/kotlin")
+    }
+}
 
 kotlin {
     compilerOptions {
