@@ -1,11 +1,9 @@
 package `2022`.`08`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2022/08/input.txt")
-
-
 
 fun partOne(): Int {
     val trees = getTreeGrid()
@@ -41,7 +39,7 @@ fun getTreeCross(row: List<Int>, col: List<Int>, x: Int, y: Int, tree: Int): Tre
         row.slice(0 until x).reversed(),
         row.slice(x + 1 until row.size),
         col.slice(0 until y).reversed(),
-        col.slice(y + 1 until col.size)
+        col.slice(y + 1 until col.size),
     )
 }
 

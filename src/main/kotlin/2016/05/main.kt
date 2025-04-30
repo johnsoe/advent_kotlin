@@ -1,17 +1,15 @@
 package `2016`.`05`
 
-import kotlin.Int
 import util.InputParser
 import java.math.BigInteger
 import java.security.MessageDigest
+import kotlin.Int
 
 private val positionIndex: Int = 5
 private val checkStr = "00000"
 private val md5 = MessageDigest.getInstance("MD5")
 
 val inputParser = InputParser("2016/05/input.txt")
-
-
 
 fun partOne(): String {
     val code = inputParser.line()

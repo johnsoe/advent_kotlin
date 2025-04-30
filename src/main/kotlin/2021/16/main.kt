@@ -16,17 +16,17 @@ fun partOne(): Long {
 
 fun evaluatePacket(
     startIndex: Int,
-    bitString: String
+    bitString: String,
 ): SubPacketResult {
-    val version = bitString.slice(startIndex..startIndex+2).toInt(2)
+    val version = bitString.slice(startIndex..startIndex + 2).toInt(2)
     versionSum += version
-    val typeId = TypeId.mapToType(bitString.slice(startIndex+3..startIndex+5).toInt(2))
+    val typeId = TypeId.mapToType(bitString.slice(startIndex + 3..startIndex + 5).toInt(2))
     return when (typeId) {
-        TypeId.LITERAL -> parseLiteralSubPacket(startIndex+6, bitString)
+        TypeId.LITERAL -> parseLiteralSubPacket(startIndex + 6, bitString)
         else -> {
-            when (bitString[startIndex+6]) {
-                '0' -> parseLengthIdZero(startIndex+7, bitString, typeId)
-                '1' -> parseLengthIdOne(startIndex+7, bitString, typeId)
+            when (bitString[startIndex + 6]) {
+                '0' -> parseLengthIdZero(startIndex + 7, bitString, typeId)
+                '1' -> parseLengthIdOne(startIndex + 7, bitString, typeId)
                 else -> throw IllegalStateException()
             }
         }
@@ -34,7 +34,7 @@ fun evaluatePacket(
 }
 
 fun parseLengthIdZero(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
-    val subPacketSize = bitString.slice(startIndex..startIndex+14).toInt(2)
+    val subPacketSize = bitString.slice(startIndex..startIndex + 14).toInt(2)
     var index = startIndex + 15
     val results = mutableListOf<Long>()
     while (index < startIndex + subPacketSize + 15) {
@@ -46,7 +46,7 @@ fun parseLengthIdZero(startIndex: Int, bitString: String, operation: TypeId): Su
 }
 
 fun parseLengthIdOne(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
-    val subPacketCount = bitString.slice(startIndex..startIndex+10).toInt(2)
+    val subPacketCount = bitString.slice(startIndex..startIndex + 10).toInt(2)
     var index = startIndex + 11
     val results = mutableListOf<Long>()
     for (i in 0 until subPacketCount) {
@@ -63,13 +63,13 @@ fun parseLiteralSubPacket(startIndex: Int, bitString: String): SubPacketResult {
     var isNotTerminal = true
     while (isNotTerminal) {
         isNotTerminal = bitString[index] == '1'
-        combinedBitString += bitString.slice(index+1..index+4)
+        combinedBitString += bitString.slice(index + 1..index + 4)
         index += 5
     }
     return SubPacketResult(index, combinedBitString.toLong(2))
 }
 
-fun operate(typeId: TypeId, values: List<Long>): Long  {
+fun operate(typeId: TypeId, values: List<Long>): Long {
     return when (typeId) {
         TypeId.SUM -> values.sum()
         TypeId.PRODUCT -> values.mult()
@@ -86,7 +86,6 @@ fun partTwo(): Long {
     val bitString = inputParser.lines().first().hexToBitString()
     return evaluatePacket(0, bitString).value
 }
-
 
 fun String.hexToBitString(): String {
     return this.uppercase().map {
@@ -114,7 +113,7 @@ fun String.hexToBitString(): String {
 
 data class SubPacketResult(
     val index: Int,
-    val value: Long
+    val value: Long,
 )
 
 fun main() {

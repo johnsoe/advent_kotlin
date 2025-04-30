@@ -4,8 +4,6 @@ import util.InputParser
 
 val inputParser = InputParser("2023/01/input.txt")
 
-
-
 fun partOne(): Int {
     return inputParser.lines()
         .sumOf { sumOfLineWithoutText(it) }
@@ -35,7 +33,6 @@ fun partTwo(): Int {
         indexMap.filter { it.key != -1 }
             .forEach { (index, num) ->
                 tempLine = tempLine.substring(0, index) + num + tempLine.substring(index + 1)
-
             }
         sumOfLineWithoutText(tempLine)
     }

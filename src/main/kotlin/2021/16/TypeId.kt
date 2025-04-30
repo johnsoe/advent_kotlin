@@ -8,7 +8,8 @@ enum class TypeId {
     LITERAL,
     GT,
     LT,
-    EQ;
+    EQ,
+    ;
 
     companion object {
         fun mapToType(id: Int): TypeId {

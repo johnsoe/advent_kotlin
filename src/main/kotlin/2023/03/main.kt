@@ -6,8 +6,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2023/03/input.txt")
 
-
-
 fun partOne(): Int {
     val input = inputParser.lines()
     var sum = 0
@@ -24,7 +22,7 @@ fun partOne(): Int {
                     val num = s.substring(range.first until range.last).toInt()
 
                     val points = mutableListOf<Point>()
-                    for (i in range.first -1..range.last) {
+                    for (i in range.first - 1..range.last) {
                         points.add(Point(i, yIndex - 1))
                         points.add(Point(i, yIndex))
                         points.add(Point(i, yIndex + 1))
@@ -62,7 +60,7 @@ fun partTwo(): Int {
                     val num = s.substring(range.first until range.last).toInt()
 
                     val points = mutableListOf<Point>()
-                    for (i in range.first -1..range.last) {
+                    for (i in range.first - 1..range.last) {
                         points.add(Point(i, yIndex - 1))
                         points.add(Point(i, yIndex))
                         points.add(Point(i, yIndex + 1))
@@ -96,6 +94,6 @@ fun partTwo(): Int {
 fun main() {
     println(partOne())
     println(partTwo())
-    
+
     println("partTwo")
 }

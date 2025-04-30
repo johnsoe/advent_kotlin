@@ -1,6 +1,6 @@
 package `2016`.`10`
 
-class BalanceBot(val id: Int): ChipReceiver {
+class BalanceBot(val id: Int) : ChipReceiver {
 
     lateinit var bots: Pair<ChipReceiver, ChipReceiver>
         private set

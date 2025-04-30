@@ -5,27 +5,24 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/19/input.txt")
 
-
-
 fun partOne(): Int {
     val points = inputParser.chunkAndJoin(",").map {
         it.split(",")
             .chunked(3)
-            .map { (x, y ,z) -> Point3D(x.toInt(), y.toInt(), z.toInt()) }
+            .map { (x, y, z) -> Point3D(x.toInt(), y.toInt(), z.toInt()) }
     }
     println(points)
     return 0
 }
 
 fun partTwo(): Int {
-
     return 0
 }
 
 data class Point3D(
     val x: Int,
     val y: Int,
-    val z: Int
+    val z: Int,
 ) {
     fun allOrientations(): Set<Point3D> {
         return setOf(
@@ -41,5 +38,5 @@ data class Point3D(
 fun main() {
     println(partOne())
     println(partTwo())
-        println("partTwo")
+    println("partTwo")
 }

@@ -4,7 +4,7 @@ import util.math.Vector2
 import util.math.manhattanDistance
 
 class Grid<T>(
-    val width: Int
+    val width: Int,
 ) : ArrayList<T>() {
 
     val height: Int
@@ -29,7 +29,7 @@ class Grid<T>(
     fun indexByDirection(
         index: Int,
         direction: Direction,
-        spacing: Int = 1
+        spacing: Int = 1,
     ): Int? {
         return when (direction) {
             Direction.Up -> ::getUpNeighbor
@@ -97,8 +97,8 @@ class Grid<T>(
 
     fun getGridAs2D(): List<List<T>> {
         val grid = mutableListOf<List<T>>()
-        for (i in 0 until size/width) {
-            val slice = this.slice(i*width until (i+1)*width)
+        for (i in 0 until size / width) {
+            val slice = this.slice(i * width until (i + 1) * width)
             grid.add(i, mutableListOf<T>().apply { this.addAll(slice) })
         }
         return grid
@@ -181,8 +181,6 @@ class Grid<T>(
         return getVector(a).manhattanDistance(getVector(b))
     }
 }
-
-
 
 fun <T> Collection<T>.toGrid(width: Int): Grid<T> {
     val collection = this

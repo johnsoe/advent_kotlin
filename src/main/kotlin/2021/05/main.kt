@@ -6,11 +6,9 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/05/input.txt")
 
-
-
 fun partOne(): Int {
     return getOverlapCount(
-        convertToLines().filter { it.isStraight() }
+        convertToLines().filter { it.isStraight() },
     )
 }
 
@@ -34,21 +32,21 @@ fun convertToLines(): List<Line> {
         val split = line.split("(,| -> )".toRegex()).map { it.toInt() }
         Line(
             Point(split[0], split[1]),
-            Point(split[2], split[3])
+            Point(split[2], split[3]),
         )
     }
 }
 
 data class Line(
     val start: Point,
-    val end: Point
+    val end: Point,
 ) {
 
     fun isStraight() = isVertical() || isHorizontal()
     private fun isVertical() = start.x == end.x
     private fun isHorizontal() = start.y == end.y
 
-    fun getPointSet() : Set<Point> {
+    fun getPointSet(): Set<Point> {
         return when {
             isHorizontal() -> {
                 (Integer.min(start.x, end.x)..Integer.max(start.x, end.x)).map {
@@ -64,7 +62,7 @@ data class Line(
                 val leftPoint = if (start.x < end.x) start else end
                 val rightPoint = if (start.x < end.x) end else start
                 val yRangeReversed = leftPoint.y > rightPoint.y
-                val xRange = leftPoint.x .. rightPoint.x
+                val xRange = leftPoint.x..rightPoint.x
                 xRange.mapIndexed { index, i ->
                     val y = if (yRangeReversed) -index else index
                     Point(i, y + leftPoint.y)

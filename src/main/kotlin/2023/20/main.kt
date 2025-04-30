@@ -1,9 +1,8 @@
 package `2023`.`20`
 
-import kotlin.Int
 import util.InputParser
-import `2023`.`20`.*
 import java.util.*
+import kotlin.Int
 
 val inputParser = InputParser("2023/20/input.txt")
 
@@ -69,7 +68,7 @@ fun partOne(): Int {
     return 0
 }
 
-//fun generateGraph(): Map<String, Node> {
+// fun generateGraph(): Map<String, Node> {
 //    val nodeMap = mutableMapOf<String, Node>()
 //    inputParser.lines()
 //        .map { it.split(" -> ", ", ") }
@@ -87,10 +86,9 @@ fun partOne(): Int {
 //            )
 //        }
 //    return nodeMap
-//}
+// }
 
 fun partTwo(): Int {
-
     return 0
 }
 

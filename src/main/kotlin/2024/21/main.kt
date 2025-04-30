@@ -1,10 +1,10 @@
 package `2024`.`21`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 import kotlin.math.pow
 
 val inputParser = InputParser("2024/21/input.txt")
@@ -14,8 +14,8 @@ val keypad = "#^A<v>".toList().toGrid(3)
 val dMap: Map<Direction, Char> = mapOf(
     Direction.Up to '^',
     Direction.Down to 'v',
-    Direction.Left to  '<',
-    Direction.Right to '>'
+    Direction.Left to '<',
+    Direction.Right to '>',
 )
 val heuristic = mapOf(
     '<' to 1,
@@ -23,8 +23,6 @@ val heuristic = mapOf(
     '>' to 4,
     '^' to 3,
 )
-
-
 
 fun partOne() = countByDepth(3)
 fun partTwo() = countByDepth(26)
@@ -63,7 +61,7 @@ private fun optimalRoute(routes: Set<String>): String {
             }
         }
         Triple(it, dC, sum)
-    }.sortedWith(compareBy({it.second},{it.third})).first().first
+    }.sortedWith(compareBy({ it.second }, { it.third })).first().first
 }
 
 private fun allPaths(
@@ -127,7 +125,6 @@ fun calculateCounts(
 }
 
 fun main() {
-    
-println(partOne())
+    println(partOne())
     println(partTwo())
 }

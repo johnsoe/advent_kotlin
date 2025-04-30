@@ -1,11 +1,9 @@
 package `2015`.`02`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2015/02/input.txt")
-
-
 
 fun partOne(): Int {
     return createDimensions().sumOf {
@@ -30,7 +28,7 @@ fun createDimensions(): List<List<Int>> {
 fun partTwo(): Int {
     return createDimensions().sumOf {
         val dims = it.take(3)
-        val bow =  dims.fold(1) { acc, i -> acc * i }
+        val bow = dims.fold(1) { acc, i -> acc * i }
 
         val minArea = dims.sorted()
             .take(2)

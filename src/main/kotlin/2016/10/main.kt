@@ -1,9 +1,9 @@
 package `2016`.`10`
 
-import kotlin.Int
 import util.InputParser
 import java.util.LinkedList
 import java.util.Queue
+import kotlin.Int
 
 val inputParser = InputParser("2016/10/input.txt")
 val outputMap = mutableMapOf<Int, OutputChannel>()

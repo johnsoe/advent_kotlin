@@ -1,19 +1,17 @@
 package `2023`.`06`
 
-import kotlin.Int
 import util.InputParser
 import util.math.mult
+import kotlin.Int
 
 val inputParser = InputParser("2023/06/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.lines().map {
         val split = it.split(" ")
         countWinningRaces(
             time = split.first().toLong(),
-            distance = split.last().toLong()
+            distance = split.last().toLong(),
         )
     }.mult()
 }
@@ -29,7 +27,7 @@ fun partTwo(): Int {
 }
 
 fun countWinningRaces(time: Long, distance: Long): Int {
-    return (0L..time).count { wait  ->
+    return (0L..time).count { wait ->
         (time - wait) * wait > distance
     }
 }

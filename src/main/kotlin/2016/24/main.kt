@@ -1,15 +1,13 @@
 package `2016`.`24`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
 import java.util.LinkedList
+import kotlin.Int
 import kotlin.math.min
 
 val inputParser = InputParser("2016/24/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = createGrid()
@@ -20,7 +18,7 @@ fun partOne(): Int {
         distances = distances,
         visited = mutableSetOf(0),
         steps = 0,
-        returnToStart = false
+        returnToStart = false,
     )
 }
 
@@ -66,7 +64,7 @@ fun calculateShortestDistance(
     distances: Array<IntArray>,
     visited: MutableSet<Int>,
     steps: Int,
-    returnToStart: Boolean
+    returnToStart: Boolean,
 ): Int {
     return if (visited.size == distances.size) {
         if (returnToStart) {
@@ -98,7 +96,7 @@ fun partTwo(): Int {
         distances = distances,
         visited = mutableSetOf(0),
         steps = 0,
-        returnToStart = true
+        returnToStart = true,
     )
 }
 

@@ -5,15 +5,13 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/13/input.txt")
 
-
-
 fun partOne(): Int {
     val chunks = inputParser.chunkAndJoin()
     val firstFold = getFolds(chunks.last()).first()
     return fold(
         firstFold.first,
         firstFold.second.toInt(),
-        getPoints(chunks.first())
+        getPoints(chunks.first()),
     ).size
 }
 
@@ -41,7 +39,6 @@ fun fold(foldDirection: String, foldInt: Int, points: Set<Pair<Int, Int>>): Set<
             else -> it
         }
     }.toSet()
-
 }
 
 fun partTwo(): Int {
@@ -51,7 +48,7 @@ fun partTwo(): Int {
             fold(next.first, next.second.toInt(), acc)
         }
     for (i in 0..folded.maxOf { it.second }) {
-        for (j in 0 .. folded.maxOf { it.first }) {
+        for (j in 0..folded.maxOf { it.first }) {
             if (folded.contains(j to i)) {
                 print("#")
             } else {

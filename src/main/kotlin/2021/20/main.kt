@@ -1,13 +1,11 @@
 package `2021`.`20`
 
-import util.grid.Grid
 import util.InputParser
+import util.grid.Grid
 import java.lang.IllegalStateException
 import kotlin.Int
 
 val inputParser = InputParser("2021/20/input.txt")
-
-
 
 fun partOne(): Int {
     val input = inputParser.lines()
@@ -36,7 +34,6 @@ fun partOne(): Int {
                         }.joinToString("")
                         .toInt(2)
                 }
-
             }
         }
         grid.forEachIndexed { index, c ->
@@ -47,7 +44,6 @@ fun partOne(): Int {
 }
 
 fun expandImage(grid: Grid<Char>, expansionChar: Char): Grid<Char> {
-
     val newGrid = Grid<Char>(grid.width + 4)
     val emptyRow = CharArray(grid.width + 4) { expansionChar }.toList()
     newGrid.addAll(emptyRow)
@@ -65,12 +61,11 @@ fun expandImage(grid: Grid<Char>, expansionChar: Char): Grid<Char> {
 }
 
 fun partTwo(): Int {
-
     return 0
 }
 
 fun main() {
     println(partOne())
     println(partTwo())
-        println("partTwo")
+    println("partTwo")
 }

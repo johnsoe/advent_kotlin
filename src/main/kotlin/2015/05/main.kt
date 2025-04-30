@@ -1,12 +1,10 @@
 package `2015`.`05`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2015/05/input.txt")
 val naughtyList = listOf("ab", "cd", "pq", "xy")
-
-
 
 fun partOne(): Int {
     return inputParser.lines()

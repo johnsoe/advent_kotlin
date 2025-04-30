@@ -1,14 +1,12 @@
 package `2015`.`15`
 
-import kotlin.Int
 import util.InputParser
 import util.math.mult
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2015/15/input.txt")
 val regex = """(.*): capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)""".toRegex()
-
-
 
 fun partOne(): Int {
     val ingredients = createIngredients()
@@ -29,7 +27,8 @@ fun calculateScores(ingredients: List<Ingredient>, selected: MutableList<Int>, r
         selected.removeLast()
         when (calorieTotal) {
             null,
-            score.last() -> score.dropLast(1).mult()
+            score.last(),
+            -> score.dropLast(1).mult()
             else -> 0
         }
     } else {
@@ -46,12 +45,12 @@ fun calculateScores(ingredients: List<Ingredient>, selected: MutableList<Int>, r
 fun createIngredients(): List<Ingredient> {
     return inputParser.lines()
         .mapNotNull {
-            regex.find(it)?.destructured?.toList()?.let{ input ->
+            regex.find(it)?.destructured?.toList()?.let { input ->
                 Ingredient(
                     name = input[0],
                     attributes = input.drop(1)
                         .map { it.toInt() }
-                        .toIntArray()
+                        .toIntArray(),
                 )
             }
         }
@@ -63,13 +62,13 @@ fun partTwo(): Int {
         ingredients = ingredients,
         selected = mutableListOf(),
         remaining = 100,
-        calorieTotal = 500
+        calorieTotal = 500,
     )
 }
 
 class Ingredient(
     val name: String,
-    val attributes: IntArray
+    val attributes: IntArray,
 )
 
 fun main() {

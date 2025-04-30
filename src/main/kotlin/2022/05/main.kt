@@ -1,11 +1,9 @@
 package `2022`.`05`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2022/05/input.txt")
-
-
 
 fun partOne(): String {
     val stacks = getInputStacks()

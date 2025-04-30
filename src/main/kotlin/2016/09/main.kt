@@ -4,8 +4,6 @@ import util.InputParser
 
 val inputParser = InputParser("2016/09/input.txt")
 
-
-
 fun partOne(): Long {
     return inputParser.line()
         .decompressLength { false }

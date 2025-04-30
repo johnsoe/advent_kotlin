@@ -1,11 +1,9 @@
 package `2022`.`10`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2022/10/input.txt")
-
-
 
 fun partOne(): Int {
     var signalStrength = 0
@@ -25,7 +23,7 @@ fun processCommands(callback: (Int, Int) -> Unit) {
     var count = 0
     var toProcess: Pair<Int, Cmd>? = null
 
-    while(count < cmds.size) {
+    while (count < cmds.size) {
         // cycle start - schedule any necessary commands.
         cycle++
         if (toProcess == null) {

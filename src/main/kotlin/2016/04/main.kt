@@ -1,11 +1,9 @@
 package `2016`.`04`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2016/04/input.txt")
-
-
 
 fun partOne(): Int {
     return createRooms()
@@ -27,7 +25,7 @@ fun createRooms(): List<Room> {
 data class Room(
     val code: String,
     val checksum: String,
-    val id: Int
+    val id: Int,
 ) {
 
     fun isValid(): Boolean {
@@ -36,7 +34,7 @@ data class Room(
             .eachCount()
         // Sort by character count, and on tie break, alphabetical order
         val checksumCompare = charMap.keys.sortedWith(
-            compareByDescending<Char> { charMap[it] }.thenBy { it }
+            compareByDescending<Char> { charMap[it] }.thenBy { it },
         ).take(5).joinToString("")
 
         return checksumCompare == checksum

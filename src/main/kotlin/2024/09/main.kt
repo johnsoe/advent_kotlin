@@ -1,12 +1,10 @@
 package `2024`.`09`
 
-import kotlin.Int
 import util.InputParser
 import util.math.isEven
+import kotlin.Int
 
 val inputParser = InputParser("2024/09/input.txt")
-
-
 
 fun partOne(): Long {
     var id = 0
@@ -54,7 +52,7 @@ fun partTwo(): Long {
             if (index.isEven()) {
                 occupied[id] = addresses
                 id++
-            } else if (addresses.size() > 0){
+            } else if (addresses.size() > 0) {
                 empties.add(addresses)
             }
             space += i

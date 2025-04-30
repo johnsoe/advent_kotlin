@@ -1,16 +1,13 @@
 package `2024`.`20`
 
-
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.list.toCharGrid
 import java.util.*
+import kotlin.Int
 
 val inputParser = InputParser("2024/20/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = inputParser.lines().toCharGrid()
@@ -21,7 +18,7 @@ fun partOne(): Int {
 
 private fun findCheats(grid: Grid<Char>): List<Pair<Int, Int>> {
     val map = grid.withIndex()
-        .filter { it.value == '.' || it.value == 'S'}
+        .filter { it.value == '.' || it.value == 'S' }
         .associate {
             val validDirections = Direction.cardinalDirections().mapNotNull { dir ->
                 val nextIndex = grid.indexByDirection(it.index, dir, 1)
@@ -52,7 +49,7 @@ private fun bfsSteps(grid: Grid<Char>, start: Char): Map<Int, Int> {
     val queue = LinkedList<Pair<Int, Int>>()
     val visited = mutableSetOf(startIndex)
     queue.add(startIndex to 0)
-    while(queue.isNotEmpty()) {
+    while (queue.isNotEmpty()) {
         val (index, step) = queue.removeFirst()
         stepCounts[index] = step
         Direction.cardinalDirections()
@@ -73,13 +70,11 @@ fun partTwo(): Int {
         .filter { it.value == 'S' || it.value == '.' }
         .map { it.index to allCheats(it.index, grid) }
 
-
     return allCheats.map { (s, cs) ->
         cs.map { sDistance[it.first]!! - sDistance[s]!! - it.second }
             .filter { it >= 100 }
     }.flatten().size
 }
-
 
 private fun allCheats(startIndex: Int, grid: Grid<Char>): List<Pair<Int, Int>> {
     return grid.withIndex().filter { it.value == 'E' || it.value == '.' }

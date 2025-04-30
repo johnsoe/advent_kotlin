@@ -1,15 +1,13 @@
 package `2024`.`15`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.toGrid
 import util.list.toCharGrid
+import kotlin.Int
 
 val inputParser = InputParser("2024/15/input.txt")
 val dirMap = Direction.instructionMap()
-
-
 
 fun partOne(): Int {
     val grid = inputParser.chunk()[0].toCharGrid()
@@ -30,7 +28,7 @@ fun partOne(): Int {
                         intermediates.add(nextIndex)
                         nextIndex = grid.indexByDirection(nextIndex, direction)!!
                     }
-                    when(grid[nextIndex]) {
+                    when (grid[nextIndex]) {
                         '.' -> {
                             curr = setNext
                             intermediates.forEach {
@@ -86,7 +84,7 @@ fun partTwo(): Int {
                             intermediates[nextIndex] = grid[nextIndex]
                             nextIndex = grid.indexByDirection(nextIndex, direction)!!
                         }
-                        when(grid[nextIndex]) {
+                        when (grid[nextIndex]) {
                             '.' -> {
                                 curr = setNext
                                 intermediates.forEach {
@@ -105,13 +103,15 @@ fun partTwo(): Int {
                                 .filter { grid[it] == '[' || grid[it] == ']' }
                                 .sorted().toMutableSet()
 
-                            nexts.addAll(nexts.map {
-                                when (grid[it]) {
-                                    ']' -> it - 1
-                                    '[' -> it + 1
-                                    else -> 0
-                                }
-                            })
+                            nexts.addAll(
+                                nexts.map {
+                                    when (grid[it]) {
+                                        ']' -> it - 1
+                                        '[' -> it + 1
+                                        else -> 0
+                                    }
+                                },
+                            )
                             nextRowIndices.clear()
                             nextRowIndices.addAll(nexts)
                             allNextIndices.addAll(nextRowIndices)
@@ -139,8 +139,10 @@ fun partTwo(): Int {
             println(grid)
             val validG = grid.withIndex().filter {
                 if (it.value == '[') {
-                    grid[it.index + 1]  != ']'
-                } else false
+                    grid[it.index + 1] != ']'
+                } else {
+                    false
+                }
             }
             if (validG.isNotEmpty()) {
                 println(validG.map { grid.getVector(it.index) })

@@ -1,9 +1,9 @@
 package util.math
 
 // TODO: Make this generic (overloads?)
-data class Vector2 (
+data class Vector2(
     val x: Int,
-    val y: Int
+    val y: Int,
 ) {
 
     operator fun minus(other: Vector2): Vector2 {

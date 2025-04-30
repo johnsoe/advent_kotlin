@@ -1,21 +1,19 @@
 package `2023`.`16`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
 import java.util.*
+import kotlin.Int
 
 val inputParser = InputParser("2023/16/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = createGrid()
     return evaluateWithStartBeam(
         start = Beam(Direction.Right, 0),
-        grid = grid
+        grid = grid,
     )
 }
 
@@ -38,7 +36,7 @@ fun Char.passThrough(direction: Direction): List<Direction> {
             listOf(next)
         }
         '|' -> {
-            when(direction) {
+            when (direction) {
                 Direction.Right, Direction.Left -> listOf(Direction.Up, Direction.Down)
                 else -> listOf(direction)
             }
@@ -54,24 +52,23 @@ fun Char.passThrough(direction: Direction): List<Direction> {
             listOf(next)
         }
         '-' -> {
-            when(direction) {
+            when (direction) {
                 Direction.Down, Direction.Up -> listOf(Direction.Right, Direction.Left)
                 else -> listOf(direction)
             }
         }
         else -> { listOf(direction) }
     }
-
 }
 
 data class Beam(
     var direction: Direction,
-    var index: Int
+    var index: Int,
 )
 
 fun evaluateWithStartBeam(start: Beam, grid: Grid<Char>): Int {
     val visited = Grid<MutableSet<Direction>>(grid.width)
-        .apply { grid.forEach { _ -> this.add(mutableSetOf())} }
+        .apply { grid.forEach { _ -> this.add(mutableSetOf()) } }
 
     val beams: Queue<Beam> = LinkedList()
     beams.add(start)
@@ -94,7 +91,7 @@ fun evaluateWithStartBeam(start: Beam, grid: Grid<Char>): Int {
 
 fun getInitialBeams(grid: Grid<Char>): List<Beam> {
     return List(grid.getCol(0).size) { index -> Beam(Direction.Right, index * grid.width) } +
-        List(grid.getCol(grid.width - 1).size) { index -> Beam(Direction.Left,(index + 1) * grid.width - 1) } +
+        List(grid.getCol(grid.width - 1).size) { index -> Beam(Direction.Left, (index + 1) * grid.width - 1) } +
         List(grid.getRow(0).size) { index -> Beam(Direction.Down, index) } +
         List(grid.getRow(grid.height - 1).size) { index -> Beam(Direction.Up, index + ((grid.height - 1) * grid.width)) }
 }

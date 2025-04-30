@@ -1,11 +1,9 @@
 package `2024`.`05`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/05/input.txt")
-
-
 
 fun partOne(): Int {
     val rules = rules()
@@ -34,7 +32,7 @@ private fun updates(): List<List<Int>> {
 }
 
 private fun List<Int>.adheresToRules(
-    rules: List<Pair<Int, Int>>
+    rules: List<Pair<Int, Int>>,
 ): Boolean {
     val prev = mutableListOf<Int>()
     val next = this.toMutableList()
@@ -55,7 +53,7 @@ fun partTwo(): Int {
             val order = it.toMutableList()
             while (!order.adheresToRules(rules)) {
                 for (i in 0..<order.size) {
-                    for (j in i+1..<order.size) {
+                    for (j in i + 1..<order.size) {
                         if ((order[i] to order[j]) !in rules) {
                             val temp = order[i]
                             order[i] = order[j]

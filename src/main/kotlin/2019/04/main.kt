@@ -1,11 +1,9 @@
 package `2019`.`04`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2019/04/input.txt")
-
-
 
 fun partOne(): Int {
     return getInputRange().filter {
@@ -20,7 +18,6 @@ private fun getInputRange(): IntRange {
         .map { it.toInt() }
     return IntRange(input.first(), input.last())
 }
-
 
 fun partTwo(): Int {
     return getInputRange().filter {

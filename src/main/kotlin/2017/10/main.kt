@@ -1,14 +1,11 @@
 package `2017`.`10`
 
-
-import kotlin.Int
 import util.InputParser
 import util.hash.knotReverse
 import util.hash.toKnotHash
+import kotlin.Int
 
 val inputParser = InputParser("2017/10/input.txt")
-
-
 
 fun partOne(): Int {
     var index = 0

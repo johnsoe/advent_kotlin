@@ -1,11 +1,9 @@
 package `2024`.`19`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/19/input.txt")
-
-
 
 fun partOne(): Int {
     val patterns = inputParser.lines().first().split(",").map { it.trim() }
@@ -21,7 +19,9 @@ fun String.isPossible(patterns: List<String>): Boolean {
         patterns.any {
             if (this.startsWith(it)) {
                 this.drop(it.length).isPossible(patterns)
-            } else false
+            } else {
+                false
+            }
         }
     }
 }

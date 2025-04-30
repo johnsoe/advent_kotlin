@@ -1,19 +1,15 @@
 package `2015`.`06`
 
-import `2015`.`06`.LightCommand
-import `2015`.`06`.LightAction
-import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
 import java.awt.Point
 import java.lang.UnsupportedOperationException
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2015/06/input.txt")
 val regex = """(.*) (\d+),(\d+) through (\d+),(\d+)""".toRegex()
-
-
 
 fun partOne(): Int {
     val grid = createGrid(false)
@@ -50,7 +46,7 @@ private fun getCommands(): List<LightCommand> {
                 else -> throw UnsupportedOperationException()
             }
             val nums = it.drop(1).map { it.toInt() }
-            LightCommand (
+            LightCommand(
                 action,
                 Point(nums[0], nums[1]),
                 Point(nums[2], nums[3]),

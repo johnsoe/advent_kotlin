@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/03/input.txt")
 
-
-
 fun partOne(): Int {
     val binaryInput = inputParser.lines().map { it.toInt(2) }
     val max = binaryInput.maxOf { it }

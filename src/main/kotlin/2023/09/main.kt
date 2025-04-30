@@ -4,8 +4,6 @@ import util.InputParser
 
 val inputParser = InputParser("2023/09/input.txt")
 
-
-
 fun partOne(): Long {
     return inputParser.linesOfType<Long>().sumOf {
         it.fullyDerive()

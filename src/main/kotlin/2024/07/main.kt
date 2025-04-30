@@ -1,15 +1,12 @@
 package `2024`.`07`
 
-
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/07/input.txt")
 val add: (Long, Long) -> Long = { a, b -> a + b }
 val mult: (Long, Long) -> Long = { a, b -> a * b }
-val concat: (Long, Long) -> Long = { a, b -> (a.toString() + b.toString()).toLong()}
-
-
+val concat: (Long, Long) -> Long = { a, b -> (a.toString() + b.toString()).toLong() }
 
 fun partOne(): Long {
     return inputParser.linesOfType<Long>(": ", " ")
@@ -38,7 +35,7 @@ private fun helper(
                     sum = it(sum, nums[index]),
                     index = index + 1,
                     nums = nums,
-                    ops = ops
+                    ops = ops,
                 )?.let { return it }
             }
             null
@@ -53,7 +50,6 @@ fun partTwo(): Long {
 }
 
 fun main() {
-    
-println(partOne())
+    println(partOne())
     println(partTwo())
 }

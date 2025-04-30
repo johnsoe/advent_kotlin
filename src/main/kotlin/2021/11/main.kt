@@ -1,15 +1,13 @@
 package `2021`.`11`
 
-import util.grid.Grid
 import util.InputParser
+import util.grid.Grid
 import util.grid.toGrid
 import java.util.*
 import java.util.ArrayDeque
 import kotlin.Int
 
 val inputParser = InputParser("2021/11/input.txt")
-
-
 
 fun partOne(): Int {
     val width = inputParser.lines().size
@@ -53,7 +51,7 @@ fun partTwo(): Int {
         .toGrid(width)
     var flashSum = 0
     var count = 0
-    while(flashSum != 100) {
+    while (flashSum != 100) {
         octos = octos.map { it + 1 }.toGrid(width)
         val indices = octos.withIndex().filter { it.value > 9 }.map { it.index }
         flashSum = flash(octos, ArrayDeque<Int>().apply { addAll(indices) })

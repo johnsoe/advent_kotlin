@@ -1,10 +1,10 @@
 package `2023`.`18`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import java.awt.Point
 import java.util.*
+import kotlin.Int
 import kotlin.collections.LinkedHashSet
 
 val inputParser = InputParser("2023/18/input.txt")
@@ -14,9 +14,9 @@ fun partOneAgain(): Long {
         .map {
             val split = it.split(" ")
             split[0].toDirection() to split[1].toInt()
-        }.fold(LinkedHashSet<Point>().apply { this.add(Point(0,0)) }) { visited, (direction, amt) ->
+        }.fold(LinkedHashSet<Point>().apply { this.add(Point(0, 0)) }) { visited, (direction, amt) ->
             val pt = visited.last()
-            val delta = when(direction) {
+            val delta = when (direction) {
                 Direction.Up -> Point(0, -1)
                 Direction.Down -> Point(0, 1)
                 Direction.Right -> Point(1, 0)
@@ -33,12 +33,12 @@ fun partOneAgain(): Long {
         .map {
             val split = it.split(" ")
             split[0].toDirection() to split[1].toInt()
-        }.fold(Point(0,0)) { acc, (direction, amt) ->
-            val line = when(direction) {
-                Direction.Up -> TrenchLine.Vertical(acc.y..(acc.y + amt), acc.x) to Point(acc.x, acc.y+amt)
-                Direction.Down -> TrenchLine.Vertical((acc.y - amt)..acc.y, acc.x) to Point(acc.x, acc.y-amt)
-                Direction.Right -> TrenchLine.Horizontal(acc.x..(acc.x + amt), acc.y) to Point(acc.x+amt, acc.y)
-                Direction.Left -> TrenchLine.Horizontal((acc.x - amt)..acc.x, acc.y) to Point(acc.x-amt, acc.y)
+        }.fold(Point(0, 0)) { acc, (direction, amt) ->
+            val line = when (direction) {
+                Direction.Up -> TrenchLine.Vertical(acc.y..(acc.y + amt), acc.x) to Point(acc.x, acc.y + amt)
+                Direction.Down -> TrenchLine.Vertical((acc.y - amt)..acc.y, acc.x) to Point(acc.x, acc.y - amt)
+                Direction.Right -> TrenchLine.Horizontal(acc.x..(acc.x + amt), acc.y) to Point(acc.x + amt, acc.y)
+                Direction.Left -> TrenchLine.Horizontal((acc.x - amt)..acc.x, acc.y) to Point(acc.x - amt, acc.y)
                 else -> throw IllegalStateException("lmao")
             }
             trenchLines.add(line.first)
@@ -53,7 +53,7 @@ fun partOneAgain(): Long {
                     '#'
                 } else {
                     '.'
-                }
+                },
             )
         }
         println()
@@ -66,9 +66,9 @@ fun partOne(): Long {
         .map {
             val split = it.split(" ")
             split[0].toDirection() to split[1].toInt()
-        }.fold(LinkedHashSet<Point>().apply { this.add(Point(0,0)) }) { visited, (direction, amt) ->
+        }.fold(LinkedHashSet<Point>().apply { this.add(Point(0, 0)) }) { visited, (direction, amt) ->
             val pt = visited.last()
-            val delta = when(direction) {
+            val delta = when (direction) {
                 Direction.Up -> Point(0, -1)
                 Direction.Down -> Point(0, 1)
                 Direction.Right -> Point(1, 0)
@@ -102,7 +102,7 @@ fun partOne(): Long {
     println(trench.minOf { it.y })
     (trench.minOf { it.y }..trench.maxOf { it.y }).forEach { y ->
         (trench.minOf { it.x }..trench.maxOf { it.x }).forEach { x ->
-            if(x == -10 && y == 1) {
+            if (x == -10 && y == 1) {
                 print('O')
             }
             print(
@@ -110,7 +110,7 @@ fun partOne(): Long {
                     '#'
                 } else {
                     '.'
-                }
+                },
             )
         }
         println()
@@ -146,7 +146,7 @@ fun partOne(): Long {
 }
 
 fun Point.getDeltaPosition(direction: Direction): Point {
-    return when(direction) {
+    return when (direction) {
         Direction.Up -> Point(0, -1)
         Direction.Down -> Point(0, 1)
         Direction.Right -> Point(1, 0)

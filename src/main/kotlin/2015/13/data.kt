@@ -1,6 +1,6 @@
 package `2015`.`13`
 
-class Member (val name: String) {
+class Member(val name: String) {
 
     private val others = mutableMapOf<String, Int>()
 

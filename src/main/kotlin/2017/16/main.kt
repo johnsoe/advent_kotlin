@@ -1,12 +1,9 @@
 package `2017`.`16`
 
-import kotlin.Int
 import util.InputParser
 import util.list.*
 
 val inputParser = InputParser("2017/16/input.txt")
-
-
 
 fun partOne(): String {
     val arr = Array(16) { (it + 97).toChar() }

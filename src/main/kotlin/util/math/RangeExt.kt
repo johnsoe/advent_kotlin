@@ -39,13 +39,13 @@ fun LongRange.union(other: LongRange): LongRange? {
     return this.intersection(other)?.let {
         LongRange(
             min(other.first, this.first),
-            max(other.last, this.last)
+            max(other.last, this.last),
         )
     }
 }
 
 fun LongRange.isAdjacent(other: LongRange): Boolean {
     return this.intersection(other) == null &&
-            (other.first - 1 == this.last) ||
-            (this.first - 1 == other.last)
+        (other.first - 1 == this.last) ||
+        (this.first - 1 == other.last)
 }

@@ -1,12 +1,10 @@
 package `2022`.`18`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2022/18/input.txt")
-
-
 
 fun partOne(): Int {
     val points = inputParser.linesOfType<Long>(",")
@@ -18,14 +16,14 @@ fun partOne(): Int {
     }
 }
 
-//0, 0, 0
+// 0, 0, 0
 
-//1, 0, 0
-//0, 1, 0
-//0, 0, 1
-//0, 0, -1
-//0, -1, 0
-//-1, 0, 0
+// 1, 0, 0
+// 0, 1, 0
+// 0, 0, 1
+// 0, 0, -1
+// 0, -1, 0
+// -1, 0, 0
 
 // Need to share two dimensions and the 3rd is off by one.
 fun List<Long>.isNeighbor(other: List<Long>): Boolean {
@@ -43,12 +41,12 @@ fun partTwo(): Int {
     val upperBound = Triple(
         points.maxOf { it[0] + 1 },
         points.maxOf { it[1] + 1 },
-        points.maxOf { it[2] + 1 }
+        points.maxOf { it[2] + 1 },
     )
     val lowerBound = Triple(
         points.minOf { it[0] - 1 },
         points.minOf { it[1] - 1 },
-        points.minOf { it[2] - 1 }
+        points.minOf { it[2] - 1 },
     )
     return 0
 }

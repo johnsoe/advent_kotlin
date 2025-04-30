@@ -1,19 +1,17 @@
 package `2016`.`01`
 
-import util.grid.Direction
 import util.InputParser
+import util.grid.Direction
 import java.lang.IllegalStateException
 import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2016/01/input.txt")
 
-
-
 fun partOne(): Int {
     val startDirection: Direction = Direction.Up
-    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
-        val nextDirection = when(direction.first()) {
+    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection, 0, 0)) { acc, direction ->
+        val nextDirection = when (direction.first()) {
             'L' -> acc.first.turnLeft()
             'R' -> acc.first.turnRight()
             else -> Direction.Up
@@ -26,7 +24,7 @@ fun partOne(): Int {
             Direction.Right -> vector to 0
             else -> throw IllegalStateException()
         }
-        Triple(nextDirection, acc.second + diff.first, acc.third +  diff.second)
+        Triple(nextDirection, acc.second + diff.first, acc.third + diff.second)
     }
     return abs(folded.second) + abs(folded.third)
 }
@@ -34,8 +32,8 @@ fun partOne(): Int {
 fun partTwo(): Int {
     val startDirection: Direction = Direction.Up
     val locationSet = mutableSetOf<Pair<Int, Int>>().apply { add(0 to 0) }
-    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection,  0,  0)) { acc, direction ->
-        val nextDirection = when(direction.first()) {
+    val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection, 0, 0)) { acc, direction ->
+        val nextDirection = when (direction.first()) {
             'L' -> acc.first.turnLeft()
             'R' -> acc.first.turnRight()
             else -> Direction.Up

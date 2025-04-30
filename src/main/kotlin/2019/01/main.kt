@@ -16,7 +16,7 @@ fun partTwo(): Long {
         .sumOf { calcIterFuel(it) }
 }
 
-private fun calcIterFuel(mass: Long) : Long {
+private fun calcIterFuel(mass: Long): Long {
     val fuel = calcFuel(mass)
     return if (fuel <= 0) {
         0

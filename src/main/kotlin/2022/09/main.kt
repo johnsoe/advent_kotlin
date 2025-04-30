@@ -1,13 +1,11 @@
 package `2022`.`09`
 
-import kotlin.Int
 import util.InputParser
 import java.awt.Point
+import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2022/09/input.txt")
-
-
 
 fun partOne(): Int {
     val headPos = Point(0, 0)
@@ -39,7 +37,7 @@ fun Point.follow(other: Point) {
     val xD = other.x - this.x
     val yD = other.y - this.y
 
-    //Do nothing, we are close enough
+    // Do nothing, we are close enough
     if (abs(xD) < 2 && abs(yD) < 2) {
         return
     }
@@ -59,7 +57,6 @@ fun Point.follow(other: Point) {
             this.y = other.y - (yD / 2)
         }
     }
-
 }
 
 fun partTwo(): Int {

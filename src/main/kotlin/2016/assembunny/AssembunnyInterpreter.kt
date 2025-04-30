@@ -7,13 +7,13 @@ object AssembunnyInterpreter {
     fun parseInstructions(
         instructions: List<List<String>>,
         registers: MutableMap<String, Int>,
-        output: OutputCallback = { false }
+        output: OutputCallback = { false },
     ) {
         val toggledInstructions = mutableSetOf<Int>()
         var instructionPtr = 0
         while (instructionPtr < instructions.size) {
             val instruction = getInstruction(instructions, instructionPtr, toggledInstructions)
-            when(instruction.first()) {
+            when (instruction.first()) {
                 "cpy" -> {
                     val register = instruction.last()
                     if (registers[register] == null) continue
@@ -52,7 +52,7 @@ object AssembunnyInterpreter {
     private fun getInstruction(
         instructions: List<List<String>>,
         index: Int,
-        toggled: Set<Int>
+        toggled: Set<Int>,
     ): List<String> {
         val instruction = instructions[index]
         return if (index !in toggled) {

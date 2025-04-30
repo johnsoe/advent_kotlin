@@ -5,15 +5,15 @@ sealed class File {
     abstract val size: Long
     abstract val name: String
 
-    data class Plain (
+    data class Plain(
         override val size: Long,
-        override val name: String
+        override val name: String,
     ) : File()
 
-    data class Dir (
+    data class Dir(
         override val name: String,
         val parent: Dir?,
-        val files: MutableSet<File> = mutableSetOf()
+        val files: MutableSet<File> = mutableSetOf(),
     ) : File() {
         override val size: Long
             get() = files.sumOf { it.size }

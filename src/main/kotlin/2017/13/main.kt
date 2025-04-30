@@ -1,11 +1,9 @@
 package `2017`.`13`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2017/13/input.txt")
-
-
 
 fun partOne(): Int {
     return layers().interceptions(0)
@@ -29,7 +27,7 @@ private fun List<Pair<Int, Int>>.interceptions(offset: Int): List<Pair<Int, Int>
 fun partTwo(): Int {
     val layers = layers()
     var offset = 1
-    while(layers.interceptions(offset).isNotEmpty()) {
+    while (layers.interceptions(offset).isNotEmpty()) {
         offset++
     }
     return offset

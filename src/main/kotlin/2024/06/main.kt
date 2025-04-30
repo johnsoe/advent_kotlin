@@ -1,13 +1,11 @@
 package `2024`.`06`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
+import kotlin.Int
 
 val inputParser = InputParser("2024/06/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = inputParser.charGrid()
@@ -53,7 +51,7 @@ fun partTwo(): Int {
         traverse(
             grid,
             initialPosition,
-            obstruction
+            obstruction,
         ) { count++ }
     }
     return count

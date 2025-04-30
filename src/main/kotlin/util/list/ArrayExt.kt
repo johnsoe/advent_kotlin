@@ -33,4 +33,3 @@ fun <T> Array<T>.swapIndices(a: Int, b: Int): Array<T> {
 
 fun <T> Array<T>.contentString() = "[${this.joinToString(", ")}]"
 fun <T> Array<T>.shortContentString() = this.joinToString("")
-

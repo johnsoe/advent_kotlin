@@ -6,8 +6,6 @@ import kotlin.math.abs
 
 val inputParser = InputParser("2021/07/input.txt")
 
-
-
 fun partOne(): Long {
     return updateDistances { position, min, index ->
         abs(position - min - index).toLong()

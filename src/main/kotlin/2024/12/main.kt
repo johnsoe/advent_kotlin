@@ -1,15 +1,13 @@
 package `2024`.`12`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.math.Vector2
 import java.util.LinkedList
+import kotlin.Int
 
 val inputParser = InputParser("2024/12/input.txt")
-
-
 
 fun partOne(): Int {
     val processedRegions = mutableMapOf<Char, MutableSet<Int>>()
@@ -73,7 +71,7 @@ private fun analyzeEdges(
     vecs: List<Vector2>,
     grid: Grid<Char>,
     dir: Direction,
-    term: Char
+    term: Char,
 ): Int {
     val isXDir = dir.isXDirection()
     val xGroups = vecs.groupBy {
@@ -89,8 +87,11 @@ private fun analyzeEdges(
         sorted.forEachIndexed { i, vec ->
             val index = grid.indexByCoords(vec.x, vec.y)!!
             val above = grid.indexByDirection(index, dir)
-            if (i == 0 || (isXDir && sorted[i-1].y != vec.y-1) ||
-                (!isXDir && sorted[i - 1].x != vec.x - 1)) activeEdge = false
+            if (i == 0 || (isXDir && sorted[i - 1].y != vec.y - 1) ||
+                (!isXDir && sorted[i - 1].x != vec.x - 1)
+            ) {
+                activeEdge = false
+            }
             if (above == null || grid[above] != term) {
                 if (!activeEdge) {
                     activeEdge = true
@@ -106,7 +107,7 @@ private fun analyzeEdges(
 }
 
 private fun Direction.isXDirection(): Boolean {
-    return when(this) {
+    return when (this) {
         Direction.Right, Direction.Left -> true
         else -> false
     }

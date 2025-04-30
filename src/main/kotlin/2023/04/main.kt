@@ -13,8 +13,6 @@ val cardMatches = inputParser.lines().map { line ->
     winningNums.intersect(availableNums).size
 }
 
-
-
 fun partOne(): Int {
     return cardMatches
         .filter { it > 0 }
@@ -26,7 +24,7 @@ fun partTwo(): Int {
     val counts = cardMatches.indices.associateWith { 1 }.toMutableMap()
     cardMatches.forEachIndexed { index, matches ->
         val count = counts[index]!!
-        for (i in (index + 1)..(index+matches)) {
+        for (i in (index + 1)..(index + matches)) {
             counts[i] = counts[i]!! + count
         }
     }

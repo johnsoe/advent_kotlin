@@ -8,11 +8,9 @@ import kotlin.Int
 
 val inputParser = InputParser("2016/02/input.txt")
 
-
-
 fun partOne(): Int {
     val directionMap = Direction.directionMap()
-    val keypad: Grid<Int> = listOf(1,2,3,4,5,6,7,8,9).toGrid(3)
+    val keypad: Grid<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toGrid(3)
     return inputParser.lines()
         .fold(4 to "") { acc, chars ->
             var index = acc.first
@@ -27,7 +25,7 @@ fun partOne(): Int {
 
 fun partTwo(): String {
     val directionMap = Direction.directionMap()
-    val keypad: Grid<Int> = listOf(-1,-1,1,-1,-1,-1,2,3,4,-1,5,6,7,8,9,-1,10,11,12,-1,-1,-1,13,-1,-1).toGrid(5)
+    val keypad: Grid<Int> = listOf(-1, -1, 1, -1, -1, -1, 2, 3, 4, -1, 5, 6, 7, 8, 9, -1, 10, 11, 12, -1, -1, -1, 13, -1, -1).toGrid(5)
     return inputParser.lines()
         .fold(10 to "") { acc, chars ->
             var index = acc.first

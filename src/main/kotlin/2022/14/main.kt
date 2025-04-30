@@ -1,20 +1,18 @@
 package `2022`.`14`
 
-import kotlin.Int
 import util.InputParser
 import java.awt.Point
+import kotlin.Int
 import kotlin.math.max
 import kotlin.math.min
 
 val inputParser = InputParser("2022/14/input.txt")
 
-
-
 fun partOne(): Int {
     val blockedPoints = getStartingPoints()
     val lowestPoint = blockedPoints.map { it.y }.max()
     var sandCount = 0
-    while(true) {
+    while (true) {
         sandCount++
         val emitted = Point(500, 0)
         while (emitted.y <= lowestPoint && !emitted.isFullyBlocked(blockedPoints)) {
@@ -78,11 +76,11 @@ fun Point.canDrop(blockedPoints: Set<Point>): Boolean {
 }
 
 fun Point.canDropLeft(blockedPoints: Set<Point>): Boolean {
-    return Point(this.x - 1, this.y + 1) !in blockedPoints// && Point(this.x-1, this.y) !in blockedPoints
+    return Point(this.x - 1, this.y + 1) !in blockedPoints // && Point(this.x-1, this.y) !in blockedPoints
 }
 
 fun Point.canDropRight(blockedPoints: Set<Point>): Boolean {
-    return Point(this.x + 1, this.y + 1) !in blockedPoints// && Point(this.x + 1, this.y) !in blockedPoints
+    return Point(this.x + 1, this.y + 1) !in blockedPoints // && Point(this.x + 1, this.y) !in blockedPoints
 }
 
 fun Point.isFullyBlocked(blockedPoints: Set<Point>): Boolean {
@@ -95,7 +93,7 @@ fun partTwo(): Int {
     val blockedPoints = getStartingPoints()
     val lowestPoint = blockedPoints.map { it.y }.max() + 1
     var sandCount = 0
-    while(true) {
+    while (true) {
         sandCount++
         val emitted = Point(500, 0)
         if (emitted in blockedPoints) {

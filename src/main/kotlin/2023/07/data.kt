@@ -25,7 +25,7 @@ sealed class Card(val rank: Int) {
 
 data class Hand(
     val bid: Int,
-    val cards: Array<Card>
+    val cards: Array<Card>,
 ) : Comparable<Hand> {
 
     private val cardCounts = cards.fold(mutableMapOf<Card, Int>()) { acc, card ->

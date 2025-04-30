@@ -14,7 +14,7 @@ sealed class Direction {
     object DownLeft : Direction()
 
     fun turnLeft(): Direction {
-        return when(this) {
+        return when (this) {
             is Up -> Left
             is Down -> Right
             is Left -> Down
@@ -24,7 +24,7 @@ sealed class Direction {
     }
 
     fun turnRight(): Direction {
-        return when(this) {
+        return when (this) {
             is Up -> Right
             is Down -> Left
             is Left -> Up
@@ -34,7 +34,7 @@ sealed class Direction {
     }
 
     fun opposite(): Direction {
-        return when(this) {
+        return when (this) {
             is Up -> Down
             is Down -> Up
             is Left -> Right
@@ -57,7 +57,7 @@ sealed class Direction {
     }
 
     fun toVec(): Vector2 {
-        return when(this) {
+        return when (this) {
             is Up -> Vector2(0, -1)
             is Down -> Vector2(0, 1)
             is Left -> Vector2(-1, 0)
@@ -78,15 +78,14 @@ sealed class Direction {
             'U' to Up,
             'D' to Down,
             'L' to Left,
-            'R' to Right
+            'R' to Right,
         )
 
         fun instructionMap(): Map<Char, Direction> = mapOf(
             '^' to Up,
             'v' to Down,
             '<' to Left,
-            '>' to Right
+            '>' to Right,
         )
     }
 }
-

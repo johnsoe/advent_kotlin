@@ -1,9 +1,9 @@
 package util.math
 
-data class Vector3 (
+data class Vector3(
     val q: Int,
     val r: Int,
-    val s: Int
+    val s: Int,
 ) {
 
     operator fun plus(other: Vector3): Vector3 {

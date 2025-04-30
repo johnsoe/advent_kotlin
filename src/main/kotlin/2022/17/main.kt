@@ -1,17 +1,13 @@
 package `2022`.`17`
 
-import kotlin.Int
 import util.InputParser
-import `2022.17`.Rock
-import java.awt.Point
+import kotlin.Int
 
 val inputParser = InputParser("2022/17/input.txt")
 
-
-
 fun partOne(): Int {
     val rows = mutableMapOf<Long, Array<Boolean>>()
-        .apply { this[0] = createNewRow()}
+        .apply { this[0] = createNewRow() }
     val wind = inputParser.lines().first().toCharArray()
 
     var windIndex = 0L
@@ -35,13 +31,12 @@ fun createNewRow(): Array<Boolean> {
 }
 
 fun partTwo(): Int {
-
     return 0
 }
 
 fun main() {
     println(partOne())
     println(partTwo())
-        println("partOne")
-        println("partTwo")
+    println("partOne")
+    println("partTwo")
 }

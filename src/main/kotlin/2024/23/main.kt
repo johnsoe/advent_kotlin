@@ -1,12 +1,10 @@
 package `2024`.`23`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/23/input.txt")
 val graph = inputParser.lines().toGraph()
-
-
 
 fun partOne(): Int {
     val results = mutableSetOf<String>()
@@ -19,7 +17,7 @@ fun partOne(): Int {
                 if (connected[1] in graph[connected.first()]!!) {
                     results.add(
                         listOf(connected[0], connected[1], entry.key)
-                            .sortJoin("")
+                            .sortJoin(""),
                     )
                 }
             }

@@ -1,15 +1,13 @@
 package `2017`.`14`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
 import util.hash.toKnotHash
 import java.util.LinkedList
+import kotlin.Int
 
 val inputParser = InputParser("2017/14/input.txt")
-
-
 
 fun partOne() = toGrid().count { it == '1' }
 
@@ -36,7 +34,7 @@ fun partTwo(): Int {
             groupCount++
             val toVisit = LinkedList<Int>()
             toVisit.add(index)
-            while(toVisit.isNotEmpty()) {
+            while (toVisit.isNotEmpty()) {
                 val next = toVisit.removeFirst()
                 grid.getAdjacentNeighbors(next).filter {
                     it.value == '1' && it.index !in visited

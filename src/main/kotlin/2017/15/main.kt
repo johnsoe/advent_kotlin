@@ -1,16 +1,13 @@
 package `2017`.`15`
 
-
 import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2017/15/input.txt")
 val sigDigits = 65536 // 2^16
-
-
 
 fun partOne(): Int {
     val input = inputParser.lines().map {
@@ -34,7 +31,7 @@ fun partTwo(): Long {
     return Flowable.zip(
         toFlow(input[0], 16807L, 4),
         toFlow(input[1], 48271L, 8),
-        ::Pair
+        ::Pair,
     ).filter { (a, b) -> a % sigDigits == b % sigDigits }
         .count()
         .blockingGet()
@@ -43,7 +40,7 @@ fun partTwo(): Long {
 private fun toFlow(start: Long, scaling: Long, mod: Long): Flowable<Long> {
     var next = start
     var count = 0
-    return Flowable.create( { emitter ->
+    return Flowable.create({ emitter ->
         while (count < 5_000_000) {
             next = (next * scaling) % Int.MAX_VALUE
             if (next % mod == 0L) {

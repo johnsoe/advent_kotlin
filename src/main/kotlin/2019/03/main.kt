@@ -1,14 +1,12 @@
 package `2019`.`03`
 
-import kotlin.Int
 import util.InputParser
 import java.awt.Point
+import kotlin.Int
 import kotlin.math.abs
 import kotlin.math.min
 
 val inputParser = InputParser("2019/03/input.txt")
-
-
 
 fun partOne(): Int {
     generatePaths().also { (first, second) ->

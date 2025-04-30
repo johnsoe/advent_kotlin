@@ -1,10 +1,10 @@
 package `2023`.`10`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 
 val inputParser = InputParser("2023/10/input.txt")
 val directionMap: Map<Direction, Map<Char, Direction>> = mapOf(
@@ -13,9 +13,6 @@ val directionMap: Map<Direction, Map<Char, Direction>> = mapOf(
     Direction.Down to mapOf('|' to Direction.Down, 'J' to Direction.Left, 'L' to Direction.Right),
     Direction.Right to mapOf('7' to Direction.Down, '-' to Direction.Right, 'J' to Direction.Up),
 )
-
-
-
 
 fun partOne(): Int {
     val pipes = traversePipes(createGrid())
@@ -46,7 +43,9 @@ fun Grid<Char>.getStartDirection(index: Int): Direction {
         this.indexByDirection(index, d)?.let {
             if (this[it].nextDirection(d) != null) {
                 d
-            } else null
+            } else {
+                null
+            }
         }
     }
 }

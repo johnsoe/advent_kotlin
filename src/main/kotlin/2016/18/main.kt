@@ -1,11 +1,9 @@
 package `2016`.`18`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2016/18/input.txt")
-
-
 
 fun partOne(): Long {
     return getTotalSafeCount(40)

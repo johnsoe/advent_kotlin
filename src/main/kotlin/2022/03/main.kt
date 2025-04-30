@@ -1,12 +1,10 @@
 package `2022`.`03`
 
-import kotlin.Int
 import util.InputParser
 import util.string.splitInHalf
+import kotlin.Int
 
 val inputParser = InputParser("2022/03/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.lines()

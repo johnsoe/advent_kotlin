@@ -1,20 +1,18 @@
 package `2024`.`11`
 
-import kotlin.Int
 import util.InputParser
 import util.math.isEven
 import java.util.LinkedList
+import kotlin.Int
 
 val inputParser = InputParser("2024/11/input.txt")
-
-
 
 fun partOne(): Int {
     val queue = LinkedList<Long>()
     queue.addAll(inputParser.linesOfType<Long>().flatten())
     repeat(25) {
         val temp = LinkedList<Long>()
-        while(queue.isNotEmpty()) {
+        while (queue.isNotEmpty()) {
             val next = queue.removeFirst()
             temp.addAll(nextStones(next))
         }
@@ -27,14 +25,14 @@ fun nextStones(stone: Long): List<Long> {
     return when {
         stone == 0L -> listOf(1)
         stone.digitCount().isEven() -> listOf(stone.halve(true), stone.halve(false))
-        else -> listOf( stone * 2024)
+        else -> listOf(stone * 2024)
     }
 }
 
 private fun Long.halve(front: Boolean): Long {
     val str = this.toString()
     val length = str.length
-    val (a, b) =  if (front) {
+    val (a, b) = if (front) {
         0 to length / 2
     } else {
         length / 2 to length

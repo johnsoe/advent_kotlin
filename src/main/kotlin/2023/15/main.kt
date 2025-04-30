@@ -1,11 +1,9 @@
 package `2023`.`15`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2023/15/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.lines()

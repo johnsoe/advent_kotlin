@@ -1,11 +1,9 @@
 package `2024`.`03`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/03/input.txt")
-
-
 
 fun partOne(): Int {
     val mulRegex = """mul\((\d+),(\d+)\)""".toRegex()

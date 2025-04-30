@@ -1,8 +1,8 @@
 package `2024`.`24`
 
-import kotlin.Int
 import util.InputParser
 import java.util.*
+import kotlin.Int
 
 val gateRegex = """(.*) (OR|XOR|AND) (.*) -> (.*)""".toRegex()
 val stateRegex = """(.*): (\d)""".toRegex()
@@ -22,7 +22,7 @@ fun partOne(): Long {
     return calculate(gates, state)
 }
 
-private fun calculate(gates:Set<Gate>, state: MutableMap<String, Int>): Long {
+private fun calculate(gates: Set<Gate>, state: MutableMap<String, Int>): Long {
     val visited = mutableSetOf<Gate>()
     val queue = LinkedList<Gate>()
     queue.addAll(gates.filter { it.inputs.all { it in state.keys } })
@@ -44,7 +44,7 @@ private fun calculate(gates:Set<Gate>, state: MutableMap<String, Int>): Long {
     return result.toLong(radix = 2)
 }
 
-private data class Gate (
+private data class Gate(
     val op: String,
     val inputs: List<String>,
     val output: String,
@@ -100,16 +100,15 @@ fun partTwo(): String {
                 }
             } ?: run { println("No Nested XOR Gate: $i $out") }
 
-            val nestedAnd = gates.find { it.gateByInput(out, op = "AND")}?.let { nestAnd ->
+            val nestedAnd = gates.find { it.gateByInput(out, op = "AND") }?.let { nestAnd ->
                 val nestedOr = gates.find { it.gateByInput(nestAnd.output, andGate?.output, "OR") }?.let { nestOr ->
                     // This should be input to next XOR it
                     val nextIStr = (i + 1).indexStr('z')
                     gates.find { it.gateByInput(nestOr.output, op = "XOR") && it.output == nextIStr } ?: run { println("OR invalid output $i ${nestOr.output}") }
-                } ?: run { println("No nested OR Gate $i $nestAnd $andGate")}
+                } ?: run { println("No nested OR Gate $i $nestAnd $andGate") }
             } ?: run { println("No Nested AND Gate $i $out") }
             outXor
         } ?: run { println("No XOR Gate: $i") }
-
     }
 
     return listOf("z06", "jmq", "z13", "gmh", "rqf", "cbd", "z38", "qrh").sorted().joinToString(",")
@@ -117,7 +116,7 @@ fun partTwo(): String {
 
 private fun Int.indexStr(prefix: Char): String {
     val suffix = if (this < 10) {
-        "0${this}"
+        "0$this"
     } else {
         this.toString()
     }

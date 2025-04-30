@@ -6,8 +6,6 @@ import kotlin.math.max
 
 val inputParser = InputParser("2023/02/input.txt")
 
-
-
 fun partOne(): Int {
     val limit = Round(12, 13, 14)
     val validGameSum = inputParser.lines().map {
@@ -15,8 +13,8 @@ fun partOne(): Int {
     }.filter {
         it.rounds.all { round ->
             round.redCount <= limit.redCount &&
-                    round.blueCount <= limit.blueCount &&
-                    round.greenCount <= limit.greenCount
+                round.blueCount <= limit.blueCount &&
+                round.greenCount <= limit.greenCount
         }
     }.sumOf {
         it.id
@@ -43,7 +41,7 @@ fun String.toGame(): Game {
     val gameSplit = this.split(":", ";")
     return Game(
         id = gameSplit.first().split(" ").last().toInt(),
-        rounds = gameSplit.drop(1).map { it.trim().toRound() }
+        rounds = gameSplit.drop(1).map { it.trim().toRound() },
     )
 }
 
@@ -67,13 +65,13 @@ fun String.toRound(): Round {
 
 data class Game(
     val id: Int,
-    val rounds: List<Round>
+    val rounds: List<Round>,
 )
 
 data class Round(
     var redCount: Int = 0,
     var greenCount: Int = 0,
-    var blueCount: Int = 0
+    var blueCount: Int = 0,
 )
 
 fun main() {

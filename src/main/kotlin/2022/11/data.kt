@@ -2,13 +2,13 @@ package `2022`.`11`
 
 import java.util.LinkedList
 
-class Monkey (
+class Monkey(
     val id: Int,
     private val items: LinkedList<Long>,
     private val operation: List<String>,
     val divTest: Int,
     private val trueMonkey: Int,
-    private val falseMonkey: Int
+    private val falseMonkey: Int,
 ) {
 
     var inspectionCount = 0L
@@ -49,7 +49,6 @@ class Monkey (
         } else {
             operation.last().toLong()
         }.toLong()
-
 
         return when (operation.first()) {
             "+" -> worry + modifier

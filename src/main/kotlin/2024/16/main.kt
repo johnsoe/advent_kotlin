@@ -1,17 +1,14 @@
 package `2024`.`16`
 
-
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import java.util.PriorityQueue
+import kotlin.Int
 
 val inputParser = InputParser("2024/16/input.txt")
 val grid = inputParser.charGrid()
 val gEnd = grid.indexOf('E')
 val gStart = grid.indexOf('S')
-
-
 
 fun partOne(): Int {
     val scores = generateCellScores()
@@ -22,7 +19,7 @@ private fun generateCellScores(): Map<Int, Int> {
     val visited = mutableMapOf(gStart to 0)
     val queue = PriorityQueue<Cell> { c1, c2 -> c1.score - c2.score }
     queue.add(Cell(0, Direction.Right, gStart))
-    while(queue.isNotEmpty()) {
+    while (queue.isNotEmpty()) {
         val next = queue.remove()
         Direction.cardinalDirections().forEach { nextDir ->
             grid.indexByDirection(next.index, nextDir)?.let { neighbor ->
@@ -77,7 +74,6 @@ fun partTwo(): Int {
 }
 
 fun main() {
-    
-println(partOne())
+    println(partOne())
     println(partTwo())
 }

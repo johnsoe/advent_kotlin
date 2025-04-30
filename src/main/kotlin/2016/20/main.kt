@@ -1,13 +1,10 @@
 package `2016`.`20`
 
-import kotlin.Int
 import util.InputParser
 import util.math.isAdjacent
 import util.math.union
 
 val inputParser = InputParser("2016/20/input.txt")
-
-
 
 // Probably should've sorted input to make this simpler.
 fun partOne(): Long {

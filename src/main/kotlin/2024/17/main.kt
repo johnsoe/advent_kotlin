@@ -1,16 +1,15 @@
 package `2024`.`17`
 
-import kotlin.Int
 import util.InputParser
 import java.util.*
+import kotlin.Int
 import kotlin.math.pow
 
 val inputParser = InputParser("2024/17/input.txt")
 private val chunks = inputParser.chunk()
+
 // ugly but it works
 private val commands = chunks.last()[0].split(": ").last().split(",").map { it.toInt() }
-
-
 
 fun partOne(): String {
     val registers = chunks[0].map {
@@ -61,7 +60,7 @@ fun partTwo(): Long {
     val maxPower = 15
     val outputs = LinkedList<Pair<Long, Int>>()
     outputs.add(8.0.pow(maxPower).toLong() to maxPower)
-    while(outputs.isNotEmpty()) {
+    while (outputs.isNotEmpty()) {
         val (baseIter, curPow) = outputs.removeFirst()
         repeat(8) {
             val iter = baseIter + 8.0.pow(curPow).toLong() * it

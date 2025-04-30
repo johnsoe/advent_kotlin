@@ -1,15 +1,13 @@
 package `2023`.`11`
 
-import kotlin.Int
 import util.InputParser
 import util.math.manhattanDistance
 import java.awt.Point
+import kotlin.Int
 import kotlin.math.max
 import kotlin.math.min
 
 val inputParser = InputParser("2023/11/input.txt")
-
-
 
 fun partOne() = calculateDistances()
 fun partTwo() = calculateDistances(gapMultiplier = 999999)
@@ -63,7 +61,7 @@ fun List<String>.getStars(): List<Point> {
     }.flatten()
 }
 
-fun String.isEmptySpace() = this.all { it == '.'}
+fun String.isEmptySpace() = this.all { it == '.' }
 
 fun main() {
     println(partOne())

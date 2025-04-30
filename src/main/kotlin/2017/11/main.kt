@@ -1,15 +1,13 @@
 package `2017`.`11`
 
-import kotlin.Int
 import util.InputParser
 import util.math.Vector3
 import util.string.toHexDirection
+import kotlin.Int
 import kotlin.math.abs
 import kotlin.math.max
 
 val inputParser = InputParser("2017/11/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.line()

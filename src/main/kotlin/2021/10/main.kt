@@ -5,20 +5,18 @@ import java.util.*
 
 val inputParser = InputParser("2021/10/input.txt")
 
-
-
 private val pointMap = mapOf(
     ')' to 3,
     ']' to 57,
     '}' to 1197,
-    '>' to 25137
+    '>' to 25137,
 )
 
 private val pointMapTwo = mapOf(
     '(' to 1,
     '[' to 2,
     '{' to 3,
-    '<' to 4
+    '<' to 4,
 )
 
 fun partOne(): Long {

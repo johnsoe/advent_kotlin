@@ -5,14 +5,14 @@ import util.grid.toGrid
 import java.io.File
 import java.lang.UnsupportedOperationException
 
-class InputParser (
-    private val fileName: String
+class InputParser(
+    private val fileName: String,
 ) {
     companion object {
         private const val INPUT_BASE = "/Users/ralph/gitroot/advent_kotlin/src/main/kotlin/"
     }
 
-    fun lines(): List<String> = File("$INPUT_BASE${fileName}").readLines()
+    fun lines(): List<String> = File("$INPUT_BASE$fileName").readLines()
     fun line(): String = lines().first()
     fun linesInt(): List<Int> = lines().map { it.toInt() }
     fun linesLong(): List<Long> = lines().map { it.toLong() }
@@ -36,7 +36,7 @@ class InputParser (
         return lines().map { line ->
             line.split(*delimiters)
                 .map {
-                    when(T::class) {
+                    when (T::class) {
                         Double::class -> it.toDouble()
                         Int::class -> it.toInt()
                         Long::class -> it.toLong()
@@ -74,5 +74,4 @@ class InputParser (
     fun chunkAndJoin(separator: String = " "): List<String> {
         return chunk().map { it.joinToString(separator) }
     }
-
 }

@@ -1,13 +1,11 @@
 package `2024`.`01`
 
-import kotlin.Int
 import util.InputParser
 import java.util.PriorityQueue
+import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2024/01/input.txt")
-
-
 
 fun partOne(): Int {
     val capacity = inputParser.lines().size

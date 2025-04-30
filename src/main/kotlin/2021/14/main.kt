@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/14/input.txt")
 
-
-
 fun partOne(): Long {
     return calculateMaxDifference(10)
 }

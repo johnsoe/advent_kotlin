@@ -1,12 +1,10 @@
 package `2017`.`12`
 
-import kotlin.Int
 import util.InputParser
 import java.util.*
+import kotlin.Int
 
 val inputParser = InputParser("2017/12/input.txt")
-
-
 
 fun partOne() = graph().parseFrom("0").size
 

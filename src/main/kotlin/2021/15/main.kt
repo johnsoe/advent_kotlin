@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/15/input.txt")
 
-
-
 fun partOne(): Int {
 //        val grid = Grid(getInputByLine().first().length, getGridsSingleLine(getInputByChunk()))
 //        val size = grid.getFullGrid().size
@@ -60,7 +58,7 @@ fun expandInput(): List<String> {
     val toAdd = mutableListOf<String>().apply { addAll(expanded) }
     repeat(4) { rep ->
         toAdd.addAll(
-            expanded.map { mapInput(it, rep + 1) }
+            expanded.map { mapInput(it, rep + 1) },
         )
     }
     return toAdd

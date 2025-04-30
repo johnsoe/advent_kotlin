@@ -1,19 +1,16 @@
 package `2016`.`08`
 
-import `2016.08`.DisplayCommand
-import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 
 val inputParser = InputParser("2016/08/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = Array(50 * 6) { false }.toList().toGrid(50)
     getInputCommands().forEach {
-        when(it) {
+        when (it) {
             is DisplayCommand.ShiftCol -> grid.shiftCol(it.col, it.shift)
             is DisplayCommand.ShiftRow -> grid.shiftRow(it.row, it.shift)
             is DisplayCommand.DrawRect -> grid.setRect(it.width, it.height)
@@ -24,7 +21,7 @@ fun partOne(): Int {
 
 private fun getInputCommands(): List<DisplayCommand> {
     return inputParser.lines()
-        .map {it.split(" ")}
+        .map { it.split(" ") }
         .map {
             when {
                 it.first() == "rect" -> {
@@ -56,7 +53,7 @@ fun Grid<Boolean>.setRect(width: Int, height: Int) {
 fun partTwo(): Int {
     val grid = Array(50 * 6) { false }.toList().toGrid(50)
     getInputCommands().forEach {
-        when(it) {
+        when (it) {
             is DisplayCommand.ShiftCol -> grid.shiftCol(it.col, it.shift)
             is DisplayCommand.ShiftRow -> grid.shiftRow(it.row, it.shift)
             is DisplayCommand.DrawRect -> grid.setRect(it.width, it.height)

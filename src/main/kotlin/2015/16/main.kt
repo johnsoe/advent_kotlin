@@ -1,7 +1,7 @@
 package `2015`.`16`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2015/16/input.txt")
 val input = mapOf(
@@ -14,10 +14,8 @@ val input = mapOf(
     "goldfish" to 5,
     "trees" to 3,
     "cars" to 2,
-    "perfumes" to 1
+    "perfumes" to 1,
 )
-
-
 
 fun partOne(): Int {
     return findIdByPredicate { key, value ->
@@ -54,9 +52,9 @@ fun partTwo(): Int {
     }
 }
 
-data class Sue (
+data class Sue(
     val id: Int,
-    val attributes: Map<String, Int>
+    val attributes: Map<String, Int>,
 )
 
 fun main() {

@@ -1,13 +1,10 @@
 package `2023`.`12`
 
-
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2023/12/input.txt")
 val visited = mutableMapOf<String, Long>()
-
-
 
 fun partOne(): Long {
     return inputParser.lines().map {
@@ -21,7 +18,7 @@ fun partOne(): Long {
             groups = it.second,
             validCount = 0L,
             forward = "",
-            dropped = mutableListOf()
+            dropped = mutableListOf(),
         )
     }
 }
@@ -33,7 +30,7 @@ fun helper(
     groups: List<Int>,
     validCount: Long,
     forward: String,
-    dropped: MutableList<Int>
+    dropped: MutableList<Int>,
 ): Long {
     if (!forward.isValid(input)) {
         return validCount
@@ -48,14 +45,14 @@ fun helper(
             validCount
         }
         return result
-    } else if(groups.isEmpty()) {
+    } else if (groups.isEmpty()) {
         return validCount
     } else if (index >= input.length || index + groups.first() > input.length) {
         return validCount
     } else {
         val nextGroup = groups.first()
         val slice = input.substring(index until nextGroup + index)
-        val mapped = slice.replace("?","#")
+        val mapped = slice.replace("?", "#")
         val subResult = if (slice.canFit(input, index)) {
             dropped.add(groups.first())
             val sub = visitSubSection(input, index + nextGroup + 1, groups.drop(1), validCount, "$forward$mapped.", dropped)
@@ -70,12 +67,13 @@ fun helper(
     }
 }
 
-fun visitSubSection(input: String,
+fun visitSubSection(
+    input: String,
     index: Int,
     groups: List<Int>,
     validCount: Long,
     forward: String,
-    dropped: MutableList<Int>
+    dropped: MutableList<Int>,
 ): Long {
     val result = helper(input, index, groups, validCount, forward, dropped)
     visited[(index to dropped.toList()).convert()] = result
@@ -102,7 +100,7 @@ fun partTwo(): Long {
     return inputParser.lines().map {
         val split = it.split(" ", ",")
         split[0] to split.drop(1).map { it.toInt() }
-    }.map{
+    }.map {
         // YUCK
         val input = "${it.first}?${it.first}?${it.first}?${it.first}?${it.first}"
         val counts = it.second + it.second + it.second + it.second + it.second

@@ -11,12 +11,12 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class DayGenerator (
+class DayGenerator(
     private val day: String,
     private val year: String,
     private val session: String,
 ) {
-    
+
     private val parentDir = Paths.get("").toAbsolutePath()
     private val fullPath = "$parentDir/src/main/kotlin/$year/$day"
     private val baseUrl = "https://adventofcode.com/$year/day/${day.toInt()}"
@@ -80,7 +80,6 @@ class DayGenerator (
             .build()
     }
 
-
     private fun addTaskFunction(name: String): FunSpec {
         return FunSpec.builder(name)
             .returns(Int::class)
@@ -91,13 +90,15 @@ class DayGenerator (
 
     private fun createHttpClient(session: String): OkHttpClient {
         return OkHttpClient().newBuilder()
-            .addInterceptor(Interceptor { chain: Interceptor.Chain ->
-                val original = chain.request()
-                val authorized = original.newBuilder()
-                    .addHeader("Cookie", "session=$session")
-                    .build()
-                chain.proceed(authorized)
-            })
+            .addInterceptor(
+                Interceptor { chain: Interceptor.Chain ->
+                    val original = chain.request()
+                    val authorized = original.newBuilder()
+                        .addHeader("Cookie", "session=$session")
+                        .build()
+                    chain.proceed(authorized)
+                },
+            )
             .build()
     }
 

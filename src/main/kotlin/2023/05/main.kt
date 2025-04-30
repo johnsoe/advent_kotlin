@@ -4,8 +4,6 @@ import util.InputParser
 
 val inputParser = InputParser("2023/05/input.txt")
 
-
-
 fun partOne(): Long {
     val mappings = getMappings()
     return getSeeds().minOfOrNull { initSeed ->
@@ -35,7 +33,7 @@ fun getSeedRanges(): List<LongRange> {
         .drop(1)
         .map { it.toLong() }
         .chunked(2)
-        .map { it[0] until it[0]+it[1] }
+        .map { it[0] until it[0] + it[1] }
 }
 
 fun getMappings(): List<List<Triple<Long, Long, Long>>> {

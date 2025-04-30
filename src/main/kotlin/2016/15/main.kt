@@ -1,11 +1,9 @@
 package `2016`.`15`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2016/15/input.txt")
-
-
 
 fun partOne(): Int {
     return calculateDiscAlignment(createDiscs())
@@ -18,10 +16,10 @@ fun partTwo(): Int {
                 Disc(
                     positions = 11,
                     startPosition = 0,
-                    offset = this.size + 1
-                )
+                    offset = this.size + 1,
+                ),
             )
-        }
+        },
     )
 }
 
@@ -31,7 +29,7 @@ private fun createDiscs(): List<Disc> {
         Disc(
             positions = split[3].toInt(),
             startPosition = split.last().dropLast(1).toInt(),
-            offset = index + 1
+            offset = index + 1,
         )
     }
 }
@@ -49,10 +47,10 @@ private fun calculateDiscAlignment(discs: List<Disc>): Int {
     return current
 }
 
-private data class Disc (
+private data class Disc(
     val positions: Int,
     val startPosition: Int,
-    val offset: Int
+    val offset: Int,
 )
 
 fun main() {

@@ -1,14 +1,12 @@
 package `2017`.`08`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2017/08/input.txt")
 
 val inputRegex = """(.+) (.+) (-?\d+) if (.+) (.+) (-?\d+)""".toRegex()
-
-
 
 fun partOne() = parseInstructions().first
 fun partTwo() = parseInstructions().second

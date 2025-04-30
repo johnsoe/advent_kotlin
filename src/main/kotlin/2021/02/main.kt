@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/02/input.txt")
 
-
-
 fun partOne(): Int {
     val reduced = getInputAsPair().reduce { acc, it ->
         acc.first + it.first to acc.second + it.second

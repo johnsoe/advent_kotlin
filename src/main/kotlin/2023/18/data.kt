@@ -6,11 +6,11 @@ sealed class TrenchLine {
 
     data class Horizontal(
         override val range: IntRange,
-        override val coord: Int
+        override val coord: Int,
     ) : TrenchLine()
 
     data class Vertical(
         override val range: IntRange,
-        override val coord: Int
-    ): TrenchLine()
+        override val coord: Int,
+    ) : TrenchLine()
 }

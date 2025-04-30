@@ -7,8 +7,6 @@ import kotlin.math.min
 
 val inputParser = InputParser("2021/21/input.txt")
 
-
-
 fun partOne(): Long {
     val (firstPlayer, secondPlayer) = getPlayers()
     var count = 1
@@ -34,7 +32,7 @@ fun nextRolls(currentCount: Int): Int {
     return listOf(
         (currentCount - 1) % 100 + 1,
         currentCount % 100 + 1,
-        (currentCount + 1) % 100 + 1
+        (currentCount + 1) % 100 + 1,
     ).sum()
 }
 
@@ -54,7 +52,7 @@ fun partTwo(): Long {
 fun getAllPermutations(
     playerOne: Player,
     playerTwo: Player,
-    playerOneTurn: Boolean
+    playerOneTurn: Boolean,
 ): Pair<Long, Long> {
     if (playerOne.score >= 21) {
         return getPermutationsFromHistory(playerOne.rollHistory, playerTwo.rollHistory) to 0L
@@ -114,7 +112,7 @@ fun Triple<Int, Int, Int>.str(): String {
 data class Player(
     var currentPosition: Int,
     var score: Int = 0,
-    var rollHistory: String = ""
+    var rollHistory: String = "",
 )
 
 fun main() {

@@ -1,16 +1,14 @@
 package `2024`.`18`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
 import java.util.LinkedList
+import kotlin.Int
 
 val inputParser = InputParser("2024/18/input.txt")
 private val gridSize = 71
-
-
 
 fun partOne(): Int {
     val grid = Array(gridSize) { Array(gridSize) { true } }.toGrid()
@@ -58,7 +56,7 @@ fun partTwo(): String {
     bytes.take(count).forEach {
         grid[grid.indexByCoords(it.first(), it.last())!!] = false
     }
-    while(bfs(grid) != -1) {
+    while (bfs(grid) != -1) {
         count++
         val byte = bytes[count]
         grid[grid.indexByCoords(byte.first(), byte.last())!!] = false

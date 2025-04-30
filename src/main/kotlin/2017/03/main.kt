@@ -1,14 +1,12 @@
 package `2017`.`03`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.math.Vector2
+import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2017/03/input.txt")
-
-
 
 fun partOne(): Int {
     val num = inputParser.line().toInt()
@@ -19,7 +17,7 @@ fun partOne(): Int {
     val sideLength = (ringNum - 1) * 2
     var high = ringNum.ringSquare()
     var low = high - sideLength
-    while (low > num)  {
+    while (low > num) {
         low -= sideLength
         high -= sideLength
     }
@@ -40,7 +38,7 @@ fun partTwo(): Int {
     var incrDir = 0
     var dirCount = 1
     var shouldUpCount = false
-    var current = Vector2(0,0) to 1
+    var current = Vector2(0, 0) to 1
     while (num > current.second) {
         grid[current.first] = current.second
         incrDir++

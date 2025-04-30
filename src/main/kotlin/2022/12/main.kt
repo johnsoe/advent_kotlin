@@ -1,12 +1,10 @@
 package `2022`.`12`
 
-import kotlin.Int
 import util.InputParser
 import java.awt.Point
+import kotlin.Int
 
 val inputParser = InputParser("2022/12/input.txt")
-
-
 
 fun partOne(): Int {
     val (heights, start, end) = getHeightMap()
@@ -22,7 +20,7 @@ fun exploreGrid(
     grid: List<List<Int>>,
     visited: List<MutableList<Int>>,
     stepCount: Int,
-    reverse: Boolean
+    reverse: Boolean,
 ) {
     val prevStepsToPos = visited[pos.y][pos.x]
     if (stepCount < prevStepsToPos) {

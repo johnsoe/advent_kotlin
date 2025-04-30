@@ -1,11 +1,9 @@
 package `2015`.`17`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2015/17/input.txt")
-
-
 
 fun partOne(): Int {
     val sizes = getSortedSizes().toMutableList()
@@ -15,7 +13,7 @@ fun partOne(): Int {
 fun sizeCombinations(
     sizes: MutableList<IndexedValue<Int>>,
     remaining: Int,
-    cache: MutableSet<List<IndexedValue<Int>>> // yuck
+    cache: MutableSet<List<IndexedValue<Int>>>, // yuck
 ): MutableList<Int> {
     val list = sizes.toList()
     if (list !in cache) {

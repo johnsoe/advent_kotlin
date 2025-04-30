@@ -1,12 +1,10 @@
 package `2016`.`19`
 
-import kotlin.Int
 import util.InputParser
 import java.util.LinkedList
+import kotlin.Int
 
 val inputParser = InputParser("2016/19/input.txt")
-
-
 
 fun partOne(): Int {
     val count = inputParser.line().toInt()
@@ -42,7 +40,7 @@ fun partTwo(): Int {
 
 data class Elf(
     val id: Int,
-    var count: Int = 1
+    var count: Int = 1,
 )
 
 fun main() {

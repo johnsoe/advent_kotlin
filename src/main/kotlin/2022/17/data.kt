@@ -5,19 +5,19 @@ import java.awt.Point
 
 sealed class Rock(val coords: MutableSet<Point>) {
     object Line : Rock(
-        mutableSetOf(Point(0, 0), Point(1, 0), Point(2, 0), Point(3, 0))
+        mutableSetOf(Point(0, 0), Point(1, 0), Point(2, 0), Point(3, 0)),
     )
     object Cross : Rock(
-        mutableSetOf(Point(0, 0), Point(1, -1), Point(0, -1), Point(-1, -1), Point(0, -2))
+        mutableSetOf(Point(0, 0), Point(1, -1), Point(0, -1), Point(-1, -1), Point(0, -2)),
     )
-    object Elbow: Rock(
-        mutableSetOf(Point(0, 0), Point(0, -1), Point(0, -2), Point(-1, -2), Point(-2, -2))
+    object Elbow : Rock(
+        mutableSetOf(Point(0, 0), Point(0, -1), Point(0, -2), Point(-1, -2), Point(-2, -2)),
     )
     object Vert : Rock(
-        mutableSetOf(Point(0, 0), Point(0, -1), Point(0, -2), Point(0, -3))
+        mutableSetOf(Point(0, 0), Point(0, -1), Point(0, -2), Point(0, -3)),
     )
     object Square : Rock(
-        mutableSetOf(Point(0, 0), Point(0, -1), Point(1, 0), Point(1, -1))
+        mutableSetOf(Point(0, 0), Point(0, -1), Point(1, 0), Point(1, -1)),
     )
 
     fun Rock.shift(direction: Direction) {

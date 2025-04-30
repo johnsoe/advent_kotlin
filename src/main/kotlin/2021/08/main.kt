@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/08/input.txt")
 
-
-
 fun partOne(): Int {
     return parseCodes().map { it.second }.sumOf {
         it.count { output ->
@@ -16,7 +14,6 @@ fun partOne(): Int {
 }
 
 fun partTwo(): Int {
-
     // Determine which codes are 1, 4, 7, 8
     // Determine 3 by which 5 length contains number 1
     // Determine 9, length 6 contains the number 4

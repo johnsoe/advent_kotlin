@@ -4,12 +4,12 @@ import util.math.Vector3
 
 // Flat top HexDirections.
 sealed class HexDirection {
-    object North: HexDirection()
-    object NorthEast: HexDirection()
-    object NorthWest: HexDirection()
-    object South: HexDirection()
-    object SouthEast: HexDirection()
-    object SouthWest: HexDirection()
+    object North : HexDirection()
+    object NorthEast : HexDirection()
+    object NorthWest : HexDirection()
+    object South : HexDirection()
+    object SouthEast : HexDirection()
+    object SouthWest : HexDirection()
 
     fun toVec(): Vector3 {
         return when (this) {
@@ -33,4 +33,3 @@ sealed class HexDirection {
         )
     }
 }
-

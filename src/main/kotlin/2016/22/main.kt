@@ -1,12 +1,10 @@
 package `2016`.`22`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2016/22/input.txt")
 val regex = """/dev/grid/node-x(\d+)-y(\d+)\s+\d+T\s+(\d+)T\s+(\d+)T""".toRegex()
-
-
 
 fun partOne(): Int {
     val nodes = generateNodes()
@@ -28,16 +26,16 @@ private fun generateNodes(): List<Node> {
         }
 }
 
-private data class Node (
+private data class Node(
     val x: Int,
     val y: Int,
     val used: Int,
-    val avail: Int
+    val avail: Int,
 ) {
     fun isViablePair(other: Node): Boolean {
         return other != this &&
-                this.used != 0 &&
-                this.used <= other.avail
+            this.used != 0 &&
+            this.used <= other.avail
     }
 
     fun isLargeNode(): Boolean {
@@ -53,7 +51,7 @@ private data class Node (
 fun partTwo(): Int {
     val nodes = generateNodes()
         .sortedWith(
-            compareBy({ it.y }, { it.x })
+            compareBy({ it.y }, { it.x }),
         )
     var prevY = 0
     nodes.forEach {

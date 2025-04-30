@@ -5,8 +5,8 @@ sealed class OpCode {
     abstract fun execute(instructions: IntArray)
     abstract fun getNextIndex(index: Int): Int
 
-    data class Add (
-        val indices: IntArray
+    data class Add(
+        val indices: IntArray,
     ) : OpCode() {
 
         init {
@@ -23,8 +23,8 @@ sealed class OpCode {
         override fun getNextIndex(index: Int) = index + indices.size + 1
     }
 
-    data class Multiply (
-        val indices: IntArray
+    data class Multiply(
+        val indices: IntArray,
     ) : OpCode() {
 
         init {

@@ -1,10 +1,11 @@
 package `2022`.`16`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2022/16/input.txt")
+
 // Start by generating the full map of the tunnels and then
 // figuring out the weighted paths from each node, to all other nodes.
 val valveMap = getValves().associateBy { it.name }
@@ -12,8 +13,6 @@ val tunnelRoutes = valveMap.map { findShortestRoutes(it.key) }
     .associateBy { route ->
         route.keys.find { route[it] == 0 }!!
     }
-
-
 
 fun partOne(): Long {
     val allRoutes = mutableListOf<Map<String, Int>>()
@@ -30,7 +29,7 @@ fun getValves(): List<Valve> {
             Valve(
                 name = split[1],
                 rate = split[5].toInt(),
-                valves = split.drop(10)
+                valves = split.drop(10),
             )
         }
 }
@@ -57,7 +56,7 @@ fun findMostEfficientRoute(
     current: String,
     timeLeft: Int,
     opened: MutableMap<String, Int>,
-    fullPaths: MutableList<Map<String, Int>>
+    fullPaths: MutableList<Map<String, Int>>,
 ) {
     val options = tunnelRoutes[current]!!.keys.filter {
         !opened.containsKey(it) &&
@@ -84,7 +83,7 @@ fun Map<String, Int>.getTotalFlow(): Long {
 data class Valve(
     val name: String,
     val rate: Int,
-    val valves: List<String>
+    val valves: List<String>,
 )
 
 fun partTwo(): Long {
@@ -96,7 +95,7 @@ fun partTwo(): Long {
         } else {
             allRoutes.drop(i + 1)
                 .map { eRoute ->
-                    val merged = mutableMapOf<String,Int> ()
+                    val merged = mutableMapOf<String, Int> ()
                     merged.putAll(route)
                     eRoute.forEach {
                         merged[it.key] = max(it.value, merged[it.key] ?: it.value)

@@ -1,13 +1,11 @@
 package `2015`.`04`
 
-import kotlin.Int
 import util.InputParser
 import java.security.MessageDigest
+import kotlin.Int
 
 val inputParser = InputParser("2015/04/input.txt")
 val md = MessageDigest.getInstance("MD5")
-
-
 
 fun partOne() = findLeadingZeroes(5)
 fun partTwo() = findLeadingZeroes(6)

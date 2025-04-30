@@ -1,7 +1,7 @@
 package `2015`.`01`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2015/01/input.txt")
 

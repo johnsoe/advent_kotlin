@@ -1,13 +1,11 @@
 package `2016`.`14`
 
-import kotlin.Int
 import util.InputParser
 import java.security.MessageDigest
+import kotlin.Int
 
 val inputParser = InputParser("2016/14/input.txt")
 val md = MessageDigest.getInstance("MD5")
-
-
 
 fun partOne(): Int {
     return findKeysWithHashRepeatCount(1)
@@ -77,7 +75,6 @@ private fun initCharMap(): MutableMap<Char, MutableSet<Int>> {
 }
 
 fun main() {
-    
-println(partOne())
+    println(partOne())
     println(partTwo())
 }

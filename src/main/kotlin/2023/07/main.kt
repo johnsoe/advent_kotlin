@@ -1,13 +1,9 @@
 package `2023`.`07`
 
-import `2023.07`.Card
-import `2023.07`.Hand
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2023/07/input.txt")
-
-
 
 fun partOne() = calculateTotalWinnings(allowJokers = false)
 fun partTwo() = calculateTotalWinnings(allowJokers = true)

@@ -1,13 +1,11 @@
 package `2023`.`13`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 
 val inputParser = InputParser("2023/13/input.txt")
-
-
 
 fun partOne(): Int {
     return createGrids().map { grid ->
@@ -60,7 +58,7 @@ fun List<Char>.getDiffCount(other: List<Char>): Int {
 fun getFullDiffCount(
     index: Int,
     gridcb: (Int) -> List<Char>,
-    upperBound: Int
+    upperBound: Int,
 ): Int {
     var sum = 0
     var offset = 0
@@ -74,7 +72,7 @@ fun getFullDiffCount(
 fun partTwo(): Int {
     return createGrids().map { grid ->
         val row = (0 until grid.height - 1)
-            .map { it + 1 to getFullDiffCount(it, grid::getRow, grid.height)  }
+            .map { it + 1 to getFullDiffCount(it, grid::getRow, grid.height) }
             .firstOrNull { it.second == 1 }?.first
 
         val col = (0 until grid.width - 1)

@@ -1,15 +1,13 @@
 package `2023`.`14`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
 import util.math.Vector2
+import kotlin.Int
 
 val inputParser = InputParser("2023/14/input.txt")
-
-
 
 fun partOne(): Int {
     val grid = createGrid()
@@ -26,31 +24,30 @@ fun partOne(): Int {
         it to indices
     }.sumOf { (col, cubes) ->
         var sum = 0
-        //Grab the first rock, if any, get all "0" in range.
+        // Grab the first rock, if any, get all "0" in range.
         val section = if (cubes.isEmpty()) {
             col
         } else {
             col.subList(0, cubes.first())
         }
         sum += section.getSubsectionSum(grid.height)
-        //println("front $sum")
+        // println("front $sum")
 
-        //For all middle rocks, get all "0" in range from current to next
+        // For all middle rocks, get all "0" in range from current to next
         sum += cubes
             .dropLast(1)
             .mapIndexed { index, cube ->
                 col.subList(cube, cubes[index + 1]).getSubsectionSum(grid.height - 1 - cube)
             }.sum()
-        //println("mid $sum")
+        // println("mid $sum")
 
-        //Last rocks
+        // Last rocks
         if (cubes.isNotEmpty()) {
             sum += col.subList(cubes.last(), grid.height).getSubsectionSum(grid.height - 1 - cubes.last())
         }
 
         sum
     }
-
 }
 
 fun List<Char>.getSubsectionSum(lower: Int): Int {
@@ -106,7 +103,7 @@ fun partTwo(): Long {
 //            }
             val cycle = it - repeated[check]!! + 1
             val x = 1000000000 % (cycle)
-            //println(x)
+            // println(x)
             val y = repeated.filter { it.value == x }.keys.first()
 //            println("We've done it: $it")
 //            println(check.sortedBy { it.x })
@@ -145,7 +142,7 @@ fun Grid<Char>.getRockPoints(): Set<Vector2> {
 fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Vector2, Vector2> {
     return grid.mapIndexed { index, _ ->
         var tempIndex = index
-        while(true) {
+        while (true) {
             val next = grid.indexByDirection(tempIndex, direction)
             if (next == null || grid[next] == '#') {
                 break

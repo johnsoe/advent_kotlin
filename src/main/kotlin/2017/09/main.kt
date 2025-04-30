@@ -1,11 +1,9 @@
 package `2017`.`09`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2017/09/input.txt")
-
-
 
 fun partOne() = takeOutTheTrash().first
 fun partTwo() = takeOutTheTrash().second
@@ -17,7 +15,7 @@ fun takeOutTheTrash(): Pair<Int, Int> {
     var index = 0
     var trashCount = 0
     var inTrash = false
-    while(index < input.length) {
+    while (index < input.length) {
         val next = input[index]
         when {
             inTrash && next == '!' -> index++

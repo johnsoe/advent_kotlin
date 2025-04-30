@@ -5,13 +5,11 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/12/input.txt")
 
-
-
 fun partOne(): Int {
     return generatePaths(
         generateCaves(),
         mutableListOf("start"),
-        ::canVisitCavePartOne
+        ::canVisitCavePartOne,
     ).size
 }
 
@@ -33,7 +31,7 @@ fun generateCaves(): Map<String, Set<String>> {
 fun generatePaths(
     caves: Map<String, Set<String>>,
     path: MutableList<String>,
-    pathCheck: (String, List<String>) -> Boolean
+    pathCheck: (String, List<String>) -> Boolean,
 ): Set<String> {
     return if (path.contains("end")) {
         setOf(path.joinToString())
@@ -55,7 +53,7 @@ fun partTwo(): Int {
     return generatePaths(
         generateCaves(),
         mutableListOf("start"),
-        ::canVisitCavePartTwo
+        ::canVisitCavePartTwo,
     ).size
 }
 
@@ -64,7 +62,7 @@ fun String.isBigCave(): Boolean {
 }
 
 fun canVisitCavePartOne(cave: String, path: List<String>): Boolean {
-return cave.isBigCave() || !path.contains(cave)
+    return cave.isBigCave() || !path.contains(cave)
 }
 
 fun canVisitCavePartTwo(cave: String, path: List<String>): Boolean {

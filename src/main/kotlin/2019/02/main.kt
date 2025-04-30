@@ -1,12 +1,10 @@
 package `2019`.`02`
 
 import `2019`.opcode.Computer
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2019/02/input.txt")
-
-
 
 fun partOne(): Int {
     val opcodes = inputParser.linesBySeparator()

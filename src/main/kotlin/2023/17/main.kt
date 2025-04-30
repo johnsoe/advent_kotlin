@@ -1,16 +1,14 @@
 package `2023`.`17`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 import kotlin.math.min
 
 val inputParser = InputParser("2023/17/input.txt")
 val cardinals = Direction.cardinalDirections()
-
-
 
 fun partOne(): Int {
     var width = 0
@@ -29,8 +27,7 @@ fun partOne(): Int {
     (0 until grid.height).forEach { println(grid.getRow(it)) }
     (0 until minGrid.height).forEach { println(minGrid.getRow(it)) }
 
-
-    helper(grid, minGrid, mutableListOf(), mutableSetOf() ,0)
+    helper(grid, minGrid, mutableListOf(), mutableSetOf(), 0)
     (0 until minGrid.height).forEach { println(minGrid.getRow(it)) }
     return minGrid[0] - grid[0]
 }
@@ -73,12 +70,11 @@ fun getValidDirections(grid: Grid<Int>, index: Int, directions: List<Direction>,
 }
 
 fun partTwo(): Int {
-
     return 0
 }
 
 fun main() {
     println(partOne())
     println(partTwo())
-        println("partTwo")
+    println("partTwo")
 }

@@ -1,7 +1,6 @@
 package util.generator
 
 fun main(args: Array<String>) {
-
     val gens = mutableListOf<DayGenerator>()
     when (args.size) {
         // Only year and session specified, backfill previous year

@@ -5,12 +5,10 @@ import util.math.lcm
 
 val inputParser = InputParser("2023/08/input.txt")
 
-
-
 fun partOne(): Long {
     return "AAA".findCycleSize(
         cmds = inputParser.lines().first(),
-        nodes = getNodes()
+        nodes = getNodes(),
     )
 }
 
@@ -26,15 +24,16 @@ fun String.findCycleSize(cmds: String, nodes: Map<String, List<String>>): Long {
     var count = 0L
     var nodeStr = this
 
-    while(true) {
+    while (true) {
         val node = nodes[nodeStr]!!
         when (cmds[(count % cmds.length).toInt()]) {
             'L' -> nodeStr = node.first()
             'R' -> nodeStr = node.last()
         }
         count++
-        if (nodeStr.endsWith("Z"))
+        if (nodeStr.endsWith("Z")) {
             return count
+        }
     }
 }
 

@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/01/input.txt")
 
-
-
 fun partOne(): Int {
     return increaseCount(inputParser.linesInt())
 }

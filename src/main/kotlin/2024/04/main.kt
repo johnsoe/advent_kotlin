@@ -1,14 +1,12 @@
 package `2024`.`04`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
+import kotlin.Int
 
 val inputParser = InputParser("2024/04/input.txt")
-
-
 
 fun partOne(): Int {
     val xmasGrid = getXmasGrid()
@@ -18,7 +16,7 @@ fun partOne(): Int {
                 it.index,
                 xmasGrid.indexByDirection(it.index, dir),
                 xmasGrid.indexByDirection(it.index, dir, 2),
-                xmasGrid.indexByDirection(it.index, dir, 3)
+                xmasGrid.indexByDirection(it.index, dir, 3),
             ).joinToString(separator = "") {
                 xmasGrid[it].toString()
             } == "XMAS"
@@ -42,9 +40,11 @@ fun partTwo(): Int {
                 xmasGrid.indexByDirection(index, dir),
                 xmasGrid.indexByDirection(index, dir, 2),
             )
-            val result: String = (masList + dir.adjacentDirsForDiagonal().map {
-                xmasGrid.indexByDirection(index, it, 2)
-            }).filterNotNull().joinToString(separator = "") {
+            val result: String = (
+                masList + dir.adjacentDirsForDiagonal().map {
+                    xmasGrid.indexByDirection(index, it, 2)
+                }
+                ).filterNotNull().joinToString(separator = "") {
                 xmasGrid[it].toString()
             }
             result == "MASSM" || result == "MASMS"

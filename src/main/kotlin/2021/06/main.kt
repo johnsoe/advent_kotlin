@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/06/input.txt")
 
-
-
 fun partOne(): Long {
     var fishes = inputParser.linesBySeparator().map { it.toInt() }.toMutableList()
     repeat(80) {
@@ -24,7 +22,7 @@ fun partOne(): Long {
 }
 
 fun partTwo(): Long {
-    //Efficient solution
+    // Efficient solution
     var fishes = inputParser.linesBySeparator().map { it.toInt() }
     var fishMap = mutableMapOf<Int, Long>()
 

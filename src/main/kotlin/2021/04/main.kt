@@ -3,10 +3,10 @@ package `2021`.`04`
 import util.InputParser
 
 val inputParser = InputParser("2021/04/input.txt")
-//println(partOne())
-//println(partTwo())
+// println(partOne())
+// println(partTwo())
 
-//fun partOne(): Int {
+// fun partOne(): Int {
 //     val boards = generateBoards()
 //     inputParser.lines().first().split(",").map { it.toInt() }.forEach { num ->
 //         boards.forEach { board ->
@@ -17,9 +17,9 @@ val inputParser = InputParser("2021/04/input.txt")
 //         }
 //     }
 //    return 0
-//}
+// }
 //
-//fun generateBoards(): List<BingoBoard> {
+// fun generateBoards(): List<BingoBoard> {
 //    return inputParser.linesByChunk().drop(1).map { chunk ->
 //        BingoBoard(
 //            SIZE, chunk.split(" ")
@@ -27,9 +27,9 @@ val inputParser = InputParser("2021/04/input.txt")
 //            .map { it.toInt() }
 //        )
 //    }
-//}
+// }
 //
-//fun partTwo(): Int {
+// fun partTwo(): Int {
 //     var boards = generateBoards()
 //     inputParser.lines().first().split(",").map { it.toInt() }.forEach { num ->
 //         boards.forEach { board ->
@@ -41,7 +41,7 @@ val inputParser = InputParser("2021/04/input.txt")
 //         boards = boards.filter { !it.isWinner() }
 //     }
 //    return 0
-//}
+// }
 //
 // private class BingoBoard(
 //     width: Int,

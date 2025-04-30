@@ -1,11 +1,8 @@
 package `2022`.`07`
 
-import `2022.07`.File
 import util.InputParser
 
 val inputParser = InputParser("2022/07/input.txt")
-
-
 
 fun partOne(): Long {
     val root = generateDirectoryTree()
@@ -51,8 +48,9 @@ fun navigateTo(dir: String, currentDir: File.Dir, root: File.Dir): File.Dir {
         "/" -> root
         else -> {
             val found = currentDir.files
-                .find { it.name == dir
-            } ?: throw IllegalStateException("Assuming this shouldn't happen")
+                .find {
+                    it.name == dir
+                } ?: throw IllegalStateException("Assuming this shouldn't happen")
             found as File.Dir
         }
     }

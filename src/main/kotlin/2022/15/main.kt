@@ -9,8 +9,6 @@ import kotlin.math.min
 
 val inputParser = InputParser("2022/15/input.txt")
 
-
-
 fun partOne(): Long {
     val row = 2000000L
     return getInstruments()
@@ -21,8 +19,8 @@ fun partOne(): Long {
 
 fun getInstruments(): List<Pair<Point, Point>> {
     return inputParser.lines()
-        .map { it.split( " x=", ", y=", ": ")}
-        .map { Point(it[1].toInt(), it[2].toInt()) to Point(it[4].toInt(), it[5].toInt())}
+        .map { it.split(" x=", ", y=", ": ") }
+        .map { Point(it[1].toInt(), it[2].toInt()) to Point(it[4].toInt(), it[5].toInt()) }
 }
 
 fun List<Pair<Point, Point>>.mapToRangesByRow(row: Long): List<LongRange> {

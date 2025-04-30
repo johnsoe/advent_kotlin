@@ -1,14 +1,11 @@
 package `2022`.`11`
 
-import `2022.11`.Monkey
-import kotlin.Int
 import util.InputParser
 import util.math.mult
 import java.util.*
+import kotlin.Int
 
 val inputParser = InputParser("2022/11/input.txt")
-
-
 
 fun partOne(): Long {
     val monkeys = getMonkeys()

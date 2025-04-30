@@ -6,8 +6,8 @@ enum class LightAction {
     ON, OFF, TOGGLE
 }
 
-data class LightCommand (
+data class LightCommand(
     val action: LightAction,
     val start: Point,
-    val end: Point
+    val end: Point,
 )

@@ -1,14 +1,11 @@
 package `2015`.`13`
 
-import `2015`.`13`.Member
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2015/13/input.txt")
 val regex = """(.+) would (.+) (\d+) happiness units by sitting next to (.+).""".toRegex()
-
-
 
 fun partOne(): Int {
     val members = createMemberList()
@@ -47,7 +44,7 @@ fun maximizeHappiness(selected: MutableList<Int>, members: List<Member>): Int {
 }
 
 fun calculateScore(selected: List<Int>, members: List<Member>): Int {
-    val selectedMembers =  selected.map { members[it] }
+    val selectedMembers = selected.map { members[it] }
     return selectedMembers.mapIndexed { index, member ->
         when (index) {
             0 -> member.getLink(selectedMembers[selected.size - 1].name) + member.getLink(selectedMembers[1].name)

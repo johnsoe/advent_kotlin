@@ -1,14 +1,11 @@
 package `2016`.`21`
 
-import `2016`.`21`.ScrambleOperation
 import util.InputParser
 import java.lang.UnsupportedOperationException
 import kotlin.math.max
 import kotlin.math.min
 
 val inputParser = InputParser("2016/21/input.txt")
-
-
 
 fun partOne(): String {
     return generateOperations().fold("abcdefgh") { acc, op ->
@@ -22,7 +19,7 @@ fun generateOperations(): List<ScrambleOperation> {
         when (split[0]) {
             "move" -> ScrambleOperation.MoveByIndex(split[2].toInt(), split[5].toInt())
             "rotate" -> {
-                when(split[1]) {
+                when (split[1]) {
                     "left" -> ScrambleOperation.RotateLeft(split[2].toInt())
                     "right" -> ScrambleOperation.RotateRight(split[2].toInt())
                     "based" -> ScrambleOperation.RotateByValueRight(split[6].first())
@@ -64,7 +61,7 @@ fun String.handleOperation(op: ScrambleOperation): String {
     return when (op) {
         is ScrambleOperation.SwapByIndex -> {
             val high = max(op.a, op.b)
-            val low  = min(op.a, op.b)
+            val low = min(op.a, op.b)
             val front = this.substring(0, low)
             val back = this.substring(high + 1, this.length)
             val middle = this.substring(low + 1, high)
@@ -74,8 +71,8 @@ fun String.handleOperation(op: ScrambleOperation): String {
             handleOperation(
                 ScrambleOperation.SwapByIndex(
                     this.indexOf(op.a),
-                    this.indexOf(op.b)
-                )
+                    this.indexOf(op.b),
+                ),
             )
         }
         is ScrambleOperation.RotateLeft -> {
@@ -94,7 +91,7 @@ fun String.handleOperation(op: ScrambleOperation): String {
             val index = this.indexOf(op.a)
             val offset = if (index >= 4) 2 else 1
             handleOperation(
-                ScrambleOperation.RotateRight(index + offset)
+                ScrambleOperation.RotateRight(index + offset),
             )
         }
         // Bit of a cheat. This only works for strings length 8.
@@ -106,7 +103,7 @@ fun String.handleOperation(op: ScrambleOperation): String {
                 index / 2 + 1
             }
             handleOperation(
-                ScrambleOperation.RotateLeft(offset)
+                ScrambleOperation.RotateLeft(offset),
             )
         }
         is ScrambleOperation.ReverseSubstring -> {

@@ -1,12 +1,10 @@
 package `2024`.`08`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/08/input.txt")
 val grid = inputParser.charGrid()
-
-
 
 fun partOne(): Int {
     val antiNodeSet = mutableSetOf<Int>()

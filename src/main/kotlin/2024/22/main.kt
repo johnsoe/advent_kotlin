@@ -1,12 +1,10 @@
 package `2024`.`22`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.pow
 
 val inputParser = InputParser("2024/22/input.txt")
-
-
 
 fun partOne(): Long {
     return inputParser.linesLong().sumOf {

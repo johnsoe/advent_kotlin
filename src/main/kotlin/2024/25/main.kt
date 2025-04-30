@@ -1,11 +1,9 @@
 package `2024`.`25`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2024/25/input.txt")
-
-
 
 fun partOne(): Int {
     val input = inputParser.chunk().map { grid ->
@@ -36,12 +34,11 @@ fun partOne(): Int {
 }
 
 fun partTwo(): Int {
-
     return 0
 }
 
 fun main() {
     println(partOne())
     println(partTwo())
-        println("partTwo")
+    println("partTwo")
 }

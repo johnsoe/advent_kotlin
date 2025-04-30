@@ -1,11 +1,9 @@
 package `2017`.`05`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2017/05/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.linesInt()
@@ -23,7 +21,6 @@ fun partTwo(): Int {
         }
     }
 }
-
 
 private fun MutableList<Int>.runJumps(diff: (Int) -> Int): Int {
     var count = 0

@@ -1,19 +1,17 @@
 package `2016`.`17`
 
-import kotlin.Int
 import util.InputParser
 import util.grid.Direction
 import util.grid.Grid
 import util.grid.toGrid
 import java.security.MessageDigest
 import java.util.LinkedList
+import kotlin.Int
 import kotlin.math.max
 
 val inputParser = InputParser("2016/17/input.txt")
 val md = MessageDigest.getInstance("MD5")
 val coordinateDirections = listOf(Direction.Up, Direction.Down, Direction.Left, Direction.Right)
-
-
 
 fun partOne(): String {
     val input = inputParser.line()
@@ -34,7 +32,7 @@ private fun getNextSteps(
     directions: String,
     grid: Grid<Int>,
     path: String,
-    index: Int
+    index: Int,
 ): List<Pair<Int, String>> {
     return directions.mapIndexed { i, c ->
         coordinateDirections[i] to c

@@ -1,11 +1,9 @@
 package `2016`.`06`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2016/06/input.txt")
-
-
 
 fun partOne(): String {
     return generateCharMaps()

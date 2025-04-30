@@ -5,8 +5,6 @@ import kotlin.Int
 
 val inputParser = InputParser("2021/09/input.txt")
 
-
-
 fun partOne(): Int {
 //        val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
 //        return grid.getFullGrid().filterIndexed { index, i ->

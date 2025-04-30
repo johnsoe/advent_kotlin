@@ -8,8 +8,6 @@ import kotlin.math.floor
 
 val inputParser = InputParser("2021/18/input.txt")
 
-
-
 var index = 0
 fun partOne(): Long {
     val reducedTree = inputParser.lines().map {
@@ -17,9 +15,9 @@ fun partOne(): Long {
         createSnailTree(it)
     }.filterNotNull().reduce { acc, node ->
         val combined = acc.combine(node)
-        while(true) {
+        while (true) {
             var exploadCount = 0
-            while(explodeSnail(combined, combined, 0)) {
+            while (explodeSnail(combined, combined, 0)) {
                 exploadCount++
             }
             if (!splitTree(combined) && exploadCount == 0) {
@@ -57,7 +55,7 @@ fun createSnailTree(snail: String): SnailNode? {
     return root
 }
 
-fun splitTree(snail: SnailNode, ): Boolean {
+fun splitTree(snail: SnailNode): Boolean {
     if (snail.left?.shouldSplit() == true) {
         snail.left = snail.left?.split()
         return true
@@ -82,7 +80,7 @@ fun explodeSnail(snail: SnailNode, root: SnailNode, depth: Int): Boolean {
         if (leftIndex - 1 >= 0) {
             leaves[leftIndex - 1].value = leaves[leftIndex - 1].value!! + snail.left!!.value!!
         }
-        if (rightIndex < leaves.size - 1){
+        if (rightIndex < leaves.size - 1) {
             leaves[rightIndex + 1].value = leaves[rightIndex + 1].value!! + snail.right!!.value!!
         }
         snail.left = null
@@ -132,9 +130,9 @@ fun partTwo(): Long {
                 if (a == null || b == null) continue
                 val combined = a!!.combine(b!!)
                 println(combined)
-                while(true) {
+                while (true) {
                     var exploadCount = 0
-                    while(explodeSnail(combined, combined, 0)) {
+                    while (explodeSnail(combined, combined, 0)) {
                         exploadCount++
                     }
                     val split = splitTree(combined)
@@ -155,7 +153,7 @@ fun partTwo(): Long {
 class SnailNode(
     var left: SnailNode?,
     var right: SnailNode?,
-    var value: Int?
+    var value: Int?,
 ) {
 
     constructor(value: Int) : this(null, null, value)
@@ -168,14 +166,14 @@ class SnailNode(
     fun split(): SnailNode = SnailNode(
         SnailNode(floor(value!! / 2.0).toInt()),
         SnailNode(ceil(value!! / 2.0).toInt()),
-        null
+        null,
     )
 
     fun combine(other: SnailNode): SnailNode {
         return SnailNode(
             this,
             other,
-            null
+            null,
         )
     }
 
@@ -193,7 +191,7 @@ class SnailNode(
         if (this.isLeaf()) {
             return this.value.toString()
         } else {
-            return "[${this.left.toString()},${this.right.toString()}]"
+            return "[${this.left},${this.right}]"
         }
     }
 }

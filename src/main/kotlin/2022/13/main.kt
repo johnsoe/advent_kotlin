@@ -1,14 +1,12 @@
 package `2022`.`13`
 
-import kotlin.Int
 import util.InputParser
 import util.math.mult
 import java.util.*
+import kotlin.Int
 import kotlin.math.min
 
 val inputParser = InputParser("2022/13/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.lines()
@@ -31,7 +29,7 @@ fun Pair<List<Any>, List<Any>>.isValidOrder(): Boolean? {
 
     val length = min(a.size, b.size)
 
-    repeat (length) {
+    repeat(length) {
         val aType = a[it]
         val bType = b[it]
 
@@ -55,7 +53,7 @@ fun Pair<List<Any>, List<Any>>.isValidOrder(): Boolean? {
         }
         result?.let { return it }
     }
-    return if(b.size == a.size) {
+    return if (b.size == a.size) {
         null
     } else {
         b.size >= a.size
@@ -69,9 +67,9 @@ fun String.toPacket(): List<Any> {
     listStack.push(packet)
 
     var index = 1
-    while(index < this.length) {
+    while (index < this.length) {
         val currentList = listStack.peek()
-        when(this[index]) {
+        when (this[index]) {
             ',' -> {}
             '[' -> {
                 val newList = mutableListOf<Any>()
@@ -82,7 +80,7 @@ fun String.toPacket(): List<Any> {
             else -> {
                 // Need to account for double digit numbers
                 var total = 0
-                while(this[index].isDigit()) {
+                while (this[index].isDigit()) {
                     total *= 10
                     total += this[index].code - 48
                     index++

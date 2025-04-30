@@ -1,11 +1,9 @@
 package `2022`.`01`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 
 val inputParser = InputParser("2022/01/input.txt")
-
-
 
 fun partOne(): Int {
     return inputParser.chunkAndJoin()
@@ -16,7 +14,7 @@ fun partOne(): Int {
 
 fun partTwo(): Int {
     return inputParser.chunkAndJoin()
-        .map { it.split( " ") }
+        .map { it.split(" ") }
         .map { it.sumOf { num -> num.toInt() } }
         .sortedDescending()
         .take(3)

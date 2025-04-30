@@ -1,13 +1,11 @@
 package `2017`.`07`
 
-import kotlin.Int
 import util.InputParser
+import kotlin.Int
 import kotlin.math.abs
 
 val inputParser = InputParser("2017/07/input.txt")
 val inputRegex = """^(.*) \((\d+)\)""".toRegex()
-
-
 
 fun partOne(): String {
     val nodes = nodes()
@@ -26,7 +24,7 @@ private fun nodes(): List<Node> {
             Node(
                 input.first(),
                 input.last().toInt(),
-                outputs!!
+                outputs!!,
             )
         }
 }
@@ -36,7 +34,7 @@ private fun rootNode(nodes: List<Node>): String {
         .toMutableSet()
         .apply {
             this.removeAll(
-                nodes.map { it.children }.flatten().toSet()
+                nodes.map { it.children }.flatten().toSet(),
             )
         }
         .first()
@@ -45,7 +43,7 @@ private fun rootNode(nodes: List<Node>): String {
 private data class Node(
     val name: String,
     val weight: Int,
-    val children: List<String>
+    val children: List<String>,
 )
 
 fun partTwo(): Int {
