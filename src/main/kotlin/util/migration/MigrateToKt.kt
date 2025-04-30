@@ -16,6 +16,7 @@ fun main() {
     val sourceRoot = File("src/main/kotlin") // Adjust the path if needed
     processKtsFiles(sourceRoot)
     wrapTopLevelCallsInMain(sourceRoot)
+    renameMainFiles(sourceRoot)
 }
 
 fun processKtsFiles(directory: File) {
@@ -55,4 +56,17 @@ fun wrapTopLevelCallsInMain(directory: File) {
             println("Updated: ${file.name}")
         }
     }
+}
+
+fun renameMainFiles(directory: File) {
+    directory.walkTopDown()
+        .filter { it.isFile && (it.name == "main.kt" || it.name == "data.kt") }
+        .forEach { file ->
+            val renamedFile = File(file.parentFile, file.name.replaceFirstChar { it.uppercase() })
+            if (file.renameTo(renamedFile)) {
+                println("Renamed: ${file.path} -> ${renamedFile.path}")
+            } else {
+                println("Failed to rename: ${file.path}")
+            }
+        }
 }
