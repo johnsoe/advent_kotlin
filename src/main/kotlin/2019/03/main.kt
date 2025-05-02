@@ -6,9 +6,9 @@ import kotlin.Int
 import kotlin.math.abs
 import kotlin.math.min
 
-val inputParser = InputParser("2019/03/input.txt")
+private val inputParser = InputParser("2019/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     generatePaths().also { (first, second) ->
         return (first intersect second.toSet())
             .minOf { findDistanceFromCenter(it) }
@@ -21,7 +21,7 @@ private fun generatePaths(): Pair<List<Point>, List<Point>> {
     return paths.first() to paths.last()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val paths = generatePaths()
     val intersection = paths.first intersect paths.second.toSet()
     return findMinimumStepDistance(paths.first, paths.second, intersection) + 2
@@ -78,7 +78,7 @@ private fun calculateSteps(points: List<Point>, point: Point): Int {
     return sum
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

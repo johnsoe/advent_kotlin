@@ -2,16 +2,16 @@ package `2019`.`01`
 
 import util.InputParser
 
-val inputParser = InputParser("2019/01/input.txt")
+private val inputParser = InputParser("2019/01/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.linesLong()
         .sumOf { calcFuel(it) }
 }
 
 fun calcFuel(mass: Long): Long = mass / 3 - 2
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return inputParser.linesLong()
         .sumOf { calcIterFuel(it) }
 }
@@ -25,7 +25,7 @@ private fun calcIterFuel(mass: Long): Long {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

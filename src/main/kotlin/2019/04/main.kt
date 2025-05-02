@@ -3,9 +3,9 @@ package `2019`.`04`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2019/04/input.txt")
+private val inputParser = InputParser("2019/04/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return getInputRange().filter {
         neverDecreases(it.toString()) && hasDouble(it.toString())
     }.size
@@ -19,7 +19,7 @@ private fun getInputRange(): IntRange {
     return IntRange(input.first(), input.last())
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return getInputRange().filter {
         neverDecreases(it.toString()) && hasStrictDouble(it.toString())
     }.size
@@ -58,7 +58,7 @@ private fun hasStrictDouble(pwd: String): Boolean {
     return false
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -4,9 +4,9 @@ import `2019`.opcode.Computer
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2019/02/input.txt")
+private val inputParser = InputParser("2019/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val opcodes = inputParser.linesBySeparator()
         .map { it.toInt() }
         .toIntArray()
@@ -15,7 +15,7 @@ fun partOne(): Int {
     return Computer(opcodes).evaluate()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val target = 19690720
     val opcodes = inputParser.linesBySeparator()
         .map { it.toInt() }
@@ -34,7 +34,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }
