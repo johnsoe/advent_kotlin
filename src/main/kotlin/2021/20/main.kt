@@ -5,9 +5,9 @@ import util.grid.Grid
 import java.lang.IllegalStateException
 import kotlin.Int
 
-val inputParser = InputParser("2021/20/input.txt")
+private val inputParser = InputParser("2021/20/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.lines()
     val enhancement = input.first()
     val image = input.drop(2).map {
@@ -60,11 +60,11 @@ fun expandImage(grid: Grid<Char>, expansionChar: Char): Grid<Char> {
     return newGrid
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partTwo")

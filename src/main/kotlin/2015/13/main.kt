@@ -4,10 +4,10 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2015/13/input.txt")
+private val inputParser = InputParser("2015/13/input.txt")
 val regex = """(.+) would (.+) (\d+) happiness units by sitting next to (.+).""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val members = createMemberList()
     return maximizeHappiness(mutableListOf(), members)
 }
@@ -54,7 +54,7 @@ fun calculateScore(selected: List<Int>, members: List<Member>): Int {
     }.sum()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val members = createMemberList()
     val me = Member("me").apply {
         members.forEach {
@@ -66,7 +66,7 @@ fun partTwo(): Int {
     return maximizeHappiness(mutableListOf(), members)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -5,10 +5,10 @@ import util.math.mult
 import java.lang.IllegalStateException
 import kotlin.Int
 
-val inputParser = InputParser("2021/16/input.txt")
+private val inputParser = InputParser("2021/16/input.txt")
 var versionSum = 0L
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val bitString = inputParser.lines().first().hexToBitString()
     evaluatePacket(0, bitString).value
     return versionSum
@@ -33,7 +33,7 @@ fun evaluatePacket(
     }
 }
 
-fun parseLengthIdZero(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
+private fun parseLengthIdZero(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
     val subPacketSize = bitString.slice(startIndex..startIndex + 14).toInt(2)
     var index = startIndex + 15
     val results = mutableListOf<Long>()
@@ -45,7 +45,7 @@ fun parseLengthIdZero(startIndex: Int, bitString: String, operation: TypeId): Su
     return SubPacketResult(index, operate(operation, results))
 }
 
-fun parseLengthIdOne(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
+private fun parseLengthIdOne(startIndex: Int, bitString: String, operation: TypeId): SubPacketResult {
     val subPacketCount = bitString.slice(startIndex..startIndex + 10).toInt(2)
     var index = startIndex + 11
     val results = mutableListOf<Long>()
@@ -57,7 +57,7 @@ fun parseLengthIdOne(startIndex: Int, bitString: String, operation: TypeId): Sub
     return SubPacketResult(index, operate(operation, results))
 }
 
-fun parseLiteralSubPacket(startIndex: Int, bitString: String): SubPacketResult {
+private fun parseLiteralSubPacket(startIndex: Int, bitString: String): SubPacketResult {
     var index = startIndex
     var combinedBitString = ""
     var isNotTerminal = true
@@ -82,7 +82,7 @@ fun operate(typeId: TypeId, values: List<Long>): Long {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val bitString = inputParser.lines().first().hexToBitString()
     return evaluatePacket(0, bitString).value
 }
@@ -116,7 +116,7 @@ data class SubPacketResult(
     val value: Long,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

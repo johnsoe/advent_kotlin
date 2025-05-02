@@ -4,9 +4,9 @@ import util.InputParser
 import java.awt.Point
 import kotlin.Int
 
-val inputParser = InputParser("2021/17/input.txt")
+private val inputParser = InputParser("2021/17/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.linesInt()
     val xRange = input[0]..input[1]
     val yRange = input[2]..input[3]
@@ -38,11 +38,11 @@ fun partOne(): Int {
 // Xp = Vo(n) - .5(n^2)
 // Yp = Vo(n) - .5(n^2)
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partTwo")

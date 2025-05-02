@@ -5,13 +5,13 @@ import java.util.*
 import kotlin.Int
 import kotlin.math.pow
 
-val inputParser = InputParser("2024/17/input.txt")
+private val inputParser = InputParser("2024/17/input.txt")
 private val chunks = inputParser.chunk()
 
 // ugly but it works
 private val commands = chunks.last()[0].split(": ").last().split(",").map { it.toInt() }
 
-fun partOne(): String {
+private fun partOne(): String {
     val registers = chunks[0].map {
         it.split(": ").last().toLong()
     }.toLongArray()
@@ -56,7 +56,7 @@ private fun combo(registers: LongArray, num: Int): Long {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val maxPower = 15
     val outputs = LinkedList<Pair<Long, Int>>()
     outputs.add(8.0.pow(maxPower).toLong() to maxPower)
@@ -79,7 +79,7 @@ fun partTwo(): Long {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

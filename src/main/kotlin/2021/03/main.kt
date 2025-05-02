@@ -3,9 +3,9 @@ package `2021`.`03`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/03/input.txt")
+private val inputParser = InputParser("2021/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val binaryInput = inputParser.lines().map { it.toInt(2) }
     val max = binaryInput.maxOf { it }
     var flag = 1
@@ -22,7 +22,7 @@ fun partOne(): Int {
     return output.multiply()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val binaryInput = inputParser.lines().map {
         it.reversed().toInt(2)
     }
@@ -53,11 +53,11 @@ fun getRating(input: List<Int>, flip: Boolean): Int {
     return Integer.toBinaryString(temp.first()).reversed().toInt(2)
 }
 
-fun Pair<Int, Int>.multiply(): Int {
+private fun Pair<Int, Int>.multiply(): Int {
     return this.first * this.second
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

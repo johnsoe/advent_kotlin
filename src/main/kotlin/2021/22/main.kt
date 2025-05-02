@@ -3,17 +3,17 @@ package `2021`.`22`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/22/input.txt")
+private val inputParser = InputParser("2021/22/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return 0
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partOne")

@@ -6,9 +6,9 @@ import kotlin.Int
 
 val gateRegex = """(.*) (OR|XOR|AND) (.*) -> (.*)""".toRegex()
 val stateRegex = """(.*): (\d)""".toRegex()
-val inputParser = InputParser("2024/24/input.txt")
+private val inputParser = InputParser("2024/24/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val state = mutableMapOf<String, Int>()
     val gates = inputParser.chunk().last().map {
         val input = gateRegex.find(it)?.destructured?.toList() ?: emptyList()
@@ -63,7 +63,7 @@ private data class Gate(
 // and then manually drawing the circuit diagram to understand the mistake.
 // The hard coded values below were discovered in this manner and verified by swapping
 // input. Some of the ugliest code I've written, yet it helped me solve this problem.
-fun partTwo(): String {
+private fun partTwo(): String {
     val state = mutableMapOf<String, Int>()
     val gates = inputParser.chunk().last().map {
         val input = gateRegex.find(it)?.destructured?.toList() ?: emptyList()
@@ -130,7 +130,7 @@ private fun getStateByPrefix(state: Map<String, Int>, prefix: String): String {
         .joinToString("") { (it.second ?: 0).toString() }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

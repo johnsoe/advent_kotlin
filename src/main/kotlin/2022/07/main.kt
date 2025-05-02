@@ -2,9 +2,9 @@ package `2022`.`07`
 
 import util.InputParser
 
-val inputParser = InputParser("2022/07/input.txt")
+private val inputParser = InputParser("2022/07/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val root = generateDirectoryTree()
     val allDirs = mutableSetOf<File.Dir>()
     exploreSubdirectory(root, allDirs)
@@ -56,7 +56,7 @@ fun navigateTo(dir: String, currentDir: File.Dir, root: File.Dir): File.Dir {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val root = generateDirectoryTree()
     val allDirs = mutableSetOf<File.Dir>()
     exploreSubdirectory(root, allDirs)
@@ -67,7 +67,7 @@ fun partTwo(): Long {
         .minOf { it.size }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

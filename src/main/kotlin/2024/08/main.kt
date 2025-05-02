@@ -3,10 +3,10 @@ package `2024`.`08`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/08/input.txt")
+private val inputParser = InputParser("2024/08/input.txt")
 val grid = inputParser.charGrid()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val antiNodeSet = mutableSetOf<Int>()
     parseGridIndices { i, j ->
         val antiNodeVec = grid.deltaOfIndices(i, j) + grid.getVector(i)
@@ -17,7 +17,7 @@ fun partOne(): Int {
     return antiNodeSet.size
 }
 
-fun parseGridIndices(callback: (i: Int, j: Int) -> Unit) {
+private fun parseGridIndices(callback: (i: Int, j: Int) -> Unit) {
     grid.asSequence()
         .withIndex()
         .filter { it.value != '.' }
@@ -32,7 +32,7 @@ fun parseGridIndices(callback: (i: Int, j: Int) -> Unit) {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val antiNodeSet = mutableSetOf<Int>()
     parseGridIndices { i, j ->
         val delta = grid.deltaOfIndices(i, j)
@@ -49,7 +49,7 @@ fun partTwo(): Int {
     return antiNodeSet.size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

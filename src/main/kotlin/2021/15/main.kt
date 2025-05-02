@@ -3,9 +3,9 @@ package `2021`.`15`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/15/input.txt")
+private val inputParser = InputParser("2021/15/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
 //        val grid = Grid(getInputByLine().first().length, getGridsSingleLine(getInputByChunk()))
 //        val size = grid.getFullGrid().size
 //        val dp = IntArray(size) { -1 }.apply { this[size - 1] = grid.getFullGrid().last() }
@@ -38,7 +38,7 @@ fun getGridsSingleLine(chunks: List<String>): List<Int> {
         .filter { it != -16 }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
 //        val expanded = expandInput()
 //        val grid = Grid(expanded.first().length, getGridsSingleLine(expanded))
 //        val size = grid.getFullGrid().size
@@ -71,7 +71,7 @@ fun mapInput(input: String, offset: Int): String {
     }.joinToString("")
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

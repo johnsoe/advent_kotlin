@@ -7,9 +7,9 @@ import util.math.Vector2
 import java.util.LinkedList
 import kotlin.Int
 
-val inputParser = InputParser("2024/12/input.txt")
+private val inputParser = InputParser("2024/12/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val processedRegions = mutableMapOf<Char, MutableSet<Int>>()
     val grid = inputParser.charGrid()
     var price = 0
@@ -44,7 +44,7 @@ private fun regionPrice(visited: MutableSet<Int>, search: Char, start: Int, grid
     return borderCount * visited.size
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val processedIndices = mutableSetOf<Int>()
     val grid = inputParser.charGrid()
     var price = 0
@@ -113,7 +113,7 @@ private fun Direction.isXDirection(): Boolean {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

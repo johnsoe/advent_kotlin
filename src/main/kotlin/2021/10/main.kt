@@ -3,7 +3,7 @@ package `2021`.`10`
 import util.InputParser
 import java.util.*
 
-val inputParser = InputParser("2021/10/input.txt")
+private val inputParser = InputParser("2021/10/input.txt")
 
 private val pointMap = mapOf(
     ')' to 3,
@@ -19,7 +19,7 @@ private val pointMapTwo = mapOf(
     '<' to 4,
 )
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.lines().map { line ->
         val stack = Stack<Char>()
         line.toCharArray().forEach {
@@ -50,7 +50,7 @@ fun Char.isOpen(): Boolean {
     return "[{(<".contains(this)
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val sorted = inputParser.lines().map { line ->
         val stack = Stack<Char>()
         line.toCharArray().forEach {
@@ -72,7 +72,7 @@ fun partTwo(): Long {
     return sorted[(sorted.size / 2)]
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -2,9 +2,9 @@ package `2023`.`05`
 
 import util.InputParser
 
-val inputParser = InputParser("2023/05/input.txt")
+private val inputParser = InputParser("2023/05/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val mappings = getMappings()
     return getSeeds().minOfOrNull { initSeed ->
         mappings.fold(initSeed) { seed, ranges ->
@@ -49,7 +49,7 @@ fun getMappings(): List<List<Triple<Long, Long, Long>>> {
         }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val seeds = getSeedRanges()
     val mappings = getMappings()
 
@@ -73,7 +73,7 @@ fun partTwo(): Long {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,9 +3,9 @@ package `2024`.`03`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/03/input.txt")
+private val inputParser = InputParser("2024/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val mulRegex = """mul\((\d+),(\d+)\)""".toRegex()
     return inputParser.lines().sumOf { input ->
         mulRegex.findAll(input).sumOf {
@@ -21,7 +21,7 @@ private fun MatchResult.getMul(): Int {
     return ints.first() * ints.last()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val mulRegex = """mul\((\d+),(\d+)\)|do\(\)|don't\(\)""".toRegex()
     var isActive = true
     return inputParser.lines().sumOf { input ->
@@ -43,7 +43,7 @@ fun partTwo(): Int {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

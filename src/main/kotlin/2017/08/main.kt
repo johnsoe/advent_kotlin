@@ -4,12 +4,12 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2017/08/input.txt")
+private val inputParser = InputParser("2017/08/input.txt")
 
 val inputRegex = """(.+) (.+) (-?\d+) if (.+) (.+) (-?\d+)""".toRegex()
 
-fun partOne() = parseInstructions().first
-fun partTwo() = parseInstructions().second
+private fun partOne() = parseInstructions().first
+private fun partTwo() = parseInstructions().second
 
 private fun String.op(a: Int, b: Int): Boolean {
     return when (this) {
@@ -41,7 +41,7 @@ private fun parseInstructions(): Pair<Int, Int> {
     return max to registers.values.max()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

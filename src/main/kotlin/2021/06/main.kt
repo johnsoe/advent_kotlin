@@ -3,9 +3,9 @@ package `2021`.`06`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/06/input.txt")
+private val inputParser = InputParser("2021/06/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     var fishes = inputParser.linesBySeparator().map { it.toInt() }.toMutableList()
     repeat(80) {
         val reproCount = fishes.count { it == 0 }
@@ -21,7 +21,7 @@ fun partOne(): Long {
     return fishes.size.toLong()
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     // Efficient solution
     var fishes = inputParser.linesBySeparator().map { it.toInt() }
     var fishMap = mutableMapOf<Int, Long>()
@@ -42,7 +42,7 @@ fun partTwo(): Long {
     return fishMap.values.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

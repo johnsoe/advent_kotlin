@@ -3,9 +3,9 @@ package `2021`.`02`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/02/input.txt")
+private val inputParser = InputParser("2021/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val reduced = getInputAsPair().reduce { acc, it ->
         acc.first + it.first to acc.second + it.second
     }
@@ -26,7 +26,7 @@ fun getInputAsPair(): List<Pair<Int, Int>> {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     var aim = 0
     val reduced = getInputAsPair().fold(0 to 0) { acc, it ->
         if (it.first == 0) {
@@ -40,7 +40,7 @@ fun partTwo(): Int {
     return reduced.first * reduced.second
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

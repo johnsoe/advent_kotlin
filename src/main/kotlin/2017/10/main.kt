@@ -5,9 +5,9 @@ import util.hash.knotReverse
 import util.hash.toKnotHash
 import kotlin.Int
 
-val inputParser = InputParser("2017/10/input.txt")
+private val inputParser = InputParser("2017/10/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     var index = 0
     val arr = IntArray(256) { it }
     inputParser.linesOfType<Int>(",")
@@ -19,9 +19,9 @@ fun partOne(): Int {
     return arr[0] * arr[1]
 }
 
-fun partTwo() = inputParser.line().toKnotHash()
+private fun partTwo() = inputParser.line().toKnotHash()
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

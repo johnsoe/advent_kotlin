@@ -3,9 +3,9 @@ package `2016`.`07`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/07/input.txt")
+private val inputParser = InputParser("2016/07/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines().map {
         it.split("[", "]")
     }.count {
@@ -15,7 +15,7 @@ fun partOne(): Int {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines().map {
         it.split("[", "]")
     }.count { line ->
@@ -80,7 +80,7 @@ private fun String.inverseABA(): String {
     return "${this[1]}${this[0]}${this[1]}"
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

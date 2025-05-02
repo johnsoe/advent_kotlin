@@ -3,9 +3,9 @@ package `2022`.`17`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/17/input.txt")
+private val inputParser = InputParser("2022/17/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val rows = mutableMapOf<Long, Array<Boolean>>()
         .apply { this[0] = createNewRow() }
     val wind = inputParser.lines().first().toCharArray()
@@ -30,11 +30,11 @@ fun createNewRow(): Array<Boolean> {
     return Array<Boolean>(7) { false }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partOne")

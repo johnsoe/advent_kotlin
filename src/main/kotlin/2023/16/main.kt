@@ -7,9 +7,9 @@ import util.grid.toGrid
 import java.util.*
 import kotlin.Int
 
-val inputParser = InputParser("2023/16/input.txt")
+private val inputParser = InputParser("2023/16/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = createGrid()
     return evaluateWithStartBeam(
         start = Beam(Direction.Right, 0),
@@ -17,7 +17,7 @@ fun partOne(): Int {
     )
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = createGrid()
     return getInitialBeams(grid)
         .maxOf { evaluateWithStartBeam(it, grid) }
@@ -107,7 +107,7 @@ fun createGrid(): Grid<Char> {
         .toGrid(width)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

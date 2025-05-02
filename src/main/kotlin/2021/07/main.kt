@@ -4,9 +4,9 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2021/07/input.txt")
+private val inputParser = InputParser("2021/07/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return updateDistances { position, min, index ->
         abs(position - min - index).toLong()
     }
@@ -26,14 +26,14 @@ fun updateDistances(callback: (Int, Int, Int) -> Long): Long {
     return distanceSums.minOrNull() ?: -1L
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return updateDistances { position, min, index ->
         val distance = abs(position - min - index)
         (distance * (distance + 1) / 2).toLong()
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

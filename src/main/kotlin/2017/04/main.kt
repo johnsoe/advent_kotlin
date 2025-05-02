@@ -3,9 +3,9 @@ package `2017`.`04`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/04/input.txt")
+private val inputParser = InputParser("2017/04/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .count {
             val words = it.split(" ")
@@ -13,7 +13,7 @@ fun partOne(): Int {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines()
         .count {
             val words = it.split(" ")
@@ -42,7 +42,7 @@ private fun IntArray.isAnagram(other: IntArray): Boolean {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

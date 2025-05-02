@@ -3,13 +3,13 @@ package `2016`.`18`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/18/input.txt")
+private val inputParser = InputParser("2016/18/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return getTotalSafeCount(40)
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return getTotalSafeCount(400000)
 }
 
@@ -40,7 +40,7 @@ private fun String.getSafeCount(): Long {
     return this.count { it == '.' }.toLong()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

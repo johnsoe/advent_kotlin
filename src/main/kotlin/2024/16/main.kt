@@ -5,12 +5,12 @@ import util.grid.Direction
 import java.util.PriorityQueue
 import kotlin.Int
 
-val inputParser = InputParser("2024/16/input.txt")
+private val inputParser = InputParser("2024/16/input.txt")
 val grid = inputParser.charGrid()
 val gEnd = grid.indexOf('E')
 val gStart = grid.indexOf('S')
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val scores = generateCellScores()
     return scores[gEnd] ?: 0
 }
@@ -66,14 +66,14 @@ private fun dfsGridHelper(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val scores = generateCellScores()
     val path = mutableSetOf(gStart)
     dfsGridHelper(mutableSetOf(), scores, path, Cell(0, Direction.Right, gStart))
     return path.size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,9 +3,9 @@ package `2024`.`05`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/05/input.txt")
+private val inputParser = InputParser("2024/05/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val rules = rules()
     return updates()
         .filter { it.adheresToRules(rules) }
@@ -45,7 +45,7 @@ private fun List<Int>.adheresToRules(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val rules = rules()
     return updates()
         .filter { !it.adheresToRules(rules) }
@@ -67,7 +67,7 @@ fun partTwo(): Int {
         .sumOf { it[it.size / 2] }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

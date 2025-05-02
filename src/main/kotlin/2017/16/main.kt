@@ -3,9 +3,9 @@ package `2017`.`16`
 import util.InputParser
 import util.list.*
 
-val inputParser = InputParser("2017/16/input.txt")
+private val inputParser = InputParser("2017/16/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     val arr = Array(16) { (it + 97).toChar() }
     arr.parseInput()
     return arr.shortContentString()
@@ -31,7 +31,7 @@ private fun Array<Char>.parseInput() {
         }
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     val arr = Array(16) { (it + 97).toChar() }
     var state = arr.shortContentString()
     val states = mutableMapOf<String, String>()
@@ -49,7 +49,7 @@ fun partTwo(): String {
     return state
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

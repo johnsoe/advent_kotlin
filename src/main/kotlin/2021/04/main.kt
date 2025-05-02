@@ -2,11 +2,11 @@ package `2021`.`04`
 
 import util.InputParser
 
-val inputParser = InputParser("2021/04/input.txt")
+private val inputParser = InputParser("2021/04/input.txt")
 // println(partOne())
 // println(partTwo())
 
-// fun partOne(): Int {
+// private fun partOne(): Int {
 //     val boards = generateBoards()
 //     inputParser.lines().first().split(",").map { it.toInt() }.forEach { num ->
 //         boards.forEach { board ->
@@ -29,7 +29,7 @@ val inputParser = InputParser("2021/04/input.txt")
 //    }
 // }
 //
-// fun partTwo(): Int {
+// private fun partTwo(): Int {
 //     var boards = generateBoards()
 //     inputParser.lines().first().split(",").map { it.toInt() }.forEach { num ->
 //         boards.forEach { board ->

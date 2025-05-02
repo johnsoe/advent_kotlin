@@ -3,9 +3,9 @@ package `2015`.`03`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/03/input.txt")
+private val inputParser = InputParser("2015/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val visited = mutableSetOf(0 to 0)
     inputParser.line().traverseGrid(visited)
     return visited.size
@@ -25,7 +25,7 @@ private fun String.traverseGrid(visited: MutableSet<Pair<Int, Int>>) {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val santaPath = inputParser.line().filterIndexed { index, _ -> index % 2 == 0 }
     val roboPath = inputParser.line().filterIndexed { index, _ -> index % 2 == 1 }
     val visited = mutableSetOf(0 to 0)
@@ -34,7 +34,7 @@ fun partTwo(): Int {
     return visited.size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

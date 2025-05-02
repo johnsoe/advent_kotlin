@@ -6,9 +6,9 @@ import util.grid.Grid
 import util.grid.toGrid
 import kotlin.Int
 
-val inputParser = InputParser("2024/04/input.txt")
+private val inputParser = InputParser("2024/04/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val xmasGrid = getXmasGrid()
     return xmasGrid.withIndex().sumOf {
         Direction.allDirections().count { dir ->
@@ -30,7 +30,7 @@ fun getXmasGrid(): Grid<Char> {
         .toGrid()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val xmasGrid = getXmasGrid()
     return xmasGrid.withIndex().sumOf {
         Direction.diagonalDirections().count { dir ->
@@ -52,7 +52,7 @@ fun partTwo(): Int {
     } / 2
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

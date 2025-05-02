@@ -7,9 +7,9 @@ import util.hash.toKnotHash
 import java.util.LinkedList
 import kotlin.Int
 
-val inputParser = InputParser("2017/14/input.txt")
+private val inputParser = InputParser("2017/14/input.txt")
 
-fun partOne() = toGrid().count { it == '1' }
+private fun partOne() = toGrid().count { it == '1' }
 
 fun toGrid(): Grid<Char> {
     val input = inputParser.line()
@@ -25,7 +25,7 @@ fun toGrid(): Grid<Char> {
     return gridStrs.map { it.toCharArray().toList() }.toGrid()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = toGrid()
     val visited = mutableSetOf<Int>()
     var groupCount = 0
@@ -48,7 +48,7 @@ fun partTwo(): Int {
     return groupCount
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,14 +3,14 @@ package `2017`.`02`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/02/input.txt")
+private val inputParser = InputParser("2017/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.linesOfType<Int>(" ", "\t")
         .sumOf { it.max() - it.min() }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.linesOfType<Int>(" ", "\t")
         .sumOf { nums ->
             nums.mapNotNull { i ->
@@ -25,7 +25,7 @@ fun partTwo(): Int {
         }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

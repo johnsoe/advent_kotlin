@@ -3,9 +3,9 @@ package `2015`.`17`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/17/input.txt")
+private val inputParser = InputParser("2015/17/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val sizes = getSortedSizes().toMutableList()
     return sizeCombinations(sizes, 150, mutableSetOf()).size
 }
@@ -41,14 +41,14 @@ fun getSortedSizes(): List<IndexedValue<Int>> {
         .toList()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val sizes = getSortedSizes().toMutableList()
     val result = sizeCombinations(sizes, 150, mutableSetOf())
     val max = result.max()
     return result.count { it == max }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

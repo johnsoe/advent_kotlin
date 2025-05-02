@@ -4,9 +4,9 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2023/02/input.txt")
+private val inputParser = InputParser("2023/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val limit = Round(12, 13, 14)
     val validGameSum = inputParser.lines().map {
         it.toGame()
@@ -22,7 +22,7 @@ fun partOne(): Int {
     return validGameSum
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines().map { it.toGame() }
         .map {
             it.rounds.fold(Round()) { acc, curRound ->
@@ -74,7 +74,7 @@ data class Round(
     var blueCount: Int = 0,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

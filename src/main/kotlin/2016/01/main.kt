@@ -6,9 +6,9 @@ import java.lang.IllegalStateException
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2016/01/input.txt")
+private val inputParser = InputParser("2016/01/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val startDirection: Direction = Direction.Up
     val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection, 0, 0)) { acc, direction ->
         val nextDirection = when (direction.first()) {
@@ -29,7 +29,7 @@ fun partOne(): Int {
     return abs(folded.second) + abs(folded.third)
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val startDirection: Direction = Direction.Up
     val locationSet = mutableSetOf<Pair<Int, Int>>().apply { add(0 to 0) }
     val folded = inputParser.linesBySeparator(", ").fold(Triple(startDirection, 0, 0)) { acc, direction ->
@@ -68,7 +68,7 @@ fun partTwo(): Int {
     return abs(folded.second) + abs(folded.third)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

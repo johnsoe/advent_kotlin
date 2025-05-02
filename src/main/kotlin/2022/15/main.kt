@@ -7,9 +7,9 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-val inputParser = InputParser("2022/15/input.txt")
+private val inputParser = InputParser("2022/15/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val row = 2000000L
     return getInstruments()
         .mapToRangesByRow(row)
@@ -51,7 +51,7 @@ fun List<LongRange>.consolidate(): List<LongRange> {
         }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val instruments = getInstruments()
     val sensorRange = 0..4000000L
 
@@ -64,7 +64,7 @@ fun partTwo(): Long {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

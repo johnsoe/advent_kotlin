@@ -4,10 +4,10 @@ import util.InputParser
 import util.math.isAdjacent
 import util.math.union
 
-val inputParser = InputParser("2016/20/input.txt")
+private val inputParser = InputParser("2016/20/input.txt")
 
 // Probably should've sorted input to make this simpler.
-fun partOne(): Long {
+private fun partOne(): Long {
     val exclusions = generateExclusions()
     return exclusions.dropLast(1).filterIndexed { index, longRange ->
         !longRange.isAdjacent(exclusions[index + 1])
@@ -36,14 +36,14 @@ private fun generateExclusions(): List<LongRange> {
     return exclusions
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val exclusions = generateExclusions()
     return (exclusions.last().last + 1) - exclusions.sumOf {
         it.last - it.first + 1
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

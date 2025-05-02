@@ -3,9 +3,9 @@ package `2016`.`03`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/03/input.txt")
+private val inputParser = InputParser("2016/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .map { lengths ->
             lengths.trim().split("\\s+".toRegex())
@@ -23,7 +23,7 @@ private fun List<Int>.isValidTriangle(): Boolean {
     return sorted[0] + sorted[1] > sorted[2]
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines()
         .map { lengths ->
             lengths.trim().split("\\s+".toRegex())
@@ -44,7 +44,7 @@ fun partTwo(): Int {
         .size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,9 +3,9 @@ package `2017`.`13`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/13/input.txt")
+private val inputParser = InputParser("2017/13/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return layers().interceptions(0)
         .sumOf { (depth, range) -> depth * range }
 }
@@ -24,7 +24,7 @@ private fun List<Pair<Int, Int>>.interceptions(offset: Int): List<Pair<Int, Int>
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val layers = layers()
     var offset = 1
     while (layers.interceptions(offset).isNotEmpty()) {
@@ -33,7 +33,7 @@ fun partTwo(): Int {
     return offset
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

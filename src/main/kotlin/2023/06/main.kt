@@ -4,9 +4,9 @@ import util.InputParser
 import util.math.mult
 import kotlin.Int
 
-val inputParser = InputParser("2023/06/input.txt")
+private val inputParser = InputParser("2023/06/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines().map {
         val split = it.split(" ")
         countWinningRaces(
@@ -16,7 +16,7 @@ fun partOne(): Int {
     }.mult()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines()
         .fold("" to "") { acc, line ->
             val split = line.split(" ")
@@ -32,7 +32,7 @@ fun countWinningRaces(time: Long, distance: Long): Int {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

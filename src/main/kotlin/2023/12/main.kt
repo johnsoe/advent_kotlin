@@ -3,10 +3,10 @@ package `2023`.`12`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2023/12/input.txt")
+private val inputParser = InputParser("2023/12/input.txt")
 val visited = mutableMapOf<String, Long>()
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.lines().map {
         val split = it.split(" ", ",")
         split[0] to split.drop(1).map { it.toInt() }
@@ -96,7 +96,7 @@ fun String.canFit(input: String, index: Int): Boolean {
         (index - 1 < 0 || input[index - 1] != '#')
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return inputParser.lines().map {
         val split = it.split(" ", ",")
         split[0] to split.drop(1).map { it.toInt() }
@@ -111,11 +111,11 @@ fun partTwo(): Long {
     }
 }
 
-fun Pair<Int, List<Int>>.convert(): String {
+private fun Pair<Int, List<Int>>.convert(): String {
     return "${this.first},${this.second.joinToString(",")}"
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

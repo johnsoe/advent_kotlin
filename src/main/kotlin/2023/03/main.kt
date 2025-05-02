@@ -4,9 +4,9 @@ import util.InputParser
 import java.awt.Point
 import kotlin.Int
 
-val inputParser = InputParser("2023/03/input.txt")
+private val inputParser = InputParser("2023/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.lines()
     var sum = 0
     input.forEachIndexed { yIndex, s ->
@@ -44,7 +44,7 @@ fun partOne(): Int {
     return sum
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val input = inputParser.lines()
     val gearLocations = mutableMapOf<Point, MutableList<Int>>()
     input.forEachIndexed { yIndex, s ->
@@ -91,7 +91,7 @@ fun partTwo(): Int {
         }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 

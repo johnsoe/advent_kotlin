@@ -1,13 +1,17 @@
 package util.generator
 
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.MemberName
+import com.squareup.kotlinpoet.PropertySpec
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.ResponseBody
 import java.io.File
+import java.nio.file.FileAlreadyExistsException
 import java.nio.file.Files
 import java.nio.file.Paths
 
@@ -18,17 +22,26 @@ class DayGenerator(
 ) {
 
     private val parentDir = Paths.get("").toAbsolutePath()
-    private val fullPath = "$parentDir/src/main/kotlin/$year/$day"
+    private val basePath = "$parentDir/src/main/kotlin"
+    private val shortPath = "$basePath/$year"
+    private val fullPath = "$shortPath/$day"
     private val baseUrl = "https://adventofcode.com/$year/day/${day.toInt()}"
     private val inputUrl = "$baseUrl/input"
     private val httpClient = createHttpClient(session)
 
     fun prepare() {
         // Prepare main.kts file
-        Files.createDirectory(Paths.get(fullPath))
-        getFileSpec().writeTo(File(fullPath))
-        val mainFile = File("$fullPath/main.kts")
-        mainFile.writeText(mainFile.readText().replace("public ", ""))
+        try {
+            Files.createDirectory(Paths.get(shortPath))
+        } catch (_: FileAlreadyExistsException) { }
+
+        try {
+            Files.createDirectory(Paths.get(fullPath))
+        } catch (_: FileAlreadyExistsException) { }
+
+        val mainFile = File("$fullPath/Main.kt")
+        getFileSpec().writeTo(File(basePath))
+        mainFile.writeText(mainFile.readText())
 
         val file = File("$fullPath/README.md")
         file.createNewFile()
@@ -55,33 +68,47 @@ class DayGenerator(
 
     /**
      * val inputParser = InputParser("$year/$day/input.txt")
-     * println(partOne())
-     * println(partTwo())
      *
-     * fun partOne(): Int {
+     * private fun partOne(): Int {
      *     return 0
      * }
      *
-     * fun partTwo(): Int {
+     * private fun partTwo(): Int {
      *     return 0
+     * }
+     *
+     * private fun main() {
+     *     println(partOne())
+     *     println(partTwo())
      * }
      */
     private fun getFileSpec(): FileSpec {
-        val createParser = MemberName("util", "InputParser")
-        return FileSpec.scriptBuilder("main")
+        val createParser = MemberName("", "InputParser")
+        return FileSpec.builder("$year.$day", "Main")
             .indent("    ")
-            .addStatement("val inputParser = %M(\"$year/$day/input.txt\")", createParser)
+            .addProperty(
+                PropertySpec.builder("inputParser", ClassName("util", "InputParser"))
+                    .addModifiers(KModifier.PRIVATE)
+                    .initializer("%M(%S)", createParser, "$year/$day/input.txt")
+                    .build()
+            )
+            .addFunction(addTaskFunction("partOne"))
+            .addFunction(addTaskFunction("partTwo"))
+            .addFunction(addMainFunction())
+            .build()
+    }
+
+    private fun addMainFunction(): FunSpec {
+        return FunSpec.builder("main")
+            .addModifiers(KModifier.PRIVATE)
             .addStatement("println(partOne())")
             .addStatement("println(partTwo())")
-            .addStatement("")
-            .addFunction(addTaskFunction("partOne"))
-            .addStatement("")
-            .addFunction(addTaskFunction("partTwo"))
             .build()
     }
 
     private fun addTaskFunction(name: String): FunSpec {
         return FunSpec.builder(name)
+            .addModifiers(KModifier.PRIVATE)
             .returns(Int::class)
             .addStatement("println(%S)", name)
             .addStatement("return 0")

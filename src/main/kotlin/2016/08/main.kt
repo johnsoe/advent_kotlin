@@ -5,9 +5,9 @@ import util.grid.Grid
 import util.grid.toGrid
 import kotlin.Int
 
-val inputParser = InputParser("2016/08/input.txt")
+private val inputParser = InputParser("2016/08/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = Array(50 * 6) { false }.toList().toGrid(50)
     getInputCommands().forEach {
         when (it) {
@@ -50,7 +50,7 @@ fun Grid<Boolean>.setRect(width: Int, height: Int) {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = Array(50 * 6) { false }.toList().toGrid(50)
     getInputCommands().forEach {
         when (it) {
@@ -69,7 +69,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

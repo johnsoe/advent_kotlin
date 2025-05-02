@@ -4,9 +4,9 @@ import `2016`.assembunny.AssembunnyInterpreter
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/23/input.txt")
+private val inputParser = InputParser("2016/23/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val registers = mutableMapOf(
         "a" to 7,
         "b" to 0,
@@ -21,7 +21,7 @@ fun partOne(): Int {
 }
 
 // There must be a smarter way to do this
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val registers = mutableMapOf(
         "a" to 12,
         "b" to 0,
@@ -35,7 +35,7 @@ fun partTwo(): Int {
     return registers["a"] ?: 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

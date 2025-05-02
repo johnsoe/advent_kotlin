@@ -5,9 +5,9 @@ import util.math.mult
 import java.util.*
 import kotlin.Int
 
-val inputParser = InputParser("2022/11/input.txt")
+private val inputParser = InputParser("2022/11/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val monkeys = getMonkeys()
     val monkeyMap = monkeys.associateBy { it.id }
     repeat(20) {
@@ -48,7 +48,7 @@ fun getInspectionMultiplier(monkeys: List<Monkey>): Long {
         .mult()
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val monkeys = getMonkeys()
     val monkeyMap = monkeys.associateBy { it.id }
     val divisor = monkeys
@@ -68,7 +68,7 @@ fun partTwo(): Long {
     return getInspectionMultiplier(monkeys)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

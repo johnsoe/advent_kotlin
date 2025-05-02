@@ -3,9 +3,9 @@ package `2016`.`06`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/06/input.txt")
+private val inputParser = InputParser("2016/06/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     return generateCharMaps()
         .map { map ->
             map.keys.sortedByDescending { map[it] }.first()
@@ -26,14 +26,14 @@ private fun generateCharMaps(): List<Map<Char, Int>> {
         }
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     return generateCharMaps()
         .map { map ->
             map.keys.sortedBy { map[it] }.first()
         }.joinToString("")
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

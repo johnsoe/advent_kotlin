@@ -4,9 +4,9 @@ import util.InputParser
 import java.awt.Point
 import kotlin.Int
 
-val inputParser = InputParser("2021/05/input.txt")
+private val inputParser = InputParser("2021/05/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return getOverlapCount(
         convertToLines().filter { it.isStraight() },
     )
@@ -23,7 +23,7 @@ fun getOverlapCount(lines: List<Line>): Int {
         .count { it.value > 1 }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return getOverlapCount(convertToLines())
 }
 
@@ -76,7 +76,7 @@ data class Line(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

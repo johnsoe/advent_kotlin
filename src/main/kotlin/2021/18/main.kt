@@ -6,10 +6,10 @@ import kotlin.Int
 import kotlin.math.ceil
 import kotlin.math.floor
 
-val inputParser = InputParser("2021/18/input.txt")
+private val inputParser = InputParser("2021/18/input.txt")
 
 var index = 0
-fun partOne(): Long {
+private fun partOne(): Long {
     val reducedTree = inputParser.lines().map {
         index = 0
         createSnailTree(it)
@@ -111,7 +111,7 @@ fun leavesInOrder(root: SnailNode): List<SnailNode> {
     return leafList
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val trees = inputParser.lines().map {
         index = 0
         createSnailTree(it)
@@ -196,7 +196,7 @@ class SnailNode(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

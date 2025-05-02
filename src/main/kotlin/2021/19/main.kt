@@ -3,9 +3,9 @@ package `2021`.`19`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/19/input.txt")
+private val inputParser = InputParser("2021/19/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val points = inputParser.chunkAndJoin(",").map {
         it.split(",")
             .chunked(3)
@@ -15,7 +15,7 @@ fun partOne(): Int {
     return 0
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
@@ -35,7 +35,7 @@ data class Point3D(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partTwo")

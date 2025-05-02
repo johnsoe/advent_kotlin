@@ -3,9 +3,9 @@ package `2023`.`08`
 import util.InputParser
 import util.math.lcm
 
-val inputParser = InputParser("2023/08/input.txt")
+private val inputParser = InputParser("2023/08/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return "AAA".findCycleSize(
         cmds = inputParser.lines().first(),
         nodes = getNodes(),
@@ -37,7 +37,7 @@ fun String.findCycleSize(cmds: String, nodes: Map<String, List<String>>): Long {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val cmds = inputParser.lines().first()
     val nodes = getNodes()
     return nodes.filter { it.key.endsWith("A") }
@@ -45,7 +45,7 @@ fun partTwo(): Long {
         .lcm()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

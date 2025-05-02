@@ -3,9 +3,9 @@ package `2022`.`06`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/06/input.txt")
+private val inputParser = InputParser("2022/06/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.lines().first()
     input.forEachIndexed { index, _ ->
         input.uniqueSubsetIndex(index, 4)?.let { return it }
@@ -13,7 +13,7 @@ fun partOne(): Int {
     return 0
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val input = inputParser.lines().first()
     input.forEachIndexed { index, _ ->
         input.uniqueSubsetIndex(index, 14)?.let { return it }
@@ -30,7 +30,7 @@ fun String.uniqueSubsetIndex(index: Int, span: Int): Int? {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

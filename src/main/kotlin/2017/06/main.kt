@@ -3,9 +3,9 @@ package `2017`.`06`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/06/input.txt")
+private val inputParser = InputParser("2017/06/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return cycleCount().first
 }
 
@@ -40,13 +40,13 @@ private fun IntArray.redistribute() {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return cycleCount().let {
         it.first - it.second
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

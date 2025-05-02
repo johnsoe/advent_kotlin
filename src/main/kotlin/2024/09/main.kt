@@ -4,9 +4,9 @@ import util.InputParser
 import util.math.isEven
 import kotlin.Int
 
-val inputParser = InputParser("2024/09/input.txt")
+private val inputParser = InputParser("2024/09/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     var id = 0
     var space = 0
     val empties = mutableListOf<Int>()
@@ -39,7 +39,7 @@ fun partOne(): Long {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     var id = 0
     var space = 0
     val empties = mutableListOf<IntRange>()
@@ -81,7 +81,7 @@ private fun IntRange.size(): Int {
     return this.last - this.first + 1
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

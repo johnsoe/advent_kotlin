@@ -7,9 +7,9 @@ import java.util.LinkedList
 import kotlin.Int
 import kotlin.math.min
 
-val inputParser = InputParser("2016/24/input.txt")
+private val inputParser = InputParser("2016/24/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = createGrid()
     val pointsOfInterest = createPointsOfInterest(grid)
     val distances = populateDistanceMatrix(grid, pointsOfInterest)
@@ -33,7 +33,7 @@ fun createPointsOfInterest(grid: Grid<Char>): List<Pair<Char, Int>> {
         .filter { (c, _) -> c != '#' && c != '.' }
 }
 
-fun populateDistanceMatrix(grid: Grid<Char>, pointsOfInterest: List<Pair<Char, Int>>): Array<IntArray> {
+private fun populateDistanceMatrix(grid: Grid<Char>, pointsOfInterest: List<Pair<Char, Int>>): Array<IntArray> {
     val distances = Array(pointsOfInterest.size) {
         IntArray(pointsOfInterest.size) { 0 }
     }
@@ -87,7 +87,7 @@ fun calculateShortestDistance(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = createGrid()
     val pointsOfInterest = createPointsOfInterest(grid)
     val distances = populateDistanceMatrix(grid, pointsOfInterest)
@@ -100,7 +100,7 @@ fun partTwo(): Int {
     )
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

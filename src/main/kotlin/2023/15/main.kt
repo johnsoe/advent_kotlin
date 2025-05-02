@@ -3,9 +3,9 @@ package `2023`.`15`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2023/15/input.txt")
+private val inputParser = InputParser("2023/15/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .first()
         .split(",")
@@ -19,7 +19,7 @@ fun String.hashString(): Int {
         }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val boxes = Array<LinkedHashMap<String, Long>>(256) {
         LinkedHashMap()
     }
@@ -46,7 +46,7 @@ fun partTwo(): Long {
     }.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

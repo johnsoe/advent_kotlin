@@ -7,10 +7,10 @@ import util.grid.toGrid
 import java.util.LinkedList
 import kotlin.Int
 
-val inputParser = InputParser("2024/18/input.txt")
+private val inputParser = InputParser("2024/18/input.txt")
 private val gridSize = 71
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = Array(gridSize) { Array(gridSize) { true } }.toGrid()
     val bytes = inputParser.lines()
         .take(1024)
@@ -45,7 +45,7 @@ private fun bfs(grid: Grid<Boolean>): Int {
     return -1
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     var count = 1024
     val grid = Array(gridSize) { Array(gridSize) { true } }.toGrid()
     val bytes = inputParser.lines()
@@ -64,7 +64,7 @@ fun partTwo(): String {
     return bytes[count].toString()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

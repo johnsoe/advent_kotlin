@@ -3,10 +3,10 @@ package `2024`.`23`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/23/input.txt")
+private val inputParser = InputParser("2024/23/input.txt")
 val graph = inputParser.lines().toGraph()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val results = mutableSetOf<String>()
     graph.forEach { entry ->
         val comps = entry.value.toList()
@@ -50,7 +50,7 @@ private fun List<String>.toGraph(): Map<String, Set<String>> {
     return sets
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     return findMaximalCliques(graph)
         .maxByOrNull { it.size }
         ?.sortJoin(",")
@@ -85,7 +85,7 @@ fun findMaximalCliques(graph: Map<String, Set<String>>): List<Set<String>> {
     return cliques
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

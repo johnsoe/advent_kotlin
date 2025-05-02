@@ -3,9 +3,9 @@ package `2024`.`19`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/19/input.txt")
+private val inputParser = InputParser("2024/19/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val patterns = inputParser.lines().first().split(",").map { it.trim() }
     return inputParser.lines().drop(2).count {
         it.isPossible(patterns)
@@ -26,7 +26,7 @@ fun String.isPossible(patterns: List<String>): Boolean {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val patterns = inputParser.lines().first().split(",").map { it.trim() }
     return inputParser.lines().drop(2)
         .sumOf {
@@ -51,7 +51,7 @@ fun String.possibleCounts(patterns: List<String>, found: MutableMap<String, Long
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

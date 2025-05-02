@@ -3,10 +3,10 @@ package `2015`.`14`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/14/input.txt")
+private val inputParser = InputParser("2015/14/input.txt")
 val regex = """(.*) can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return createReindeer().maxOf {
         it.calculateDistanceAtTime(2503)
     }
@@ -20,7 +20,7 @@ fun createReindeer(): List<Reindeer> {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val reindeer = createReindeer()
     // Calculate distance traveled for each reindeer, determine the winner, and count each winner
     return (1..2503).map { time ->
@@ -54,7 +54,7 @@ data class Reindeer(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

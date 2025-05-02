@@ -3,9 +3,9 @@ package `2022`.`08`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/08/input.txt")
+private val inputParser = InputParser("2022/08/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val trees = getTreeGrid()
     return trees.mapIndexed { y, row ->
         row.mapIndexed { x, tree ->
@@ -23,7 +23,7 @@ fun getTreeGrid(): List<List<Int>> {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val trees = getTreeGrid()
     return trees.mapIndexed { y, row ->
         row.mapIndexed { x, tree ->
@@ -82,7 +82,7 @@ data class TreeCross(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

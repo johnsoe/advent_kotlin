@@ -3,9 +3,9 @@ package `2024`.`25`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/25/input.txt")
+private val inputParser = InputParser("2024/25/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.chunk().map { grid ->
         val counts = IntArray(5)
         val type = if (grid.first().all { it == '#' }) {
@@ -33,11 +33,11 @@ fun partOne(): Int {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partTwo")

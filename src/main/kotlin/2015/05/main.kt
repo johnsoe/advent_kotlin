@@ -3,10 +3,10 @@ package `2015`.`05`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/05/input.txt")
+private val inputParser = InputParser("2015/05/input.txt")
 val naughtyList = listOf("ab", "cd", "pq", "xy")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .count { it.isNice() }
 }
@@ -23,7 +23,7 @@ fun String.isNice(): Boolean {
     return vowelCount >= 3 && hasDupe && isNotNaughty
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines()
         .count { it.isActuallyNice() }
 }
@@ -46,7 +46,7 @@ fun String.isActuallyNice(): Boolean {
     return hasOverlap && hasValidPair
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

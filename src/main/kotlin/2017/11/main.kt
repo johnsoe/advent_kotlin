@@ -7,9 +7,9 @@ import kotlin.Int
 import kotlin.math.abs
 import kotlin.math.max
 
-val inputParser = InputParser("2017/11/input.txt")
+private val inputParser = InputParser("2017/11/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.line()
         .split(",")
         .mapNotNull { it.toHexDirection()?.toVec() }
@@ -17,7 +17,7 @@ fun partOne(): Int {
         .hexGridDistance(Vector3(0, 0, 0))
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val start = Vector3(0, 0, 0)
     var maxDistance = 0
     inputParser.line()
@@ -35,7 +35,7 @@ fun Vector3.hexGridDistance(other: Vector3): Int {
     return (abs(other.q - q) + abs(other.r - r) + abs(other.s - s)) / 2
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,10 +3,10 @@ package `2016`.`22`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/22/input.txt")
+private val inputParser = InputParser("2016/22/input.txt")
 val regex = """/dev/grid/node-x(\d+)-y(\d+)\s+\d+T\s+(\d+)T\s+(\d+)T""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val nodes = generateNodes()
     return nodes.sumOf {
         nodes.count { inner ->
@@ -48,7 +48,7 @@ private data class Node(
 }
 
 // Not a completely programmatic solution. Printed the grid and counted.
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val nodes = generateNodes()
         .sortedWith(
             compareBy({ it.y }, { it.x }),
@@ -69,7 +69,7 @@ fun partTwo(): Int {
     return -1
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

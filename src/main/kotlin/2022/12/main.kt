@@ -4,9 +4,9 @@ import util.InputParser
 import java.awt.Point
 import kotlin.Int
 
-val inputParser = InputParser("2022/12/input.txt")
+private val inputParser = InputParser("2022/12/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val (heights, start, end) = getHeightMap()
     val visited = heights.map {
         it.map { Integer.MAX_VALUE }.toMutableList()
@@ -81,7 +81,7 @@ fun getHeightMap(): Triple<List<List<Int>>, Point, Point> {
     return Triple(grid, s!!, e!!)
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val (heights, _, end) = getHeightMap()
     val visited = heights.map {
         it.map { Integer.MAX_VALUE }.toMutableList()
@@ -98,7 +98,7 @@ fun partTwo(): Int {
     }.min()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -5,9 +5,9 @@ import util.grid.Grid
 import util.grid.toGrid
 import kotlin.Int
 
-val inputParser = InputParser("2015/18/input.txt")
+private val inputParser = InputParser("2015/18/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = createGrid()
     repeat(100) {
         grid.animate()
@@ -38,7 +38,7 @@ fun createGrid(): Grid<Boolean> {
     }.toGrid()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = createGrid()
     grid.setCorners(true)
     repeat(100) {
@@ -48,7 +48,7 @@ fun partTwo(): Int {
     return grid.count { it }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

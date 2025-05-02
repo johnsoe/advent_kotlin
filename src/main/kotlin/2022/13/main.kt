@@ -6,9 +6,9 @@ import java.util.*
 import kotlin.Int
 import kotlin.math.min
 
-val inputParser = InputParser("2022/13/input.txt")
+private val inputParser = InputParser("2022/13/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .filter { it.isNotBlank() }
         .map { it.toPacket() }
@@ -23,7 +23,7 @@ fun partOne(): Int {
         .sum()
 }
 
-fun Pair<List<Any>, List<Any>>.isValidOrder(): Boolean? {
+private fun Pair<List<Any>, List<Any>>.isValidOrder(): Boolean? {
     val a = this.first
     val b = this.second
 
@@ -94,7 +94,7 @@ fun String.toPacket(): List<Any> {
     return packet
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val dividers = listOf("[[2]]", "[[6]]")
     return inputParser.lines()
         .toMutableList()
@@ -114,7 +114,7 @@ fun partTwo(): Int {
         .mult()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

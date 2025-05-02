@@ -5,9 +5,9 @@ import java.util.PriorityQueue
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2024/01/input.txt")
+private val inputParser = InputParser("2024/01/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val capacity = inputParser.lines().size
     val firstCol = PriorityQueue<Int>(capacity)
     val secondCol = PriorityQueue<Int>(capacity)
@@ -29,7 +29,7 @@ private fun inputToIntsList(): List<Pair<Int, Int>> {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val cols = inputToIntsList()
     val secondCol = cols
         .groupingBy { (_, key) -> key }
@@ -39,7 +39,7 @@ fun partTwo(): Int {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,15 +3,15 @@ package `2017`.`05`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/05/input.txt")
+private val inputParser = InputParser("2017/05/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.linesInt()
         .toMutableList()
         .runJumps { 1 }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val jumps = inputParser.linesInt().toMutableList()
     return jumps.runJumps {
         if (jumps[it] >= 3) {
@@ -34,7 +34,7 @@ private fun MutableList<Int>.runJumps(diff: (Int) -> Int): Int {
     return count
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

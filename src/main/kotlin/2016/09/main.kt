@@ -2,14 +2,14 @@ package `2016`.`09`
 
 import util.InputParser
 
-val inputParser = InputParser("2016/09/input.txt")
+private val inputParser = InputParser("2016/09/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.line()
         .decompressLength { false }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return inputParser.line()
         .decompressLength { it.contains('(') }
 }
@@ -44,7 +44,7 @@ private fun String.decompressLength(subCheck: (String) -> Boolean): Long {
     return sum
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

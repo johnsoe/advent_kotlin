@@ -3,9 +3,9 @@ package `2021`.`13`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/13/input.txt")
+private val inputParser = InputParser("2021/13/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val chunks = inputParser.chunkAndJoin()
     val firstFold = getFolds(chunks.last()).first()
     return fold(
@@ -41,7 +41,7 @@ fun fold(foldDirection: String, foldInt: Int, points: Set<Pair<Int, Int>>): Set<
     }.toSet()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val chunks = inputParser.chunkAndJoin()
     val folded = getFolds(chunks.last())
         .fold(getPoints(chunks.first())) { acc, next ->
@@ -60,7 +60,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

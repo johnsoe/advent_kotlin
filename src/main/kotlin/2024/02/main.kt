@@ -3,9 +3,9 @@ package `2024`.`02`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/02/input.txt")
+private val inputParser = InputParser("2024/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.linesOfType<Int>()
         .count { it.isSafe() || it.reversed().isSafe() }
 }
@@ -18,7 +18,7 @@ private fun List<Int>.isSafe(): Boolean {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.linesOfType<Int>()
         .count { it.isSafeish() || it.reversed().isSafeish() }
 }
@@ -31,7 +31,7 @@ private fun List<Int>.isSafeish(): Boolean {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

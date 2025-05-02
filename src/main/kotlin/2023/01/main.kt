@@ -2,14 +2,14 @@ package `2023`.`01`
 
 import util.InputParser
 
-val inputParser = InputParser("2023/01/input.txt")
+private val inputParser = InputParser("2023/01/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .sumOf { sumOfLineWithoutText(it) }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val nums = mapOf(
         "one" to 1,
         "two" to 2,
@@ -53,7 +53,7 @@ fun String.findFirstDigit(): Int {
     throw IllegalStateException("String needs a digit")
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

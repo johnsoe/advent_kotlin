@@ -6,9 +6,9 @@ import kotlin.Int
 import kotlin.math.max
 import kotlin.math.min
 
-val inputParser = InputParser("2022/14/input.txt")
+private val inputParser = InputParser("2022/14/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val blockedPoints = getStartingPoints()
     val lowestPoint = blockedPoints.map { it.y }.max()
     var sandCount = 0
@@ -55,7 +55,7 @@ fun getStartingPoints(): MutableSet<Point> {
     return startingPoints
 }
 
-fun Point.update(blockedPoints: Set<Point>) {
+private fun Point.update(blockedPoints: Set<Point>) {
     when {
         canDrop(blockedPoints) -> {
             this.y = this.y + 1
@@ -71,25 +71,25 @@ fun Point.update(blockedPoints: Set<Point>) {
     }
 }
 
-fun Point.canDrop(blockedPoints: Set<Point>): Boolean {
+private fun Point.canDrop(blockedPoints: Set<Point>): Boolean {
     return Point(this.x, this.y + 1) !in blockedPoints
 }
 
-fun Point.canDropLeft(blockedPoints: Set<Point>): Boolean {
+private fun Point.canDropLeft(blockedPoints: Set<Point>): Boolean {
     return Point(this.x - 1, this.y + 1) !in blockedPoints // && Point(this.x-1, this.y) !in blockedPoints
 }
 
-fun Point.canDropRight(blockedPoints: Set<Point>): Boolean {
+private fun Point.canDropRight(blockedPoints: Set<Point>): Boolean {
     return Point(this.x + 1, this.y + 1) !in blockedPoints // && Point(this.x + 1, this.y) !in blockedPoints
 }
 
-fun Point.isFullyBlocked(blockedPoints: Set<Point>): Boolean {
+private fun Point.isFullyBlocked(blockedPoints: Set<Point>): Boolean {
     return !this.canDrop(blockedPoints) &&
         !this.canDropLeft(blockedPoints) &&
         !this.canDropRight(blockedPoints)
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val blockedPoints = getStartingPoints()
     val lowestPoint = blockedPoints.map { it.y }.max() + 1
     var sandCount = 0
@@ -108,7 +108,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

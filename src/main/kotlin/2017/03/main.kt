@@ -6,9 +6,9 @@ import util.math.Vector2
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2017/03/input.txt")
+private val inputParser = InputParser("2017/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val num = inputParser.line().toInt()
     var ringNum = 1
     while (num > ringNum.ringSquare()) {
@@ -29,7 +29,7 @@ fun Int.ringSquare(): Int {
     return root * root
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val num = inputParser.line().toInt()
     val grid = mutableMapOf<Vector2, Int>()
 
@@ -60,7 +60,7 @@ fun Map<Vector2, Int>.sumNear(v: Vector2) =
         this[v + it.toVec()] ?: 0
     }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

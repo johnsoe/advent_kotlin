@@ -5,7 +5,7 @@ import util.string.toInts
 import kotlin.Int
 import kotlin.math.pow
 
-val inputParser = InputParser("2023/04/input.txt")
+private val inputParser = InputParser("2023/04/input.txt")
 val cardMatches = inputParser.lines().map { line ->
     val split = line.substring(10).split(" | ")
     val winningNums = split.first().toInts()
@@ -13,14 +13,14 @@ val cardMatches = inputParser.lines().map { line ->
     winningNums.intersect(availableNums).size
 }
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return cardMatches
         .filter { it > 0 }
         .sumOf { 2.0.pow((it - 1).toDouble()) }
         .toInt()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val counts = cardMatches.indices.associateWith { 1 }.toMutableMap()
     cardMatches.forEachIndexed { index, matches ->
         val count = counts[index]!!
@@ -31,7 +31,7 @@ fun partTwo(): Int {
     return counts.values.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

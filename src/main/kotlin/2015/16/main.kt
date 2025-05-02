@@ -3,7 +3,7 @@ package `2015`.`16`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/16/input.txt")
+private val inputParser = InputParser("2015/16/input.txt")
 val input = mapOf(
     "children" to 3,
     "cats" to 7,
@@ -17,7 +17,7 @@ val input = mapOf(
     "perfumes" to 1,
 )
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return findIdByPredicate { key, value ->
         input[key] == value
     }
@@ -42,7 +42,7 @@ fun findIdByPredicate(predicate: (key: String, value: Int) -> Boolean): Int {
     }?.id ?: -1
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return findIdByPredicate { key, value ->
         when (key) {
             "cats", "trees" -> value > (input[key] ?: 0)
@@ -57,7 +57,7 @@ data class Sue(
     val attributes: Map<String, Int>,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

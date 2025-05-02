@@ -4,9 +4,9 @@ import util.InputParser
 import util.grid.Grid
 import kotlin.Int
 
-val inputParser = InputParser("2024/10/input.txt")
+private val inputParser = InputParser("2024/10/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val mountain = inputParser.intGrid()
     val trailheads = mountain.withIndex().filter { it.value == 0 }
     return trailheads.sumOf {
@@ -35,7 +35,7 @@ fun traverseMountain(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val mountain = inputParser.intGrid()
     val trailheads = mountain.withIndex().filter { it.value == 0 }
     return trailheads.sumOf {
@@ -44,7 +44,7 @@ fun partTwo(): Int {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

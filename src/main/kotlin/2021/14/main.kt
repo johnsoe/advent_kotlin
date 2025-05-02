@@ -3,9 +3,9 @@ package `2021`.`14`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/14/input.txt")
+private val inputParser = InputParser("2021/14/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return calculateMaxDifference(10)
 }
 
@@ -50,7 +50,7 @@ fun generateTransforms(): List<Array<String>> {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return calculateMaxDifference(40)
 }
 
@@ -59,7 +59,7 @@ fun <K> MutableMap<K, Long>.putOrUpdate(key: K, difference: Long) {
     this[key] = this.getValue(key) + difference
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

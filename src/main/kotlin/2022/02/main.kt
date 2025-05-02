@@ -3,9 +3,9 @@ package `2022`.`02`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/02/input.txt")
+private val inputParser = InputParser("2022/02/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines().map {
         when (it) {
             "A X" -> 4
@@ -22,7 +22,7 @@ fun partOne(): Int {
     }.sum()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines().map {
         when (it) {
             "A X" -> 3
@@ -39,7 +39,7 @@ fun partTwo(): Int {
     }.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

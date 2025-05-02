@@ -3,9 +3,9 @@ package `2016`.`04`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/04/input.txt")
+private val inputParser = InputParser("2016/04/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return createRooms()
         .filter { it.isValid() }
         .sumOf { it.id }
@@ -41,7 +41,7 @@ data class Room(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return createRooms().map { room ->
         room.code.map {
             val shifted = (it.code - 97 + room.id) % 26
@@ -52,7 +52,7 @@ fun partTwo(): Int {
     }.second
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

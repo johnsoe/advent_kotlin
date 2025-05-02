@@ -4,9 +4,9 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.pow
 
-val inputParser = InputParser("2024/22/input.txt")
+private val inputParser = InputParser("2024/22/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.linesLong().sumOf {
         var current = it
         repeat(2000) {
@@ -16,7 +16,7 @@ fun partOne(): Long {
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val outer = mutableMapOf<String, Long>()
     inputParser.linesLong().forEach { input ->
         var current = input
@@ -77,7 +77,7 @@ fun Long.nextSecret(): Long {
     return (stepB * 2048).mix(stepB).prune()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

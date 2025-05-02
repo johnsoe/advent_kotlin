@@ -8,10 +8,10 @@ import java.lang.UnsupportedOperationException
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2015/06/input.txt")
+private val inputParser = InputParser("2015/06/input.txt")
 val regex = """(.*) (\d+),(\d+) through (\d+),(\d+)""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = createGrid(false)
     getCommands().forEach {
         (it.start.y..it.end.y).forEach { y ->
@@ -54,7 +54,7 @@ private fun getCommands(): List<LightCommand> {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = createGrid(0)
     getCommands().forEach {
         (it.start.y..it.end.y).forEach { y ->
@@ -71,7 +71,7 @@ fun partTwo(): Int {
     return grid.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

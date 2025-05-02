@@ -3,10 +3,10 @@ package `2017`.`09`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/09/input.txt")
+private val inputParser = InputParser("2017/09/input.txt")
 
-fun partOne() = takeOutTheTrash().first
-fun partTwo() = takeOutTheTrash().second
+private fun partOne() = takeOutTheTrash().first
+private fun partTwo() = takeOutTheTrash().second
 
 fun takeOutTheTrash(): Pair<Int, Int> {
     val input = inputParser.line()
@@ -33,7 +33,7 @@ fun takeOutTheTrash(): Pair<Int, Int> {
     return groups to trashCount
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

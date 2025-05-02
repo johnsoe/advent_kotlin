@@ -5,9 +5,9 @@ import java.lang.UnsupportedOperationException
 import kotlin.math.max
 import kotlin.math.min
 
-val inputParser = InputParser("2016/21/input.txt")
+private val inputParser = InputParser("2016/21/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     return generateOperations().fold("abcdefgh") { acc, op ->
         acc.handleOperation(op)
     }
@@ -39,7 +39,7 @@ fun generateOperations(): List<ScrambleOperation> {
     }
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     return generateOperations()
         .map {
             // Reverse each operation
@@ -122,7 +122,7 @@ fun String.handleOperation(op: ScrambleOperation): String {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

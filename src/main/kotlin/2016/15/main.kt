@@ -3,13 +3,13 @@ package `2016`.`15`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2016/15/input.txt")
+private val inputParser = InputParser("2016/15/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return calculateDiscAlignment(createDiscs())
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return calculateDiscAlignment(
         createDiscs().apply {
             addLast(
@@ -53,7 +53,7 @@ private data class Disc(
     val offset: Int,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

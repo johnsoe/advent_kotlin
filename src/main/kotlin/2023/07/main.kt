@@ -3,10 +3,10 @@ package `2023`.`07`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2023/07/input.txt")
+private val inputParser = InputParser("2023/07/input.txt")
 
-fun partOne() = calculateTotalWinnings(allowJokers = false)
-fun partTwo() = calculateTotalWinnings(allowJokers = true)
+private fun partOne() = calculateTotalWinnings(allowJokers = false)
+private fun partTwo() = calculateTotalWinnings(allowJokers = true)
 
 fun calculateTotalWinnings(allowJokers: Boolean): Int {
     return inputParser.lines()
@@ -24,7 +24,7 @@ fun calculateTotalWinnings(allowJokers: Boolean): Int {
         .sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

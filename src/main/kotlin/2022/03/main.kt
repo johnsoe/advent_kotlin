@@ -4,9 +4,9 @@ import util.InputParser
 import util.string.splitInHalf
 import kotlin.Int
 
-val inputParser = InputParser("2022/03/input.txt")
+private val inputParser = InputParser("2022/03/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.lines()
         .asSequence()
         .map { it.splitInHalf() }
@@ -23,7 +23,7 @@ fun Char.mapToPriority(): Int {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.lines()
         .chunked(3)
         .map {
@@ -36,7 +36,7 @@ fun partTwo(): Int {
         .sumOf { it.mapToPriority() }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

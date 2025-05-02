@@ -3,9 +3,9 @@ package `2022`.`05`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/05/input.txt")
+private val inputParser = InputParser("2022/05/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     val stacks = getInputStacks()
     getInputLines()
         .forEach { command ->
@@ -33,7 +33,7 @@ fun getInputLines(): List<List<Int>> {
         }
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     val stacks = getInputStacks()
     getInputLines()
         .forEach { command ->
@@ -50,7 +50,7 @@ fun partTwo(): String {
         .joinToString("")
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

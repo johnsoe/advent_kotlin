@@ -7,10 +7,10 @@ import util.grid.toGrid
 import kotlin.Int
 import kotlin.math.min
 
-val inputParser = InputParser("2023/17/input.txt")
+private val inputParser = InputParser("2023/17/input.txt")
 val cardinals = Direction.cardinalDirections()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     var width = 0
     val grid = inputParser.lines()
         .apply { width = this.last().length }
@@ -69,11 +69,11 @@ fun getValidDirections(grid: Grid<Int>, index: Int, directions: List<Direction>,
         }.toMap()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
     println("partTwo")

@@ -5,9 +5,9 @@ import util.grid.Direction
 import util.grid.Grid
 import kotlin.Int
 
-val inputParser = InputParser("2024/06/input.txt")
+private val inputParser = InputParser("2024/06/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = inputParser.charGrid()
     return traverse(
         grid,
@@ -40,7 +40,7 @@ fun traverse(
     return visited
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = inputParser.charGrid()
     val initialPosition = grid.indexOf('^')
     val visited = traverse(grid, initialPosition).toMutableMap()
@@ -57,7 +57,7 @@ fun partTwo(): Int {
     return count
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

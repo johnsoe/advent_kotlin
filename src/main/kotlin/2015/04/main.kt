@@ -4,11 +4,11 @@ import util.InputParser
 import java.security.MessageDigest
 import kotlin.Int
 
-val inputParser = InputParser("2015/04/input.txt")
+private val inputParser = InputParser("2015/04/input.txt")
 val md = MessageDigest.getInstance("MD5")
 
-fun partOne() = findLeadingZeroes(5)
-fun partTwo() = findLeadingZeroes(6)
+private fun partOne() = findLeadingZeroes(5)
+private fun partTwo() = findLeadingZeroes(6)
 
 fun findLeadingZeroes(zeroCount: Int): Int {
     val input = inputParser.line()
@@ -30,7 +30,7 @@ fun String.hasLeadingZeroes(zeroCount: Int): Boolean {
     return this.take(zeroCount) == "0".repeat(zeroCount)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

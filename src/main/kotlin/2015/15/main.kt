@@ -5,10 +5,10 @@ import util.math.mult
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2015/15/input.txt")
+private val inputParser = InputParser("2015/15/input.txt")
 val regex = """(.*): capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val ingredients = createIngredients()
     return calculateScores(ingredients, mutableListOf(), 100)
 }
@@ -56,7 +56,7 @@ fun createIngredients(): List<Ingredient> {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val ingredients = createIngredients()
     return calculateScores(
         ingredients = ingredients,
@@ -71,7 +71,7 @@ class Ingredient(
     val attributes: IntArray,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

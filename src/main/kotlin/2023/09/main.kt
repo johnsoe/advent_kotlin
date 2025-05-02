@@ -2,9 +2,9 @@ package `2023`.`09`
 
 import util.InputParser
 
-val inputParser = InputParser("2023/09/input.txt")
+private val inputParser = InputParser("2023/09/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.linesOfType<Long>().sumOf {
         it.fullyDerive()
             .reversed()
@@ -32,7 +32,7 @@ fun List<Long>.fullyDerive(): List<List<Long>> {
     return derived
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return inputParser.linesOfType<Long>().sumOf {
         it.fullyDerive()
             .map { it.first() }
@@ -41,7 +41,7 @@ fun partTwo(): Long {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

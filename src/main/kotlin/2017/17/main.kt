@@ -3,9 +3,9 @@ package `2017`.`17`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/17/input.txt")
+private val inputParser = InputParser("2017/17/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val step = inputParser.line().toInt()
     val buffer = mutableListOf(0)
     var position = 0
@@ -18,7 +18,7 @@ fun partOne(): Int {
 }
 
 // Remove buffer, instead just track what is currently in front of the 0
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val step = inputParser.line().toInt()
     var size = 1
     var position = 0
@@ -32,7 +32,7 @@ fun partTwo(): Int {
     return nextToFront
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

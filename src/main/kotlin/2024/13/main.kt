@@ -3,11 +3,11 @@ package `2024`.`13`
 import util.InputParser
 import util.math.Vector2
 
-val inputParser = InputParser("2024/13/input.txt")
+private val inputParser = InputParser("2024/13/input.txt")
 val buttonRegex = """X\+(\d+), Y\+(\d+)""".toRegex()
 val targetRegex = """X=(\d+), Y=(\d+)""".toRegex()
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return getClawInstructions()
         .mapNotNull { it.calcPresses() }
         .sum()
@@ -55,13 +55,13 @@ private data class Claw(
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return getClawInstructions()
         .mapNotNull { it.calcPresses(10_000_000_000_000L) }
         .sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

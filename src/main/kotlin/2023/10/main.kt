@@ -6,7 +6,7 @@ import util.grid.Grid
 import util.grid.toGrid
 import kotlin.Int
 
-val inputParser = InputParser("2023/10/input.txt")
+private val inputParser = InputParser("2023/10/input.txt")
 val directionMap: Map<Direction, Map<Char, Direction>> = mapOf(
     Direction.Up to mapOf('7' to Direction.Left, '|' to Direction.Up, 'F' to Direction.Right),
     Direction.Left to mapOf('-' to Direction.Left, 'F' to Direction.Down, 'L' to Direction.Up),
@@ -14,7 +14,7 @@ val directionMap: Map<Direction, Map<Char, Direction>> = mapOf(
     Direction.Right to mapOf('7' to Direction.Down, '-' to Direction.Right, 'J' to Direction.Up),
 )
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val pipes = traversePipes(createGrid())
     return pipes.size / 2
 }
@@ -54,7 +54,7 @@ fun Char.nextDirection(cDirection: Direction): Direction? {
     return directionMap[cDirection]?.get(this)
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = createGrid()
     val pipes = traversePipes(grid)
 
@@ -74,7 +74,7 @@ fun partTwo(): Int {
     return containedCount
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

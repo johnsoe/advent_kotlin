@@ -9,11 +9,11 @@ import java.util.LinkedList
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2016/17/input.txt")
+private val inputParser = InputParser("2016/17/input.txt")
 val md = MessageDigest.getInstance("MD5")
 val coordinateDirections = listOf(Direction.Up, Direction.Down, Direction.Left, Direction.Right)
 
-fun partOne(): String {
+private fun partOne(): String {
     val input = inputParser.line()
     val grid = List(size = 16) { 1 }.toGrid(4)
     val positions = LinkedList<Pair<Int, String>>().apply {
@@ -46,7 +46,7 @@ private fun getNextSteps(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val input = inputParser.line()
     val grid = List(size = 16) { 1 }.toGrid(4)
     val positions = LinkedList<Pair<Int, String>>().apply {
@@ -85,7 +85,7 @@ private fun Direction.getDirChar(): Char {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -3,9 +3,9 @@ package `2021`.`08`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/08/input.txt")
+private val inputParser = InputParser("2021/08/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return parseCodes().map { it.second }.sumOf {
         it.count { output ->
             output.length == 2 || output.length == 3 || output.length == 4 || output.length == 7
@@ -13,7 +13,7 @@ fun partOne(): Int {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     // Determine which codes are 1, 4, 7, 8
     // Determine 3 by which 5 length contains number 1
     // Determine 9, length 6 contains the number 4
@@ -46,7 +46,7 @@ fun partTwo(): Int {
     }
 }
 
-fun parseCodes(): List<Pair<List<String>, List<String>>> {
+private fun parseCodes(): List<Pair<List<String>, List<String>>> {
     return inputParser.lines().map {
         val split = it.split(" | ")
         split.first().split(" ") to split.last().split(" ")
@@ -59,7 +59,7 @@ fun stringContains(longer: String, shorter: String): Boolean {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

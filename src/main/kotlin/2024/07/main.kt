@@ -3,12 +3,12 @@ package `2024`.`07`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2024/07/input.txt")
+private val inputParser = InputParser("2024/07/input.txt")
 val add: (Long, Long) -> Long = { a, b -> a + b }
 val mult: (Long, Long) -> Long = { a, b -> a * b }
 val concat: (Long, Long) -> Long = { a, b -> (a.toString() + b.toString()).toLong() }
 
-fun partOne(): Long {
+private fun partOne(): Long {
     return inputParser.linesOfType<Long>(": ", " ")
         .mapNotNull { helper(it[1], 2, it, listOf(add, mult)) }
         .sum()
@@ -43,13 +43,13 @@ private fun helper(
     }
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     return inputParser.linesOfType<Long>(": ", " ")
         .mapNotNull { helper(it[1], 2, it, listOf(add, mult, concat)) }
         .sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

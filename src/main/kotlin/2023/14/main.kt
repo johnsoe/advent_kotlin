@@ -7,9 +7,9 @@ import util.grid.toGrid
 import util.math.Vector2
 import kotlin.Int
 
-val inputParser = InputParser("2023/14/input.txt")
+private val inputParser = InputParser("2023/14/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = createGrid()
     return (0 until grid.width).map {
         grid.getCol(it)
@@ -66,7 +66,7 @@ fun createGrid(): Grid<Char> {
         .toGrid(width)
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val grid = createGrid()
     val directions = listOf(Direction.Up, Direction.Left, Direction.Down, Direction.Right)
     val directionMaps = directions.associateWith { createDirectionMap(it, grid) }
@@ -153,7 +153,7 @@ fun createDirectionMap(direction: Direction, grid: Grid<Char>): Map<Vector2, Vec
     }.toMap()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

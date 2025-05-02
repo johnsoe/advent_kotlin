@@ -4,7 +4,7 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.max
 
-val inputParser = InputParser("2022/16/input.txt")
+private val inputParser = InputParser("2022/16/input.txt")
 
 // Start by generating the full map of the tunnels and then
 // figuring out the weighted paths from each node, to all other nodes.
@@ -14,7 +14,7 @@ val tunnelRoutes = valveMap.map { findShortestRoutes(it.key) }
         route.keys.find { route[it] == 0 }!!
     }
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val allRoutes = mutableListOf<Map<String, Int>>()
     findMostEfficientRoute("AA", 30, mutableMapOf(), allRoutes)
     return allRoutes
@@ -86,7 +86,7 @@ data class Valve(
     val valves: List<String>,
 )
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val allRoutes = mutableListOf<Map<String, Int>>()
     findMostEfficientRoute("AA", 26, mutableMapOf(), allRoutes)
     return allRoutes.mapIndexed { i, route ->
@@ -106,7 +106,7 @@ fun partTwo(): Long {
     }.max()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

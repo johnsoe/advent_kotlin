@@ -4,10 +4,10 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2017/07/input.txt")
+private val inputParser = InputParser("2017/07/input.txt")
 val inputRegex = """^(.*) \((\d+)\)""".toRegex()
 
-fun partOne(): String {
+private fun partOne(): String {
     val nodes = nodes()
     return rootNode(nodes)
 }
@@ -46,7 +46,7 @@ private data class Node(
     val children: List<String>,
 )
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val nodes = nodes()
     val rootNode = rootNode(nodes)
     val graph = nodes.associateBy { it.name }
@@ -87,7 +87,7 @@ private fun imbalance(curr: Node, graph: Map<String, Node>, weights: MutableMap<
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

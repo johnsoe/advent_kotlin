@@ -3,16 +3,16 @@ package `2015`.`12`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2015/12/input.txt")
+private val inputParser = InputParser("2015/12/input.txt")
 val regex = """-?(?:0|[1-9]\d*)""".toRegex()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return regex.findAll(inputParser.line())
         .map { it.value.toInt() }
         .sum()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val input = inputParser.line()
     val nums = regex.findAll(input)
         .associate { it.range.first to it.value.toInt() }
@@ -41,7 +41,7 @@ fun String.subSum(start: Int, reds: Set<Int>, nums: Map<Int, Int>): Pair<Int, In
     return if (ignore) 0 to index else sum to index
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

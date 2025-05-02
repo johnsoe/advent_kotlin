@@ -5,11 +5,11 @@ import java.util.LinkedList
 import java.util.Queue
 import kotlin.Int
 
-val inputParser = InputParser("2016/10/input.txt")
+private val inputParser = InputParser("2016/10/input.txt")
 val outputMap = mutableMapOf<Int, OutputChannel>()
 val botMap = mutableMapOf<Int, BalanceBot>()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return botMap.values.find {
         it.comparisons.first().first == 17 && it.comparisons.first().second == 61
     }?.id ?: 0
@@ -63,11 +63,11 @@ private fun List<String>.checkBotInput(index: Int): ChipReceiver {
     } as ChipReceiver
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return outputMap[0]!!.chip * outputMap[1]!!.chip * outputMap[2]!!.chip
 }
 
-fun main() {
+private fun main() {
     generateInstructionMaps()
     processInstructions()
     println(partOne())

@@ -3,16 +3,16 @@ package `2022`.`01`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/01/input.txt")
+private val inputParser = InputParser("2022/01/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return inputParser.chunkAndJoin()
         .map { it.split(" ") }
         .map { it.sumOf { num -> num.toInt() } }
         .max()
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return inputParser.chunkAndJoin()
         .map { it.split(" ") }
         .map { it.sumOf { num -> num.toInt() } }
@@ -21,7 +21,7 @@ fun partTwo(): Int {
         .sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

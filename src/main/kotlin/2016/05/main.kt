@@ -9,9 +9,9 @@ private val positionIndex: Int = 5
 private val checkStr = "00000"
 private val md5 = MessageDigest.getInstance("MD5")
 
-val inputParser = InputParser("2016/05/input.txt")
+private val inputParser = InputParser("2016/05/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     val code = inputParser.line()
     var index = 0
     var password = ""
@@ -32,7 +32,7 @@ fun generateHashedString(code: String, index: Int): String {
     return String.format("%032x", bigInt)
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     val code = inputParser.line()
     var index = 0
     val password = mutableMapOf<Int, Char>()
@@ -50,7 +50,7 @@ fun partTwo(): String {
     return password.toSortedMap().values.joinToString("")
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

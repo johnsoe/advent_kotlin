@@ -4,9 +4,9 @@ import util.InputParser
 import java.util.LinkedList
 import kotlin.Int
 
-val inputParser = InputParser("2016/19/input.txt")
+private val inputParser = InputParser("2016/19/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val count = inputParser.line().toInt()
     val queue = LinkedList<Elf>()
         .apply {
@@ -22,7 +22,7 @@ fun partOne(): Int {
     return queue.first().id
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val count = inputParser.line().toInt()
     val queue = MutableList(count) {
         Elf(it + 1)
@@ -43,7 +43,7 @@ data class Elf(
     var count: Int = 1,
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

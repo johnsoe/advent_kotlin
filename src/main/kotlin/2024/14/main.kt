@@ -5,12 +5,12 @@ import util.math.Vector2
 import util.math.mult
 import kotlin.Int
 
-val inputParser = InputParser("2024/14/input.txt")
+private val inputParser = InputParser("2024/14/input.txt")
 val inputRegex = """p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)""".toRegex()
 val width = 101
 val height = 103
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return vectors().mapBySteps(100)
         .map { it.getQuadrant() }
         .filter { it != -1 }
@@ -50,7 +50,7 @@ private fun List<Pair<Vector2, Vector2>>.mapBySteps(steps: Int): List<Vector2> {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val input = vectors()
     var count = 0
     while (true) {
@@ -65,7 +65,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun printGrid(robots: Set<Vector2>, second: Int) {
+private fun printGrid(robots: Set<Vector2>, second: Int) {
     println("======   $second   ======")
     repeat(height) { row ->
         println()
@@ -81,7 +81,7 @@ fun printGrid(robots: Set<Vector2>, second: Int) {
     println()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

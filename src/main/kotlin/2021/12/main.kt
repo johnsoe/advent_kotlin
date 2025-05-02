@@ -3,9 +3,9 @@ package `2021`.`12`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/12/input.txt")
+private val inputParser = InputParser("2021/12/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return generatePaths(
         generateCaves(),
         mutableListOf("start"),
@@ -49,7 +49,7 @@ fun generatePaths(
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return generatePaths(
         generateCaves(),
         mutableListOf("start"),
@@ -74,7 +74,7 @@ fun canVisitCavePartTwo(cave: String, path: List<String>): Boolean {
     return smallCaveSet.size == smallCaves.size || !path.contains(cave)
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

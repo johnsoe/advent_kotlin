@@ -7,7 +7,7 @@ import util.grid.toGrid
 import kotlin.Int
 import kotlin.math.pow
 
-val inputParser = InputParser("2024/21/input.txt")
+private val inputParser = InputParser("2024/21/input.txt")
 val numpad = "789456123#0A".toList().toGrid(3)
 val keypad = "#^A<v>".toList().toGrid(3)
 
@@ -24,8 +24,8 @@ val heuristic = mapOf(
     '^' to 3,
 )
 
-fun partOne() = countByDepth(3)
-fun partTwo() = countByDepth(26)
+private fun partOne() = countByDepth(3)
+private fun partTwo() = countByDepth(26)
 
 fun String.steps(): List<String> {
     val result = mutableListOf<String>()
@@ -124,7 +124,7 @@ fun calculateCounts(
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

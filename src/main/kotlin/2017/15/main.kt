@@ -6,10 +6,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2017/15/input.txt")
+private val inputParser = InputParser("2017/15/input.txt")
 val sigDigits = 65536 // 2^16
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val input = inputParser.lines().map {
         it.split(" ").last().toLong()
     }
@@ -24,7 +24,7 @@ fun partOne(): Int {
     return count
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val input = inputParser.lines().map {
         it.split(" ").last().toLong()
     }
@@ -53,7 +53,7 @@ private fun toFlow(start: Long, scaling: Long, mod: Long): Flowable<Long> {
         .subscribeOn(Schedulers.computation())
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

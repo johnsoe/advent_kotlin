@@ -7,10 +7,10 @@ import kotlin.Int
 import kotlin.math.max
 import kotlin.math.min
 
-val inputParser = InputParser("2023/11/input.txt")
+private val inputParser = InputParser("2023/11/input.txt")
 
-fun partOne() = calculateDistances()
-fun partTwo() = calculateDistances(gapMultiplier = 999999)
+private fun partOne() = calculateDistances()
+private fun partTwo() = calculateDistances(gapMultiplier = 999999)
 
 fun calculateDistances(gapMultiplier: Long = 1): Long {
     val lines = inputParser.lines()
@@ -63,7 +63,7 @@ fun List<String>.getStars(): List<Point> {
 
 fun String.isEmptySpace() = this.all { it == '.' }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -4,9 +4,9 @@ import util.InputParser
 import util.math.isEven
 import kotlin.Int
 
-val inputParser = InputParser("2016/16/input.txt")
+private val inputParser = InputParser("2016/16/input.txt")
 
-fun partOne(): String {
+private fun partOne(): String {
     return calculateCheckSum(
         getDragonCurve(272),
     )
@@ -38,13 +38,13 @@ fun calculateCheckSum(curve: String): String {
     return checkSum
 }
 
-fun partTwo(): String {
+private fun partTwo(): String {
     return calculateCheckSum(
         getDragonCurve(35651584),
     )
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

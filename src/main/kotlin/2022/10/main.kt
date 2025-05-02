@@ -3,9 +3,9 @@ package `2022`.`10`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2022/10/input.txt")
+private val inputParser = InputParser("2022/10/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     var signalStrength = 0
     processCommands { cycle, xReg ->
         if ((cycle + 20) % 40 == 0) {
@@ -15,7 +15,7 @@ fun partOne(): Int {
     return signalStrength
 }
 
-fun processCommands(callback: (Int, Int) -> Unit) {
+private fun processCommands(callback: (Int, Int) -> Unit) {
     val cmds = getCommands()
     var xReg = 1
 
@@ -66,7 +66,7 @@ fun getCommands(): List<Cmd> {
         }
 }
 
-fun partTwo() {
+private fun partTwo() {
     processCommands { cycle, xReg ->
         val range = xReg - 1..xReg + 1
         val crtSpot = (cycle - 1) % 40
@@ -82,7 +82,7 @@ fun partTwo() {
     }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

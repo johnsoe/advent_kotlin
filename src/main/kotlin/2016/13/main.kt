@@ -7,11 +7,11 @@ import java.util.*
 import kotlin.Int
 import kotlin.math.pow
 
-val inputParser = InputParser("2016/13/input.txt")
+private val inputParser = InputParser("2016/13/input.txt")
 val masks = IntRange(0, 31).map { 2.0.pow(it).toInt() }
 val width = 75
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = generateGrid()
     val result = traverse(grid)
 
@@ -55,14 +55,14 @@ fun traverse(grid: Grid<Boolean>): Map<Int, Int> {
     return visited
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = generateGrid()
     val result = traverse(grid)
 
     return result.values.filter { it <= 50 }.size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

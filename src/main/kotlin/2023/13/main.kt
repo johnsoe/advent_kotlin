@@ -5,9 +5,9 @@ import util.grid.Grid
 import util.grid.toGrid
 import kotlin.Int
 
-val inputParser = InputParser("2023/13/input.txt")
+private val inputParser = InputParser("2023/13/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     return createGrids().map { grid ->
         val row = (0 until grid.height - 1)
             .filter { getFullDiffCount(it, grid::getRow, grid.height) == 0 }
@@ -36,7 +36,7 @@ fun createGrids(): List<Grid<Char>> {
         }
 }
 
-fun Pair<Int?, Int?>.sum(): Int {
+private fun Pair<Int?, Int?>.sum(): Int {
     val (row, col) = this
     return when {
         row == null -> col!!
@@ -69,7 +69,7 @@ fun getFullDiffCount(
     return sum
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return createGrids().map { grid ->
         val row = (0 until grid.height - 1)
             .map { it + 1 to getFullDiffCount(it, grid::getRow, grid.height) }
@@ -83,7 +83,7 @@ fun partTwo(): Int {
     }.sumOf { it.sum() }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

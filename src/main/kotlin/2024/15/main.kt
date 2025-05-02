@@ -6,10 +6,10 @@ import util.grid.toGrid
 import util.list.toCharGrid
 import kotlin.Int
 
-val inputParser = InputParser("2024/15/input.txt")
+private val inputParser = InputParser("2024/15/input.txt")
 val dirMap = Direction.instructionMap()
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = inputParser.chunk()[0].toCharGrid()
     val instructions = inputParser.chunk()[1].joinToString("")
 
@@ -53,7 +53,7 @@ fun partOne(): Int {
         }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     // THIS IS UGLY, NOT COMING BACK
     val grid = inputParser.chunk()[0].map {
         val charArray = it.toCharArray()
@@ -162,7 +162,7 @@ fun partTwo(): Int {
         }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

@@ -5,9 +5,9 @@ import util.math.mult
 import kotlin.Int
 import kotlin.math.min
 
-val inputParser = InputParser("2021/21/input.txt")
+private val inputParser = InputParser("2021/21/input.txt")
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val (firstPlayer, secondPlayer) = getPlayers()
     var count = 1
     var turn = 1
@@ -43,7 +43,7 @@ fun getPlayers(): Pair<Player, Player> {
     return Player(startPositions.first()) to Player(startPositions.last())
 }
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val (firstPlayer, secondPlayer) = getPlayers()
     val perms = getAllPermutations(firstPlayer, secondPlayer, true)
     return java.lang.Long.max(perms.first, perms.second)
@@ -115,7 +115,7 @@ data class Player(
     var rollHistory: String = "",
 )
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

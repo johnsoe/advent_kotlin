@@ -7,9 +7,9 @@ import java.util.*
 import java.util.ArrayDeque
 import kotlin.Int
 
-val inputParser = InputParser("2021/11/input.txt")
+private val inputParser = InputParser("2021/11/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val width = inputParser.lines().size
     var octos = inputParser.chunkAndJoin("").first()
         .map { Character.getNumericValue(it) }
@@ -44,7 +44,7 @@ fun flash(data: Grid<Int>, indexToCheck: Queue<Int>): Int {
     return flashCount
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val width = inputParser.lines().size
     var octos = inputParser.chunkAndJoin("").first()
         .map { Character.getNumericValue(it) }
@@ -60,7 +60,7 @@ fun partTwo(): Int {
     return count
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

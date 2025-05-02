@@ -3,9 +3,9 @@ package `2021`.`09`
 import util.InputParser
 import kotlin.Int
 
-val inputParser = InputParser("2021/09/input.txt")
+private val inputParser = InputParser("2021/09/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
 //        val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
 //        return grid.getFullGrid().filterIndexed { index, i ->
 //            grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }
@@ -29,7 +29,7 @@ fun getNeighborIndices(index: Int, width: Int, size: Int): Set<Int> {
     return neighbors
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
 //        val grid = Grid(getInputByLine().first().length, getGridsSingleLine())
 //        return grid.getFullGrid().mapIndexed { index, i ->
 //            if (grid.getNeighborIndices(index).all { i < grid.getValueAtIndex(it) }) {
@@ -56,7 +56,7 @@ fun partTwo(): Int {
 //        }
 //    }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

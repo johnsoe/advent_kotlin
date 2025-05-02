@@ -4,9 +4,9 @@ import util.InputParser
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2022/18/input.txt")
+private val inputParser = InputParser("2022/18/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val points = inputParser.linesOfType<Long>(",")
 
     return points.sumOf { outer ->
@@ -36,7 +36,7 @@ fun List<Long>.isNeighbor(other: List<Long>): Boolean {
 // 3D flood fill algorithm. Bounds defined by max input values.
 // Start fill from corner guaranteed to be "outside"
 // Calculate volumes.
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val points = inputParser.linesOfType<Long>(",")
     val upperBound = Triple(
         points.maxOf { it[0] + 1 },
@@ -51,7 +51,7 @@ fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

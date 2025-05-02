@@ -4,9 +4,9 @@ import util.InputParser
 import java.util.*
 import kotlin.Int
 
-val inputParser = InputParser("2017/12/input.txt")
+private val inputParser = InputParser("2017/12/input.txt")
 
-fun partOne() = graph().parseFrom("0").size
+private fun partOne() = graph().parseFrom("0").size
 
 private fun graph(): Map<String, List<String>> {
     val graph = mutableMapOf<String, List<String>>()
@@ -32,7 +32,7 @@ private fun Map<String, List<String>>.parseFrom(start: String): Set<String> {
     return groupSet
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val graph = graph()
     val allNodes = mutableSetOf<String>()
     var count = 0
@@ -45,7 +45,7 @@ fun partTwo(): Int {
     return count
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

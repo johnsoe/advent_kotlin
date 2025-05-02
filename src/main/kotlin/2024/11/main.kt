@@ -5,9 +5,9 @@ import util.math.isEven
 import java.util.LinkedList
 import kotlin.Int
 
-val inputParser = InputParser("2024/11/input.txt")
+private val inputParser = InputParser("2024/11/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val queue = LinkedList<Long>()
     queue.addAll(inputParser.linesOfType<Long>().flatten())
     repeat(25) {
@@ -41,7 +41,7 @@ private fun Long.halve(front: Boolean): Long {
 }
 private fun Long.digitCount(): Int = this.toString().length
 
-fun partTwo(): Long {
+private fun partTwo(): Long {
     val queue = mutableMapOf<Long, Long>()
     val input = inputParser.linesOfType<Long>().flatten()
     input.forEach { queue[it] = 1 }
@@ -60,7 +60,7 @@ fun partTwo(): Long {
     return queue.values.sum()
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

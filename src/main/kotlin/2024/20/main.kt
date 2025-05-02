@@ -7,9 +7,9 @@ import util.list.toCharGrid
 import java.util.*
 import kotlin.Int
 
-val inputParser = InputParser("2024/20/input.txt")
+private val inputParser = InputParser("2024/20/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val grid = inputParser.lines().toCharGrid()
     val cheats = findCheats(grid)
     val sDistance = bfsSteps(grid, 'S')
@@ -63,7 +63,7 @@ private fun bfsSteps(grid: Grid<Char>, start: Char): Map<Int, Int> {
     return stepCounts
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val grid = inputParser.lines().toCharGrid()
     val sDistance = bfsSteps(grid, 'S')
     val allCheats = grid.withIndex()
@@ -84,7 +84,7 @@ private fun allCheats(startIndex: Int, grid: Grid<Char>): List<Pair<Int, Int>> {
         }
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

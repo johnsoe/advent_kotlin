@@ -5,9 +5,9 @@ import java.awt.Point
 import kotlin.Int
 import kotlin.math.abs
 
-val inputParser = InputParser("2022/09/input.txt")
+private val inputParser = InputParser("2022/09/input.txt")
 
-fun partOne(): Int {
+private fun partOne(): Int {
     val headPos = Point(0, 0)
     val tailPos = Point(0, 0)
     val visitedLocations = mutableSetOf<Point>()
@@ -24,7 +24,7 @@ fun partOne(): Int {
     return visitedLocations.size
 }
 
-fun Point.moveByCmd(cmd: Char) {
+private fun Point.moveByCmd(cmd: Char) {
     when (cmd) {
         'U' -> this.y += -1
         'D' -> this.y += 1
@@ -33,7 +33,7 @@ fun Point.moveByCmd(cmd: Char) {
     }
 }
 
-fun Point.follow(other: Point) {
+private fun Point.follow(other: Point) {
     val xD = other.x - this.x
     val yD = other.y - this.y
 
@@ -59,7 +59,7 @@ fun Point.follow(other: Point) {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     val knots = (0..9).map { Point(0, 0) }.toList()
     val endKnot = knots.last()
     val visitedLocations = mutableSetOf<Point>()
@@ -79,7 +79,7 @@ fun partTwo(): Int {
     return visitedLocations.size
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }

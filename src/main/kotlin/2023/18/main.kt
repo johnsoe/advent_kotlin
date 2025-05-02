@@ -7,9 +7,9 @@ import java.util.*
 import kotlin.Int
 import kotlin.collections.LinkedHashSet
 
-val inputParser = InputParser("2023/18/input.txt")
+private val inputParser = InputParser("2023/18/input.txt")
 
-fun partOneAgain(): Long {
+private fun partOneAgain(): Long {
     val trench = inputParser.lines()
         .map {
             val split = it.split(" ")
@@ -61,7 +61,7 @@ fun partOneAgain(): Long {
     return 0
 }
 
-fun partOne(): Long {
+private fun partOne(): Long {
     val trench = inputParser.lines()
         .map {
             val split = it.split(" ")
@@ -145,7 +145,7 @@ fun partOne(): Long {
 //    return 0
 }
 
-fun Point.getDeltaPosition(direction: Direction): Point {
+private fun Point.getDeltaPosition(direction: Direction): Point {
     return when (direction) {
         Direction.Up -> Point(0, -1)
         Direction.Down -> Point(0, 1)
@@ -155,11 +155,11 @@ fun Point.getDeltaPosition(direction: Direction): Point {
     }.plus(this)
 }
 
-fun Point.times(mult: Int): Point {
+private fun Point.times(mult: Int): Point {
     return Point(this.x * mult, this.y * mult)
 }
 
-fun Point.plus(add: Point): Point {
+private fun Point.plus(add: Point): Point {
     return Point(this.x + add.x, this.y + add.y)
 }
 
@@ -173,11 +173,11 @@ fun String.toDirection(): Direction {
     }
 }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOneAgain())
     println(partTwo())
 }

@@ -4,7 +4,7 @@ import util.InputParser
 import java.util.*
 import kotlin.Int
 
-val inputParser = InputParser("2023/20/input.txt")
+private val inputParser = InputParser("2023/20/input.txt")
 
 fun lmao(): Double {
     var i = .1
@@ -16,7 +16,7 @@ fun lmao(): Double {
     return chance
 }
 
-fun partOne(): Int {
+private fun partOne(): Int {
 //    val pulseCounts = mutableMapOf(
 //        Pulse.LOW to 0,
 //        Pulse.HIGH to 0,
@@ -88,11 +88,11 @@ fun partOne(): Int {
 //    return nodeMap
 // }
 
-fun partTwo(): Int {
+private fun partTwo(): Int {
     return 0
 }
 
-fun main() {
+private fun main() {
     println(partOne())
     println(partTwo())
 }
