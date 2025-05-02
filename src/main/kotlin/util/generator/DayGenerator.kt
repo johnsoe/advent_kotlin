@@ -60,6 +60,7 @@ class DayGenerator(
         }
         queryAdvent(httpClient, baseUrl)?.let {
             val responseStr = it.string()
+                .replace("""<p>Your puzzle answer was.*?</p>""".toRegex(), "")
             val startIndex = responseStr.indexOf("<article")
             val endIndex = responseStr.lastIndexOf("</article>") + 10
             file.writeText(responseStr.substring(startIndex..endIndex))
