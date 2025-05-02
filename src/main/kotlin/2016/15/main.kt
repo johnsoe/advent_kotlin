@@ -23,7 +23,7 @@ private fun partTwo(): Int {
     )
 }
 
-private fun createDiscs(): List<Disc> {
+private fun createDiscs(): MutableList<Disc> {
     return inputParser.lines().mapIndexed { index, s ->
         val split = s.split(" ")
         Disc(
@@ -31,7 +31,7 @@ private fun createDiscs(): List<Disc> {
             startPosition = split.last().dropLast(1).toInt(),
             offset = index + 1,
         )
-    }
+    }.toMutableList()
 }
 
 // This only works because all input discs have a prime # of positions
