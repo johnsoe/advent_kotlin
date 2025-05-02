@@ -2,7 +2,6 @@ package `2018`.`03`
 
 import kotlin.Int
 import util.InputParser
-import kotlin.text.lines
 
 private val inputParser: InputParser = InputParser("2018/03/input.txt")
 
