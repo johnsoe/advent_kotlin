@@ -1,16 +1,32 @@
 package util.generator
 
+import io.github.cdimascio.dotenv.dotenv
+
 fun main(args: Array<String>) {
+    val dotenv = dotenv()
+    val session = dotenv["SESSION"] ?: throw IllegalStateException("SESSION not found in .env file")
     val gens = mutableListOf<DayGenerator>()
     when (args.size) {
-        // Only year and session specified, backfill previous year
-        3 -> {
+        // Only type and year specified, backfill previous year
+        2 -> {
             for (i in 1..25) {
-                gens.add(DayGenerator(i.toNumString(), args[1], args[2]))
+                gens.add(
+                    DayGenerator(
+                        day = i.toNumString(),
+                        year = args[1],
+                        session = session
+                    )
+                )
             }
         }
-        4 -> {
-            gens.add(DayGenerator(args[1].toInt().toNumString(), args[2], args[3]))
+        3 -> {
+            gens.add(
+                DayGenerator(
+                    day = args[1].toInt().toNumString(),
+                    year = args[2],
+                    session = session
+                )
+            )
         }
         else -> throw UnsupportedOperationException("You wut mate?")
     }
